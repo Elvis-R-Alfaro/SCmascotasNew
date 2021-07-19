@@ -1,0 +1,201 @@
+﻿<Window x:Class="SC_MMascotass.Pages.FormRaza"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:SC_MMascotass.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Agregar Raza">
+
+
+    <Grid Margin="10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="113*"/>
+            <ColumnDefinition Width="145*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="75"/>
+            <RowDefinition Height="300"/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" Name="spNuevaCategoria">
+            <Image Source="/Imagenes/mascota.png" Width="25" Margin="0 0 10 0"></Image>
+            <TextBlock Text="Nueva Raza"
+                        FontSize="18"
+                       VerticalAlignment="Center"
+                        />
+        </StackPanel>
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" Name="spButton1" Grid.ColumnSpan="2" Margin="324,0,323.6,294.4" Grid.RowSpan="2">
+            <Button     Background="Transparent"
+                        Foreground="Black"
+                        FontSize="14"
+                        BorderThickness="0"
+                        Name="btnGuardar"
+                        Padding="10" Click="btnGuardar_Click">
+                <StackPanel Orientation="Vertical" >
+                    <Image Source="/Imagenes/iconos/guardar.png" HorizontalAlignment="Center" Width="25" Height="25"/>
+                    <TextBlock Text="Nuevo" HorizontalAlignment="Center"/>
+                </StackPanel>
+
+            </Button>
+            <Button     Background="Transparent"
+                        Foreground="Black"
+                        FontSize="14"
+                        BorderThickness="0"
+                        Name="btnRestablecer"
+                        Padding="10" Click="btnRestablecer_Click">
+                <StackPanel Orientation="Vertical" >
+                    <Image Source="/Imagenes/iconos/recargar.png" HorizontalAlignment="Center" Width="25" Height="25"/>
+                    <TextBlock Text="Limpiar" HorizontalAlignment="Center"/>
+
+                </StackPanel>
+
+            </Button>
+        </StackPanel>
+        <StackPanel Grid.Row="2" Grid.ColumnSpan="2" Margin="0,0.8,-0.4,-0.6">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+
+
+                <Label Content="Especie" Grid.Row="0" FontSize="15" VerticalAlignment="Center" Margin="0 4 0 0"/>
+                <Label Content="Nombre de la Raza" Grid.Row="1" FontSize="15" VerticalAlignment="Center" Margin="0 4 0 0"/>
+                <Label Content="Altura" Grid.Row="2" FontSize="15" VerticalAlignment="Center" Margin="0 4 0 0"/>
+                <Label Content="Rango de Peso" Grid.Row="3" FontSize="15" VerticalAlignment="Bottom" Margin="0,0,193.4,34" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
+                <Label Content="Esperanza de Vida" Grid.Row="4" FontSize="15" VerticalAlignment="Center" Margin="0 4 0 0"/>
+                <Label Content="Actividad fisica" Grid.Row="5" FontSize="15" VerticalAlignment="Center" Margin="0 4 0 0"/>
+                <Label Content="Tipo de Pelo" Grid.Row="6" FontSize="15" VerticalAlignment="Center" Margin="0 4 0 0"/>
+
+                <ComboBox Name="cmbesoecie" FontSize="15" Grid.Column="1" Grid.Row="0" Margin="0 4 0 0" />
+                <TextBox Name="txtNombreRaza" FontSize="15" Grid.Column="1" Grid.Row="1" Margin="0 4 0 0" Grid.ColumnSpan="2"/>
+                <ComboBox Name="cmbaltura" FontSize="15" Grid.Column="1" Grid.Row="2" Margin="0 4 0 0" >
+                    <ComboBoxItem>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock>15-35 cm</TextBlock>
+                        </StackPanel>
+                    </ComboBoxItem>
+                    <ComboBoxItem>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock>35-45 cm</TextBlock>
+                        </StackPanel>
+                    </ComboBoxItem>
+                    <ComboBoxItem>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock>45-55 cm</TextBlock>
+                        </StackPanel>
+                    </ComboBoxItem>
+                    <ComboBoxItem>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock>70-80 cm</TextBlock>
+                        </StackPanel>
+                    </ComboBoxItem>
+                    <ComboBoxItem>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock>Más de 80 cm</TextBlock>
+                        </StackPanel>
+                    </ComboBoxItem>
+                </ComboBox>
+                <Button Width="50"  Grid.Column="2" ToolTip="Nueva Especie" Name="btnNuevaEspecie"  Background="#FCA311" Click="btnNuevaEspecie_Click"  HorizontalAlignment="Left" Margin="0 4 0 0">
+                    <Image Source="/Imagenes/iconos/nuevo.png" Width="20"/>
+                </Button>
+                <ComboBox Name="cmbPesoIdeal" FontSize="15" Grid.Column="1" Grid.Row="3" Margin="0 4 0 0" >
+                    <ComboBoxItem>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock>1-3 kg</TextBlock>
+                        </StackPanel>
+                    </ComboBoxItem>
+                    <ComboBoxItem>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock>3-10 kg</TextBlock>
+                        </StackPanel>
+                    </ComboBoxItem>
+                    <ComboBoxItem>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock>10-25 kg</TextBlock>
+                        </StackPanel>
+                    </ComboBoxItem>
+                    <ComboBoxItem>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock>25-45 kg</TextBlock>
+                        </StackPanel>
+                    </ComboBoxItem>
+                    <ComboBoxItem>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock>45-100 kg</TextBlock>
+                        </StackPanel>
+                    </ComboBoxItem>
+                    <ComboBoxItem>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock>Más de 100 kg</TextBlock>
+                        </StackPanel>
+                    </ComboBoxItem>
+                </ComboBox>
+                <ComboBox Name="cmbEsperanzaVida" FontSize="15" Grid.Column="1" Grid.Row="4" Margin="0 4 0 0" >
+                    <ComboBoxItem>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock>Menos de 8 años</TextBlock>
+                        </StackPanel>
+                    </ComboBoxItem>
+                    <ComboBoxItem>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock>8-10 años</TextBlock>
+                        </StackPanel>
+                    </ComboBoxItem>
+                    <ComboBoxItem>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock>10-12 años</TextBlock>
+                        </StackPanel>
+                    </ComboBoxItem>
+                    <ComboBoxItem>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock>12-14 años</TextBlock>
+                        </StackPanel>
+                    </ComboBoxItem>
+                    <ComboBoxItem>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock>14-20 años</TextBlock>
+                        </StackPanel>
+                    </ComboBoxItem>
+                    <ComboBoxItem>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock>Más de 20 años</TextBlock>
+                        </StackPanel>
+                    </ComboBoxItem>
+                </ComboBox>
+                <ComboBox Name="cmbActividadFisica" FontSize="15" Grid.Column="1" Grid.Row="5" Margin="0 4 0 0" >
+                    <ComboBoxItem>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock>Baja</TextBlock>
+                        </StackPanel>
+                    </ComboBoxItem>
+                    <ComboBoxItem>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock>Media</TextBlock>
+                        </StackPanel>
+                    </ComboBoxItem>
+                    <ComboBoxItem>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock>Alta</TextBlock>
+                        </StackPanel>
+                    </ComboBoxItem>
+                </ComboBox>
+                <TextBox Name="txtTipoPelo" FontSize="15" Grid.Column="1" Grid.Row="6" Margin="0 4 0 0" />
+
+            </Grid>
+        </StackPanel>
+    </Grid>
+</Window>
