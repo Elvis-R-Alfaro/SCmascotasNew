@@ -27,6 +27,9 @@ namespace SC_MMascotass.Pages
             InitializeComponent();
             MonstrarBotones(visible);
 
+            ErrorLog eLog = new ErrorLog("/eLogs");
+            eLog.Add("Test");
+
             //Validacion de cargar datos
             if (visible)
             {
@@ -110,6 +113,7 @@ namespace SC_MMascotass.Pages
                 {
                     MessageBox.Show("Revise que los Campos esten Escritos Correctamente");
                     Console.WriteLine(ex.Message);
+                    
                 }
                 
 
