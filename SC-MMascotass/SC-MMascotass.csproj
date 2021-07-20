@@ -95,6 +95,7 @@
     </ApplicationDefinition>
     <Compile Include="Cliente.cs" />
     <Compile Include="Categoria.cs" />
+    <Compile Include="ErrorLog.cs" />
     <Compile Include="Pages\Categorias.xaml.cs">
       <DependentUpon>Categorias.xaml</DependentUpon>
     </Compile>
@@ -302,7 +303,9 @@
   <ItemGroup>
     <Resource Include="Imagenes\crossed.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="eLogs\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="database\databasequery.sql" />
     <Content Include="SqlServerTypes\readme.htm" />
