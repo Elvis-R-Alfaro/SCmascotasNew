@@ -16,5 +16,19 @@ namespace SC_MMascotass.Reportes
         {
             InitializeComponent();
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            ReporteBuscarCargo Mostrar = new ReporteBuscarCargo();
+            Mostrar.Cargo = cmbcargo.SelectedItem.ToString();
+            MessageBox.Show(cmbcargo.SelectedItem.ToString());
+
+            Mostrar.ShowDialog();
+        }
     }
 }
