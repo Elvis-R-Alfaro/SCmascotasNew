@@ -25,6 +25,7 @@ namespace SC_MMascotass.Pages
     {
         private static string connectionString = ConfigurationManager.ConnectionStrings["SC_MMascotass.Properties.Settings.MascotasConnectionString"].ConnectionString;
         private static SqlConnection sqlConnection = new SqlConnection(connectionString);
+        private Mascota mascota = new Mascota();
         public FormRaza(bool visible)
         {
             InitializeComponent();

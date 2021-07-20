@@ -21,7 +21,7 @@ namespace SC_MMascotass.Reportes
         {
 
             this.reportViewer1.RefreshReport();
-            this.reportViewer2.RefreshReport();
+            //this.reportViewer2.RefreshReport();
         }
     }
 }
