@@ -128,10 +128,10 @@ namespace SC_MMascotass.Pages
                     SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
 
                     //Establecer los valores de los paramawtros
-                    sqlCommand.Parameters.AddWithValue("@IdCliente", mascota.IdCliente);
-                    sqlCommand.Parameters.AddWithValue("@AliasMascota", mascota.NombreMascota);
-                    sqlCommand.Parameters.AddWithValue("@Raza", mascota.NombreRaza);
-                    sqlCommand.Parameters.AddWithValue("@Fecha", mascota.Fecha);
+                    //sqlCommand.Parameters.AddWithValue("@IdCliente", mascota.IdCliente);
+                    //sqlCommand.Parameters.AddWithValue("@AliasMascota", mascota.NombreMascota);
+                    //sqlCommand.Parameters.AddWithValue("@Raza", mascota.NombreRaza);
+                    //sqlCommand.Parameters.AddWithValue("@Fecha", mascota.Fecha);
 
                     //ejecutar el comando insertado
                     sqlCommand.ExecuteNonQuery();

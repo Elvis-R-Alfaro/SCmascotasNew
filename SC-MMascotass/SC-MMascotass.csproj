@@ -166,6 +166,9 @@
     <Compile Include="Reportes\ReporteBuscarCargo.Designer.cs">
       <DependentUpon>ReporteBuscarCargo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reportes\Reportes.xaml.cs">
+      <DependentUpon>Reportes.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="Usuario.cs" />
     <Compile Include="vacunaciones.cs" />
@@ -249,6 +252,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Reportes\Reportes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -305,6 +312,9 @@
   <ItemGroup />
   <ItemGroup>
     <Content Include="database\databasequery.sql" />
+    <Resource Include="Imagenes\expediente.png" />
+    <Resource Include="Imagenes\personal.png" />
+    <Resource Include="Imagenes\reportes.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

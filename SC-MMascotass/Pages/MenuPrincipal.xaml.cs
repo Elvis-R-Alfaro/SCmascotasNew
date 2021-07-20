@@ -82,7 +82,8 @@ namespace SC_MMascotass
 
         private void btnReportes_Click(object sender, RoutedEventArgs e)
         {
-
+            Reportes.Reportes menu = new Reportes.Reportes();
+            menu.Show();
         }
     }
 }
