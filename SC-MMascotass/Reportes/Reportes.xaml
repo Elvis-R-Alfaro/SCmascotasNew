@@ -33,7 +33,7 @@
                         Foreground="Black"
                         FontSize="14"
                         BorderThickness="0"
-                        Name="btnInicio" Click="btnInicio_Click">
+                        Name="btnR1" Click="btnR1_Click" >
                 <StackPanel Orientation="Horizontal"  Width="110">
                     <Image Source="/Imagenes/home.png" Width="20" Height="20" Margin="0 0 20 0"/>
                     <TextBlock Text="Inicio" VerticalAlignment="Center"/>
@@ -43,26 +43,13 @@
             </Button>
 
 
-            <Button     Background="Transparent"
-                        Height="50"
-                        Foreground="Black"
-                        FontSize="14"
-                        BorderThickness="0"
-                        Name="btnClientes" Click="btnClientes_Click">
-                <StackPanel Orientation="Horizontal" Width="110">
-                    <Image Source="/Imagenes/cliente.png" Width="20" Height="20" Margin="0 0 20 0"/>
-                    <TextBlock Text="Clientes" VerticalAlignment="Center"/>
-
-                </StackPanel>
-
-            </Button>
 
             <Button     Background="Transparent"
                         Height="50"
                         Foreground="Black"
                         FontSize="14"
                         BorderThickness="0"
-                        Name="btnMascotas" Click="btnMascotas_Click">
+                        Name="btnR2" Click="btnR2_Click">
                 <StackPanel Orientation="Horizontal" Width="110">
                     <Image Source="/Imagenes/mascota.png" Width="20" Height="20" Margin="0 0 20 0"/>
                     <TextBlock Text="Mascotas" VerticalAlignment="Center"/>
@@ -75,7 +62,7 @@
                         Foreground="Black"
                         FontSize="14"
                         BorderThickness="0"
-                        Name="btnCategorias" Click="btnCategorias_Click">
+                        Name="btnR3" Click="btnR3_Click">
                 <StackPanel Orientation="Horizontal" Width="110">
                     <Image Source="/Imagenes/categoria.png" Width="20" Height="20" Margin="0 0 20 0"/>
                     <TextBlock Text="Categorías" VerticalAlignment="Center"/>
@@ -89,7 +76,7 @@
                         Foreground="Black"
                         FontSize="14"
                         BorderThickness="0"
-                        Name="btnInventario" Click="btnInventario_Click">
+                        Name="btnR4" Click="btnR4_Click">
                 <StackPanel Orientation="Horizontal" Width="110">
                     <Image Source="/Imagenes/inventario.png" Width="20" Height="20" Margin="0 0 20 0"/>
                     <TextBlock Text="Inventario" VerticalAlignment="Center" />
@@ -102,7 +89,7 @@
                         Foreground="Black"
                         FontSize="14"
                         BorderThickness="0"
-                        Name="btnVacunacion" Click="btnVacunacion_Click">
+                        Name="btnR5" Click="btnR5_Click">
                 <StackPanel Orientation="Horizontal" Width="110">
                     <Image Source="/Imagenes/expediente.png" Width="20" Height="20" Margin="0 0 20 0"/>
                     <TextBlock Text="Expediente Animal" VerticalAlignment="Center"/>
@@ -118,7 +105,7 @@
                         Foreground="Black"
                         FontSize="14"
                         BorderThickness="0"
-                        Name="btnUsuarios" Click="btnUsuarios_Click">
+                        Name="btnR6" Click="btnR6_Click">
                 <StackPanel Orientation="Horizontal" Width="110">
                     <Image Source="/Imagenes/personal.png" Width="20" Height="20" Margin="0 0 20 0"/>
                     <TextBlock Text="Usuarios" VerticalAlignment="Center"/>
@@ -127,32 +114,6 @@
 
             </Button>
 
-            <Button     Background="Transparent"
-                        Height="50"
-                        Foreground="Black"
-                        FontSize="14"
-                        BorderThickness="0"
-                        Name="btnReportes" Click="btnReportes_Click">
-                <StackPanel Orientation="Horizontal" Width="110">
-                    <Image Source="/Imagenes/reportes.png" Width="20" Height="20" Margin="0 0 20 0"/>
-                    <TextBlock Text="Reportes" VerticalAlignment="Center"/>
-
-                </StackPanel>
-
-            </Button>
-            <Button     Background="Transparent"
-                        Height="50"
-                        Foreground="Black"
-                        FontSize="14"
-                        BorderThickness="0"
-                        Name="btnPersonal" Click="btnPersonal_Click">
-                <StackPanel Orientation="Horizontal" Width="100" Visibility="Hidden">
-                    <Image Source="/Imagenes/personal.png" Width="20" Height="20" Margin="0 0 20 0"/>
-                    <TextBlock Text="Personal" VerticalAlignment="Center"/>
-
-                </StackPanel>
-
-            </Button>
 
         </StackPanel>
         <StackPanel Grid.Row="1" 

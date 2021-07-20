@@ -26,12 +26,42 @@ namespace SC_MMascotass.Reportes
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            ReporteBuscarCargo Mostrar = new ReporteBuscarCargo();
-            string str = cmbcargo.Text;
-            Mostrar.Cargo = str;
-            MessageBox.Show(str);
+            //ReporteBuscarCargo Mostrar = new ReporteBuscarCargo();
+            //string str = cmbcargo.Text;
+            //Mostrar.Cargo = str;
+            //MessageBox.Show(str);
 
-            Mostrar.ShowDialog();
+            //Mostrar.ShowDialog();
+        }
+
+        private void btnR1_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnR2_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnR3_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnR4_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnR5_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnR6_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
