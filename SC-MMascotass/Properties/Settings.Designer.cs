@@ -33,5 +33,16 @@ namespace SC_MMascotass.Properties {
                 return ((string)(this["MascotasConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DAST\\MSSQLSERVER2019;Initial Catalog=scmascotas2;Integrated Security=" +
+            "True")]
+        public string scmascotas2ConnectionString {
+            get {
+                return ((string)(this["scmascotas2ConnectionString"]));
+            }
+        }
     }
 }
