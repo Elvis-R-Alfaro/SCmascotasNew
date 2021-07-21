@@ -384,6 +384,8 @@
     <Resource Include="Imagenes\expediente.png" />
     <Resource Include="Imagenes\personal.png" />
     <Resource Include="Imagenes\reportes.png" />
+    <Resource Include="Imagenes\ayuda.png" />
+    <Content Include="manual.html" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
