@@ -24,44 +24,44 @@ namespace SC_MMascotass.Reportes
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        //Funcion Agregar el Form para cargar los formularios
+        private void AgregarForm(UserControl control)
         {
-            //ReporteBuscarCargo Mostrar = new ReporteBuscarCargo();
-            //string str = cmbcargo.Text;
-            //Mostrar.Cargo = str;
-            //MessageBox.Show(str);
-
-            //Mostrar.ShowDialog();
+            this.spPrincipal.Children.Clear();
+            this.spPrincipal.Children.Add(control);
         }
 
         private void btnR1_Click(object sender, RoutedEventArgs e)
         {
-
+            AgregarForm(new BuscarPersonalxCargo());
         }
 
         private void btnR2_Click(object sender, RoutedEventArgs e)
         {
-
+            AgregarForm(new VacunaxMascota());
         }
 
         private void btnR3_Click(object sender, RoutedEventArgs e)
         {
-
+            AgregarForm(new MascotasxCliente());
         }
 
         private void btnR4_Click(object sender, RoutedEventArgs e)
         {
-
+            AgregarForm(new VencimientoxFecha());
         }
 
         private void btnR5_Click(object sender, RoutedEventArgs e)
         {
-
+            AgregarForm(new CasosxVeterinario());
         }
 
-        private void btnR6_Click(object sender, RoutedEventArgs e)
-        {
 
+        private void btnCerrarSesion_Click(object sender, RoutedEventArgs e)
+        {
+            MenuPrincipal menu = new MenuPrincipal();
+            menu.Show();
+            this.Close();
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace SC_MMascotass.Reportes
 {
-    partial class ReporteBuscarCargo
+    partial class ReporteCasosxVeterinario
     {
         /// <summary>
         /// Required designer variable.
@@ -29,19 +29,19 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource2 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            this.BuscarPersonalxCargoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            this.CasosxVeterinarioBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.DataSetPrincipal = new SC_MMascotass.Reportes.DataSetPrincipal();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.BuscarPersonalxCargoTableAdapter = new SC_MMascotass.Reportes.DataSetPrincipalTableAdapters.BuscarPersonalxCargoTableAdapter();
-            ((System.ComponentModel.ISupportInitialize)(this.BuscarPersonalxCargoBindingSource)).BeginInit();
+            this.CasosxVeterinarioTableAdapter = new SC_MMascotass.Reportes.DataSetPrincipalTableAdapters.CasosxVeterinarioTableAdapter();
+            ((System.ComponentModel.ISupportInitialize)(this.CasosxVeterinarioBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DataSetPrincipal)).BeginInit();
             this.SuspendLayout();
             // 
-            // BuscarPersonalxCargoBindingSource
+            // CasosxVeterinarioBindingSource
             // 
-            this.BuscarPersonalxCargoBindingSource.DataMember = "BuscarPersonalxCargo";
-            this.BuscarPersonalxCargoBindingSource.DataSource = this.DataSetPrincipal;
+            this.CasosxVeterinarioBindingSource.DataMember = "CasosxVeterinario";
+            this.CasosxVeterinarioBindingSource.DataSource = this.DataSetPrincipal;
             // 
             // DataSetPrincipal
             // 
@@ -51,32 +51,31 @@
             // reportViewer1
             // 
             this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            reportDataSource2.Name = "DataSet1";
-            reportDataSource2.Value = this.BuscarPersonalxCargoBindingSource;
-            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource2);
-            this.reportViewer1.LocalReport.ReportEmbeddedResource = "SC_MMascotass.Reportes.ReporteEmpleadoxCargo.rdlc";
+            reportDataSource1.Name = "DataSet1";
+            reportDataSource1.Value = this.CasosxVeterinarioBindingSource;
+            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
+            this.reportViewer1.LocalReport.ReportEmbeddedResource = "SC_MMascotass.Reportes.InformeCasosxVeterinario.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(0, 0);
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.ServerReport.BearerToken = null;
             this.reportViewer1.Size = new System.Drawing.Size(800, 450);
             this.reportViewer1.TabIndex = 0;
-            this.reportViewer1.Load += new System.EventHandler(this.reportViewer1_Load);
             // 
-            // BuscarPersonalxCargoTableAdapter
+            // CasosxVeterinarioTableAdapter
             // 
-            this.BuscarPersonalxCargoTableAdapter.ClearBeforeFill = true;
+            this.CasosxVeterinarioTableAdapter.ClearBeforeFill = true;
             // 
-            // ReporteBuscarCargo
+            // ReporteCasosxVeterinario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.reportViewer1);
-            this.Name = "ReporteBuscarCargo";
+            this.Name = "ReporteCasosxVeterinario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ReporteBuscarCargo";
-            this.Load += new System.EventHandler(this.ReporteBuscarCargo_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.BuscarPersonalxCargoBindingSource)).EndInit();
+            this.Text = "ReporteCasosxVeterinario";
+            this.Load += new System.EventHandler(this.ReporteCasosxVeterinario_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.CasosxVeterinarioBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DataSetPrincipal)).EndInit();
             this.ResumeLayout(false);
 
@@ -85,8 +84,8 @@
         #endregion
 
         private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
-        private System.Windows.Forms.BindingSource BuscarPersonalxCargoBindingSource;
+        private System.Windows.Forms.BindingSource CasosxVeterinarioBindingSource;
         private DataSetPrincipal DataSetPrincipal;
-        private DataSetPrincipalTableAdapters.BuscarPersonalxCargoTableAdapter BuscarPersonalxCargoTableAdapter;
+        private DataSetPrincipalTableAdapters.CasosxVeterinarioTableAdapter CasosxVeterinarioTableAdapter;
     }
 }

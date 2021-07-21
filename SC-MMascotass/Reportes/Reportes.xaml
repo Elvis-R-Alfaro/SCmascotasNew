@@ -5,16 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SC_MMascotass.Reportes"
         mc:Ignorable="d"
-        Title="Reportes" Height="550" Width="800">
+        Title="Reportes" Height="550" Width="800" WindowStartupLocation="CenterScreen">
     <Grid Background="#E5E5E5">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="280"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="75"/>
+            <RowDefinition Height="70"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
+        
+        
 
         <StackPanel Orientation="Horizontal" >
             <Image Source="/Imagenes/icono.png" Width="50" Margin="20 0"></Image>
@@ -25,7 +27,7 @@
             <Label FontSize="25" Content="Reportería"  HorizontalAlignment="Center"/>
 
         </StackPanel>
-
+        
         <StackPanel Grid.Row="1">
 
             <Button     Background="Transparent"
@@ -33,41 +35,27 @@
                         Foreground="Black"
                         FontSize="14"
                         BorderThickness="0"
-                        Name="btnR1" Click="btnR1_Click" >
-                <StackPanel Orientation="Horizontal"  Width="110">
-                    <Image Source="/Imagenes/home.png" Width="20" Height="20" Margin="0 0 20 0"/>
-                    <TextBlock Text="Inicio" VerticalAlignment="Center"/>
+                        Name="btnR4" Click="btnR4_Click" Content="Reporte productos vencidos según fecha" >
 
-                </StackPanel>
+            </Button>
+
+            <Button     Background="Transparent"
+                        Height="50"
+                        Foreground="Black" 
+                        FontSize="13"
+                        BorderThickness="0"
+                        Name="btnR5" Click="btnR5_Click" Content="Reporte de las citas atendidas según fecha">
 
             </Button>
 
 
-
+            
             <Button     Background="Transparent"
                         Height="50"
-                        Foreground="Black"
+                        Foreground="Black" 
                         FontSize="14"
                         BorderThickness="0"
-                        Name="btnR2" Click="btnR2_Click">
-                <StackPanel Orientation="Horizontal" Width="110">
-                    <Image Source="/Imagenes/mascota.png" Width="20" Height="20" Margin="0 0 20 0"/>
-                    <TextBlock Text="Mascotas" VerticalAlignment="Center"/>
-
-                </StackPanel>
-
-            </Button>
-            <Button     Background="Transparent"
-                        Height="50"
-                        Foreground="Black"
-                        FontSize="14"
-                        BorderThickness="0"
-                        Name="btnR3" Click="btnR3_Click">
-                <StackPanel Orientation="Horizontal" Width="110">
-                    <Image Source="/Imagenes/categoria.png" Width="20" Height="20" Margin="0 0 20 0"/>
-                    <TextBlock Text="Categorías" VerticalAlignment="Center"/>
-
-                </StackPanel>
+                        Name="btnR3" Click="btnR3_Click" Content="Reporte de las mascotas del cliente">
 
             </Button>
 
@@ -76,45 +64,35 @@
                         Foreground="Black"
                         FontSize="14"
                         BorderThickness="0"
-                        Name="btnR4" Click="btnR4_Click">
-                <StackPanel Orientation="Horizontal" Width="110">
-                    <Image Source="/Imagenes/inventario.png" Width="20" Height="20" Margin="0 0 20 0"/>
-                    <TextBlock Text="Inventario" VerticalAlignment="Center" />
-
-                </StackPanel>
+                        Name="btnR2" Click="btnR2_Click" Content="Reporte de vacunas de la mascota" >
 
             </Button>
+            
             <Button     Background="Transparent"
                         Height="50"
                         Foreground="Black"
                         FontSize="14"
                         BorderThickness="0"
-                        Name="btnR5" Click="btnR5_Click">
-                <StackPanel Orientation="Horizontal" Width="110">
-                    <Image Source="/Imagenes/expediente.png" Width="20" Height="20" Margin="0 0 20 0"/>
-                    <TextBlock Text="Expediente Animal" VerticalAlignment="Center"/>
-
-                </StackPanel>
+                        Name="btnR1" Click="btnR1_Click" Content="Reporte del personal según cargo" >
 
             </Button>
+            
 
-
-
+        </StackPanel>
+        <StackPanel Grid.Row="1" VerticalAlignment="Bottom">
             <Button     Background="Transparent"
                         Height="50"
                         Foreground="Black"
                         FontSize="14"
                         BorderThickness="0"
-                        Name="btnR6" Click="btnR6_Click">
-                <StackPanel Orientation="Horizontal" Width="110">
-                    <Image Source="/Imagenes/personal.png" Width="20" Height="20" Margin="0 0 20 0"/>
-                    <TextBlock Text="Usuarios" VerticalAlignment="Center"/>
+                        x:Name="btnCerrarSesion" Click="btnCerrarSesion_Click"             >
+                <StackPanel Orientation="Horizontal" Width="150">
+                    <Image Source="/Imagenes/log-out.png" Width="20" Height="20" Margin="0 0 20 0"/>
+                    <TextBlock Text="Volver al Inicio" VerticalAlignment="Center"/>
 
                 </StackPanel>
 
             </Button>
-
-
         </StackPanel>
         <StackPanel Grid.Row="1" 
                       
@@ -122,8 +100,10 @@
                         Margin="10"
                         x:Name="spPrincipal">
             <StackPanel Orientation="Horizontal" >
-                <Image Source="/Imagenes/icono.png" Width="350" Margin="0 0 0 100"></Image>
-                <Image Source="/Imagenes/letra.png" Width="300"></Image>
+                <StackPanel Orientation="Horizontal" >
+                    <Image Source="/Imagenes/icono.png" Width="270" Margin="0 0 0 100"></Image>
+                    <Image Source="/Imagenes/letra.png" Width="220"></Image>
+                </StackPanel>
             </StackPanel>
         </StackPanel>
     </Grid>

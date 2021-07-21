@@ -1,0 +1,16 @@
+﻿<UserControl x:Class="SC_MMascotass.Reportes.CasosxVeterinario"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:SC_MMascotass.Reportes"
+             mc:Ignorable="d" 
+             d:DesignHeight="480" d:DesignWidth="520">
+    <Grid>
+        <Label Content="Ingrese el mes" HorizontalAlignment="Left" Height="31" Margin="133,72,0,0" VerticalAlignment="Top" Width="108"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="134,108,0,0" TextWrapping="Wrap" x:Name="txtMes" VerticalAlignment="Top" Width="261"/>
+        <Label Content="Ingrese el año" HorizontalAlignment="Left" Height="31" Margin="133,141,0,0" VerticalAlignment="Top" Width="108"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="133,172,0,0" TextWrapping="Wrap" x:Name="txtAnio" VerticalAlignment="Top" Width="261"/>
+        <Button Content="Generar Reporte" HorizontalAlignment="Left" Height="46" Margin="133,244,0,0" VerticalAlignment="Top" Width="261" Click="Button_Click"/>
+    </Grid>
+</UserControl>

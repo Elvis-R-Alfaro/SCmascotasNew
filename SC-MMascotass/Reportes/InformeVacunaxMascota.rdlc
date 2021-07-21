@@ -6,18 +6,18 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>2.5cm</Width>
+              <Width>4.07106cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.5cm</Width>
+              <Width>4.07106cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>3.74883cm</Width>
+              <Width>4.07106cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
             <TablixRow>
-              <Height>0.6cm</Height>
+              <Height>0.762cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -28,7 +28,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Nombre</Value>
+                              <Value>Nombre Mascota</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
@@ -59,7 +59,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Teléfono</Value>
+                              <Value>Nombre Producto</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
@@ -90,7 +90,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Correo</Value>
+                              <Value>Fecha De Registro</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
@@ -115,25 +115,25 @@
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.6cm</Height>
+              <Height>0.762cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Nombre">
+                    <Textbox Name="NombreMascota">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!Nombre.Value</Value>
+                              <Value>=Fields!NombreMascota.Value</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Nombre</rd:DefaultName>
+                      <rd:DefaultName>NombreMascota</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -149,21 +149,21 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Telefono">
+                    <Textbox Name="NombreProducto">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!Telefono.Value</Value>
+                              <Value>=Fields!NombreProducto.Value</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Telefono</rd:DefaultName>
+                      <rd:DefaultName>NombreProducto</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -179,21 +179,21 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Correo">
+                    <Textbox Name="FechaDeRegistro">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!Correo.Value</Value>
+                              <Value>=Fields!FechaDeRegistro.Value</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Correo</rd:DefaultName>
+                      <rd:DefaultName>FechaDeRegistro</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -229,10 +229,10 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>DataSet1</DataSetName>
-        <Top>2.57387cm</Top>
-        <Left>2.7432cm</Left>
-        <Height>1.2cm</Height>
-        <Width>8.74883cm</Width>
+        <Top>2.53153cm</Top>
+        <Left>1.64253cm</Left>
+        <Height>1.524cm</Height>
+        <Width>12.21317cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -246,7 +246,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>REPORTE DE EMPLEADOS SEGÚN EL CARGO</Value>
+                <Value>REPORTE DE LAS VACUNAS APLICADAS A LA MASCOTA</Value>
                 <Style>
                   <FontWeight>Bold</FontWeight>
                 </Style>
@@ -256,10 +256,10 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox7</rd:DefaultName>
-        <Top>1.17687cm</Top>
-        <Left>3.1242cm</Left>
-        <Height>0.6cm</Height>
-        <Width>8.10916cm</Width>
+        <Top>1.0922cm</Top>
+        <Left>3.10303cm</Left>
+        <Height>0.762cm</Height>
+        <Width>9.83544cm</Width>
         <ZIndex>1</ZIndex>
         <Style>
           <Border>
@@ -293,7 +293,7 @@
         <DataProvider>System.Data.DataSet</DataProvider>
         <ConnectString>/* Local Connection */</ConnectString>
       </ConnectionProperties>
-      <rd:DataSourceID>8c9684fb-4887-442f-b22b-9350ff87c5f8</rd:DataSourceID>
+      <rd:DataSourceID>6df7224b-44eb-4348-8abc-ee835213b4dc</rd:DataSourceID>
     </DataSource>
   </DataSources>
   <DataSets>
@@ -303,29 +303,29 @@
         <CommandText>/* Local Query */</CommandText>
       </Query>
       <Fields>
-        <Field Name="Nombre">
-          <DataField>Nombre</DataField>
+        <Field Name="NombreMascota">
+          <DataField>NombreMascota</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="Telefono">
-          <DataField>Telefono</DataField>
+        <Field Name="NombreProducto">
+          <DataField>NombreProducto</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="Correo">
-          <DataField>Correo</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
+        <Field Name="FechaDeRegistro">
+          <DataField>FechaDeRegistro</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
         </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>DataSetPrincipal</rd:DataSetName>
         <rd:SchemaPath>C:\Users\Elvis\Downloads\SC-MMascotass (1)\SC-MMascotass\SC-MMascotass\Reportes\DataSetPrincipal.xsd</rd:SchemaPath>
-        <rd:TableName>BuscarPersonalxCargo</rd:TableName>
+        <rd:TableName>VacunaxMascota</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
-        <rd:TableAdapterName>BuscarPersonalxCargoTableAdapter</rd:TableAdapterName>
+        <rd:TableAdapterName>VacunaxMascotaTableAdapter</rd:TableAdapterName>
       </rd:DataSetInfo>
     </DataSet>
   </DataSets>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
-  <rd:ReportID>a1ef4b20-ee88-4f55-a03f-51ef25aa565d</rd:ReportID>
+  <rd:ReportID>c08bca49-2095-4bfc-924d-836406838fe3</rd:ReportID>
 </Report>
