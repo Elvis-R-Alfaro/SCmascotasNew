@@ -1,32 +1,30 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using System.Web;
+using System.IO;
+using System.Diagnostics;
 
 namespace SC_MMascotass
 {
     public class ErrorLog
     {
-        private string Path = "";
 
 
-        public ErrorLog(string Path)
-        {
-            this.Path = Path;
-        }
+        private string Path = "/eLogs";
 
-        public void Add(string sLog)
+
+        public void Add(object obj,  /*Exception*/ string ex)
         {
             CreateDirectory();
             string nombre = GetNameFile();
-            string cadena = "";
-
-            cadena += DateTime.Now + " - " + sLog + Environment.NewLine;
 
             StreamWriter sw = new StreamWriter(Path + "/" + nombre, true);
-            sw.Write(cadena);
+            StackTrace stacktrace = new StackTrace();
+            sw.WriteLine(obj.GetType().FullName + " " + DateTime.Now);
+            sw.WriteLine(stacktrace.GetFrame(1).GetMethod().Name + " - " + ex/*.Message*/);
+            sw.WriteLine("");
             sw.Close();
 
         }

@@ -150,16 +150,25 @@
     <Compile Include="Pages\Vacunas.xaml.cs">
       <DependentUpon>Vacunas.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Reportes\BucarPersona.cs">
-      <SubType>Form</SubType>
+    <Compile Include="Reportes\BuscarPersonalxCargo.xaml.cs">
+      <DependentUpon>BuscarPersonalxCargo.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Reportes\BucarPersona.Designer.cs">
-      <DependentUpon>BucarPersona.cs</DependentUpon>
+    <Compile Include="Reportes\CasosxVeterinario.xaml.cs">
+      <DependentUpon>CasosxVeterinario.xaml</DependentUpon>
     </Compile>
     <Compile Include="Reportes\DataSetPrincipal.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSetPrincipal.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\InformeVacunaxMascota.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\InformeVacunaxMascota.Designer.cs">
+      <DependentUpon>InformeVacunaxMascota.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\MascotasxCliente.xaml.cs">
+      <DependentUpon>MascotasxCliente.xaml</DependentUpon>
     </Compile>
     <Compile Include="Reportes\ReporteBuscarCargo.cs">
       <SubType>Form</SubType>
@@ -167,8 +176,32 @@
     <Compile Include="Reportes\ReporteBuscarCargo.Designer.cs">
       <DependentUpon>ReporteBuscarCargo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reportes\ReporteCasosxVeterinario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\ReporteCasosxVeterinario.Designer.cs">
+      <DependentUpon>ReporteCasosxVeterinario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\ReporteMascotasxCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\ReporteMascotasxCliente.Designer.cs">
+      <DependentUpon>ReporteMascotasxCliente.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reportes\Reportes.xaml.cs">
       <DependentUpon>Reportes.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\ReporteVencimientoxFecha.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\ReporteVencimientoxFecha.Designer.cs">
+      <DependentUpon>ReporteVencimientoxFecha.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\VacunaxMascota.xaml.cs">
+      <DependentUpon>VacunaxMascota.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\VencimientoxFecha.xaml.cs">
+      <DependentUpon>VencimientoxFecha.xaml</DependentUpon>
     </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="Usuario.cs" />
@@ -253,7 +286,27 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Reportes\BuscarPersonalxCargo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reportes\CasosxVeterinario.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reportes\MascotasxCliente.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Reportes\Reportes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reportes\VacunaxMascota.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reportes\VencimientoxFecha.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -276,13 +329,26 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reportes\BucarPersona.resx">
-      <DependentUpon>BucarPersona.cs</DependentUpon>
+    <EmbeddedResource Include="Reportes\InformeCasosxVeterinario.rdlc" />
+    <EmbeddedResource Include="Reportes\InformeMascotasxCliente.rdlc" />
+    <EmbeddedResource Include="Reportes\InformeVacunaxMascota.rdlc" />
+    <EmbeddedResource Include="Reportes\InformeVacunaxMascota.resx">
+      <DependentUpon>InformeVacunaxMascota.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\InformeVencimientoxFecha.rdlc" />
     <EmbeddedResource Include="Reportes\ReporteBuscarCargo.resx">
       <DependentUpon>ReporteBuscarCargo.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\ReporteCasosxVeterinario.resx">
+      <DependentUpon>ReporteCasosxVeterinario.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reportes\ReporteEmpleadoxCargo.rdlc" />
+    <EmbeddedResource Include="Reportes\ReporteMascotasxCliente.resx">
+      <DependentUpon>ReporteMascotasxCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\ReporteVencimientoxFecha.resx">
+      <DependentUpon>ReporteVencimientoxFecha.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
