@@ -22,6 +22,8 @@ namespace SC_MMascotass
         public MenuPrincipal()
         {
             InitializeComponent();
+            ErrorLog error = new ErrorLog();
+            error.Add(this, "test");
         }
 
         private void btnInicio_Click(object sender, RoutedEventArgs e)
@@ -84,6 +86,7 @@ namespace SC_MMascotass
         {
             Reportes.Reportes menu = new Reportes.Reportes();
             menu.Show();
+            this.Close();
         }
     }
 }

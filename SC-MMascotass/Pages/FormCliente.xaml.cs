@@ -27,8 +27,8 @@ namespace SC_MMascotass.Pages
             InitializeComponent();
             MonstrarBotones(visible);
 
-            ErrorLog eLog = new ErrorLog("/eLogs");
-            eLog.Add("Test");
+            //ErrorLog eLog = new ErrorLog("/eLogs");
+            //eLog.Add("Test");
 
             //Validacion de cargar datos
             if (visible)
