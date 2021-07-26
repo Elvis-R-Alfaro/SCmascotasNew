@@ -12,7 +12,8 @@ namespace SC_MMascotass
     {
 
 
-        private string Path = "/eLogs";
+        static string file = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory);
+        string Path = file.ToString() + @"Recursos\eLog";
 
 
         public void Add(object obj,  /*Exception*/ string ex)
