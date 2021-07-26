@@ -103,9 +103,9 @@
                 <Label Content="Correo" Grid.Row="3" FontSize="15" VerticalAlignment="Center" Margin="0 4 0 0"/>
                 <Label Content="Dirrecciòn" Grid.Row="4" FontSize="15" VerticalAlignment="Center" Margin="0 4 0 0"/>
 
-                <TextBox Name="txtNombre" FontSize="15" Grid.Column="1" Grid.Row="0" Margin="0 4 0 0"/>
+                <TextBox Name="txtNombre" FontSize="15" Grid.Column="1" Grid.Row="0" Margin="0 4 0 0" TextChanged="txtNombre_TextChanged"/>
                 <TextBox Name="txtCorreo" FontSize="15" Grid.Column="1" Grid.Row="3" Margin="0 4 0 0"/>
-                <TextBox Name="rxtDireccion" FontSize="15" Grid.Column="1" Grid.Row="4" Margin="0 4 0 0"/>
+                <TextBox Name="txtDireccion" FontSize="15" Grid.Column="1" Grid.Row="4" Margin="0 4 0 0"/>
                 <TextBox Name="txtTelefono" FontSize="15" Grid.Column="1" Grid.Row="2" Margin="0 4 0 0" MaxLength="12" KeyDown="txtTelefono_KeyDown_1"/>
 
             </Grid>

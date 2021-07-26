@@ -36,7 +36,8 @@ namespace SC_MMascotass.Pages
                 cliente = cliente.BuscarCliente(ides);
                 txtNombre.Text = cliente.Nombre_Cliente;
                 txtTelefono.Text = cliente.Teléfono;
-                
+                txtCorreo.Text = cliente.Correo;
+                txtDireccion.Text = cliente.Direccion;
             }
         }
 
@@ -55,6 +56,18 @@ namespace SC_MMascotass.Pages
                 return false;
             }
 
+            if (string.IsNullOrWhiteSpace(txtDireccion.Text))
+            {
+                MessageBox.Show("¡Ingrese la Dirección Corectamente!");
+                return false;
+            }
+
+            if (string.IsNullOrWhiteSpace(txtCorreo.Text))
+            {
+                MessageBox.Show("¡Ingrese el Correo Corectamente!");
+                return false;
+            }
+
             if (vali)
             {
                 MessageBox.Show("¡El Teléfono debe ser numerico!");
@@ -69,7 +82,9 @@ namespace SC_MMascotass.Pages
         {
             cliente.Nombre_Cliente = txtNombre.Text;
             cliente.Teléfono = txtTelefono.Text;
-            cliente.ID = Convert.ToInt32(ides);         
+            cliente.ID = Convert.ToInt32(ides);
+            cliente.Correo = txtCorreo.Text;
+            cliente.Direccion = txtDireccion.Text;
         }
 
         //Vibilidad de los botones
@@ -125,6 +140,8 @@ namespace SC_MMascotass.Pages
         {
             txtNombre.Text = string.Empty;
             txtTelefono.Text = string.Empty;
+            txtTelefono.Text = string.Empty;
+            txtDireccion.Text = string.Empty;
         }
 
         private void btnRestablecer_Click(object sender, RoutedEventArgs e)
@@ -163,6 +180,8 @@ namespace SC_MMascotass.Pages
             cliente = cliente.BuscarCliente(ides);
             txtNombre.Text = cliente.Nombre_Cliente;
             txtTelefono.Text = cliente.Teléfono;
+            txtCorreo.Text = cliente.Correo;
+            txtDireccion.Text = cliente.Direccion;
         }
 
         private void txtTelefono_KeyDown_1(object sender, KeyEventArgs e)
@@ -171,6 +190,11 @@ namespace SC_MMascotass.Pages
                 vali = false;
             else
                 vali = true;
+        }
+
+        private void txtNombre_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
         }
     }
 }
