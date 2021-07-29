@@ -17,19 +17,19 @@ using System.Data.SqlClient;
 using System.Configuration;
 
 
-namespace SC_MMascotass.Pages
+namespace SC_MMascotass.Pages.Formularios
 {
     /// <summary>
     /// Lógica de interacción para FormEspecie.xaml
     /// </summary>
-    public partial class FormEspecie : Window
+    public partial class FormEspecies : Window
     {
         private Mascota mascota = new Mascota();
         private List<Mascota> mascotas;
 
         private static string connectionString = ConfigurationManager.ConnectionStrings["SC_MMascotass.Properties.Settings.MascotasConnectionString"].ConnectionString;
         private static SqlConnection sqlConnection = new SqlConnection(connectionString);
-        public FormEspecie(bool visible)
+        public FormEspecies(bool visible)
         {
             InitializeComponent();
             ObtenerMascotas();
@@ -81,7 +81,7 @@ namespace SC_MMascotass.Pages
                 finally
                 {
                     Limpiar();
-                   
+
                 }
             }
         }

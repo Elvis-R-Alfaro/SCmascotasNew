@@ -102,38 +102,38 @@
     <Compile Include="HistorialVacunacion.cs" />
     <Compile Include="InventarioC.cs" />
     <Compile Include="Mascota.cs" />
+    <Compile Include="Pages\Formularios\FormCategorias.xaml.cs">
+      <DependentUpon>FormCategorias.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Formularios\FormCliente.xaml.cs">
+      <DependentUpon>FormCliente.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Formularios\FormConsultas.xaml.cs">
+      <DependentUpon>FormConsultas.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Formularios\FormEspecies.xaml.cs">
+      <DependentUpon>FormEspecies.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Formularios\FormInventario.xaml.cs">
+      <DependentUpon>FormInventario.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Formularios\FormMascotas.xaml.cs">
+      <DependentUpon>FormMascotas.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Formularios\FormPersonal.xaml.cs">
+      <DependentUpon>FormPersonal.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Formularios\FormRazas.xaml.cs">
+      <DependentUpon>FormRazas.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Formularios\FormUsuarios.xaml.cs">
+      <DependentUpon>FormUsuarios.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\MenuPrincipal.xaml.cs">
       <DependentUpon>MenuPrincipal.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\Clientes.xaml.cs">
       <DependentUpon>Clientes.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\FormCategorias.xaml.cs">
-      <DependentUpon>FormCategorias.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\FormCliente.xaml.cs">
-      <DependentUpon>FormCliente.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\FormConsulta.xaml.cs">
-      <DependentUpon>FormConsulta.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\FormEspecie.xaml.cs">
-      <DependentUpon>FormEspecie.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\FormInventario.xaml.cs">
-      <DependentUpon>FormInventario.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\FormMascotas.xaml.cs">
-      <DependentUpon>FormMascotas.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\FormPersonal.xaml.cs">
-      <DependentUpon>FormPersonal.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\FormRaza.xaml.cs">
-      <DependentUpon>FormRaza.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\FormUsuarios.xaml.cs">
-      <DependentUpon>FormUsuarios.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\Inventario.xaml.cs">
       <DependentUpon>Inventario.xaml</DependentUpon>
@@ -210,6 +210,42 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\Formularios\FormCategorias.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Formularios\FormCliente.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Formularios\FormConsultas.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Formularios\FormEspecies.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Formularios\FormInventario.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Formularios\FormMascotas.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Formularios\FormPersonal.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Formularios\FormRazas.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Formularios\FormUsuarios.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\IniciarSesion.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -227,42 +263,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\Clientes.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\FormCategorias.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\FormCliente.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\FormConsulta.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\FormEspecie.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\FormInventario.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\FormMascotas.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\FormPersonal.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\FormRaza.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\FormUsuarios.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -376,16 +376,13 @@
   <ItemGroup>
     <Resource Include="Imagenes\crossed.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="eLogs\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="database\databasequery.sql" />
     <Resource Include="Imagenes\expediente.png" />
     <Resource Include="Imagenes\personal.png" />
     <Resource Include="Imagenes\reportes.png" />
     <Resource Include="Imagenes\ayuda.png" />
-    <Content Include="manual.html" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

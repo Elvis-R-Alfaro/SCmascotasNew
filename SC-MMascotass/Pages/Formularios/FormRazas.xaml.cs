@@ -16,17 +16,17 @@ using System.Windows.Shapes;
 using System.Data.SqlClient;
 using System.Configuration;
 
-namespace SC_MMascotass.Pages
+namespace SC_MMascotass.Pages.Formularios
 {
     /// <summary>
     /// Lógica de interacción para FormRaza.xaml
     /// </summary>
-    public partial class FormRaza : Window
+    public partial class FormRazas : Window
     {
         private static string connectionString = ConfigurationManager.ConnectionStrings["SC_MMascotass.Properties.Settings.MascotasConnectionString"].ConnectionString;
         private static SqlConnection sqlConnection = new SqlConnection(connectionString);
         private Mascota mascota = new Mascota();
-        public FormRaza(bool visible)
+        public FormRazas(bool visible)
         {
             InitializeComponent();
             CargarEspeciesCombo();
@@ -63,7 +63,7 @@ namespace SC_MMascotass.Pages
 
         private bool VerificarValores()
         {
-             if (cmbesoecie.SelectedIndex.Equals(-1))
+            if (cmbesoecie.SelectedIndex.Equals(-1))
             {
                 MessageBox.Show("Por favor seleccione una especie");
                 return false;
@@ -88,7 +88,7 @@ namespace SC_MMascotass.Pages
                 MessageBox.Show("Por favor seleccione una esperanza de vida");
                 return false;
             }
-            
+
             else if (cmbActividadFisica.SelectedIndex.Equals(-1))
             {
                 MessageBox.Show("Por favor seleccione una actividad fisica");
@@ -169,7 +169,7 @@ namespace SC_MMascotass.Pages
 
         private void btnNuevaEspecie_Click(object sender, RoutedEventArgs e)
         {
-            FormEspecie especie = new FormEspecie(false);
+            Formularios.FormEspecies especie = new Formularios.FormEspecies(false);
             especie.Show();
         }
     }

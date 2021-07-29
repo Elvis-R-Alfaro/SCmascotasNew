@@ -13,7 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace SC_MMascotass.Pages
+namespace SC_MMascotass.Pages.Formularios
 {
     public partial class FormCliente : Window
     {
@@ -48,7 +48,7 @@ namespace SC_MMascotass.Pages
                 MessageBox.Show("¡Ingrese el Nombre del Cliente!");
                 return false;
             }
-          
+
 
             if (string.IsNullOrWhiteSpace(txtTelefono.Text))
             {
@@ -119,7 +119,7 @@ namespace SC_MMascotass.Pages
                     cliente.CrearCliente(cliente);
 
                     //Mensaje de inserccion exito
-                    MessageBox.Show("Datos insertados correctamente","Exito",MessageBoxButton.OK,MessageBoxImage.Information);
+                    MessageBox.Show("Datos insertados correctamente", "Exito", MessageBoxButton.OK, MessageBoxImage.Information);
                     Limpiar();
                     this.Close();
 
@@ -128,9 +128,9 @@ namespace SC_MMascotass.Pages
                 {
                     MessageBox.Show("Revise que los Campos esten Escritos Correctamente");
                     Console.WriteLine(ex.Message);
-                    
+
                 }
-                
+
 
             }
         }
@@ -146,7 +146,7 @@ namespace SC_MMascotass.Pages
 
         private void btnRestablecer_Click(object sender, RoutedEventArgs e)
         {
-            Limpiar();        
+            Limpiar();
         }
 
         private void btnAceptar_Click(object sender, RoutedEventArgs e)

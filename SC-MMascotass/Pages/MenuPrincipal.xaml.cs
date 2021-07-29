@@ -53,7 +53,7 @@ namespace SC_MMascotass
 
         private void btnCategorias_Click(object sender, RoutedEventArgs e)
         {
-            AgregarForm(new Categorias());
+            AgregarForm(new Pages.Categorias());
         }
 
         private void btnInventario_Click(object sender, RoutedEventArgs e)

@@ -15,7 +15,7 @@ using System.Windows.Shapes;
 using System.Data.SqlClient;
 using System.Configuration;
 
-namespace SC_MMascotass.Pages
+namespace SC_MMascotass.Pages.Formularios
 {
     public partial class FormMascotas : Window
     {
@@ -42,8 +42,8 @@ namespace SC_MMascotass.Pages
             //VAlidacion de cargar los datos
             if (visible)
             {
-                mascota = mascota.BuscarMascota(ides);            
-                
+                mascota = mascota.BuscarMascota(ides);
+
                 txtAliasMascota.Text = mascota.NombreMascota;
                 //txtRaza.Text = mascota.Raza;
                 dtpFechaNacimiento.Text = mascota.Fecha.ToString();
@@ -90,7 +90,7 @@ namespace SC_MMascotass.Pages
             bool found = false;
             var border = (resultStack.Parent as ScrollViewer).Parent as Border;
             var data = Mascota.MonstrarMascotas22();
-          
+
 
             string query = (sender as TextBox).Text;
 
@@ -198,8 +198,8 @@ namespace SC_MMascotass.Pages
                 MessageBox.Show("¡Ingrese el Color de Pelo de la mascota!");
                 return false;
             }
-            
-            
+
+
             return true;
         }
 
@@ -226,7 +226,7 @@ namespace SC_MMascotass.Pages
                     //Obtener los valores para la mascota
                     ObtenerValoresFormulario();
 
-                    
+
                     mascota.CrearMascota(mascota);
 
                     //Mensaje de inserccion exito
@@ -310,7 +310,7 @@ namespace SC_MMascotass.Pages
 
         private void btnNuevaRaza_Click(object sender, RoutedEventArgs e)
         {
-            FormRaza raza = new FormRaza(false);
+            FormRazas raza = new FormRazas(false);
             raza.Show();
         }
     }
