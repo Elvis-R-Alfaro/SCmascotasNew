@@ -12,8 +12,7 @@ namespace SC_MMascotass
     class HistorialVacunacion
     {
         //Variable Miembro
-        private static string connectionString = ConfigurationManager.ConnectionStrings["SC_MMascotass.Properties.Settings.MascotasConnectionString"].ConnectionString;
-        private SqlConnection sqlConnection = new SqlConnection(connectionString);
+        private SqlConnection sqlConnection = database.Conexion.ObtenerConexion();
 
         //Propiedades
         public int IdHistorialVacunacion { get; set; }

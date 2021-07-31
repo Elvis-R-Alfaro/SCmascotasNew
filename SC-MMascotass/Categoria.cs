@@ -12,8 +12,7 @@ namespace SC_MMascotass
     class Categoria
     {
         //Variable Miembro
-        private static string connectionString = ConfigurationManager.ConnectionStrings["SC_MMascotass.Properties.Settings.MascotasConnectionString"].ConnectionString;
-        private static SqlConnection sqlConnection = new SqlConnection(connectionString);
+        static private SqlConnection sqlConnection = database.Conexion.ObtenerConexion();
 
         //Propiedades
 

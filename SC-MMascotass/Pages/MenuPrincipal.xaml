@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SC_MMascotass"
         mc:Ignorable="d"
-        Height="600" Width="920" WindowStartupLocation="CenterScreen"
+        Height="600" Width="920" WindowStartupLocation="CenterScreen" Icon="/Imagenes/iconos/iconob.ico"
         >
 
     <Grid Background="#E5E5E5">

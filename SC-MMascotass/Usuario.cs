@@ -13,8 +13,7 @@ namespace SC_MMascotass
     class Usuario
     {
         //Variable miembro
-        private static string connectionString = ConfigurationManager.ConnectionStrings["SC_MMascotass.Properties.Settings.MascotasConnectionString"].ConnectionString;
-        private SqlConnection sqlConnection = new SqlConnection(connectionString);
+        private SqlConnection sqlConnection = database.Conexion.ObtenerConexion();
 
         //Propiedades
         public int Id { get; set; }

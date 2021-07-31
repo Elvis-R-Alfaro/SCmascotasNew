@@ -12,8 +12,7 @@ namespace SC_MMascotass
     class Mascota
     {
         //Variable Miembro
-        private static string connectionString = ConfigurationManager.ConnectionStrings["SC_MMascotass.Properties.Settings.MascotasConnectionString"].ConnectionString;
-        private static SqlConnection sqlConnection = new SqlConnection(connectionString);
+        private static SqlConnection sqlConnection = database.Conexion.ObtenerConexion();
 
         private Cliente cliente = new Cliente();
         //Propiedades

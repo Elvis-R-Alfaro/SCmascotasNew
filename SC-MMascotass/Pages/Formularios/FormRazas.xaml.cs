@@ -23,8 +23,7 @@ namespace SC_MMascotass.Pages.Formularios
     /// </summary>
     public partial class FormRazas : Window
     {
-        private static string connectionString = ConfigurationManager.ConnectionStrings["SC_MMascotass.Properties.Settings.MascotasConnectionString"].ConnectionString;
-        private static SqlConnection sqlConnection = new SqlConnection(connectionString);
+        private SqlConnection sqlConnection = database.Conexion.ObtenerConexion();
         private Mascota mascota = new Mascota();
         public FormRazas(bool visible)
         {

@@ -101,7 +101,7 @@ namespace SC_MMascotass
             }
             catch (Exception)
             {
-               // MessageBox.Show("Archivo no encontrado en la Ruta: "+targetURL);
+               MessageBox.Show("Archivo no encontrado en la Ruta: "+targetURL);
                MessageBox.Show("Archivo no encontrado");
             }
         }

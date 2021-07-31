@@ -27,8 +27,7 @@ namespace SC_MMascotass.Pages.Formularios
         private Mascota mascota = new Mascota();
         private List<Mascota> mascotas;
 
-        private static string connectionString = ConfigurationManager.ConnectionStrings["SC_MMascotass.Properties.Settings.MascotasConnectionString"].ConnectionString;
-        private static SqlConnection sqlConnection = new SqlConnection(connectionString);
+        private SqlConnection sqlConnection = database.Conexion.ObtenerConexion();
         public FormEspecies(bool visible)
         {
             InitializeComponent();
