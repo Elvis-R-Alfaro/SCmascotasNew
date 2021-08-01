@@ -26,7 +26,7 @@ namespace SC_MMascotass.Pages
 
         private void btnNuevo_Click(object sender, RoutedEventArgs e)
         {
-            FormCliente cliente = new FormCliente(false);                    
+            Formularios.FormCliente cliente = new Formularios.FormCliente(false);                    
             cliente.Show();
         }
 
@@ -43,8 +43,8 @@ namespace SC_MMascotass.Pages
                 MessageBox.Show("Por favor selecciona un cliente de la lista");
             else
             {
-                FormCliente.ides = Convert.ToInt32(dgClientes.SelectedValue);
-                FormCliente cliente = new FormCliente(true);
+                Formularios.FormCliente.ides = Convert.ToInt32(dgClientes.SelectedValue);
+                Formularios.FormCliente cliente = new Formularios.FormCliente(true);
                 cliente.Show();
             }
         }

@@ -10,18 +10,16 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace SC_MMascotass.Pages
+namespace SC_MMascotass.Pages.Formularios
 {
     /// <summary>
-    /// Lógica de interacción para FormUsuarios.xaml
+    /// Lógica de interacción para FormConsultas.xaml
     /// </summary>
-    public partial class FormUsuarios : Window
+    public partial class FormConsultas : Window
     {
-        
-        public FormUsuarios(bool visible)
+        public FormConsultas()
         {
             InitializeComponent();
         }
@@ -34,13 +32,11 @@ namespace SC_MMascotass.Pages
         private void btnRestablecer_Click(object sender, RoutedEventArgs e)
         {
 
-        }
-
+        } 
         private void btnAceptar_Click(object sender, RoutedEventArgs e)
         {
 
-        }
-
+        } 
         private void btnRegresar_Click(object sender, RoutedEventArgs e)
         {
 

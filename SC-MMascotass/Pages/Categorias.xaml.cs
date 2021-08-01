@@ -15,7 +15,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace SC_MMascotass
+namespace SC_MMascotass.Pages
 {
     public partial class Categorias : UserControl
     {
@@ -32,7 +32,7 @@ namespace SC_MMascotass
 
         private void btnNuevo_Click(object sender, RoutedEventArgs e)
         {
-            FormCategorias categoria = new FormCategorias(false);
+            Formularios.FormCategorias categoria = new Formularios.FormCategorias(false);
             categoria.Show();
         }
         
@@ -49,8 +49,8 @@ namespace SC_MMascotass
                 MessageBox.Show("Por favor selecciona una categoría");
             else
             {
-                FormCategorias.ides = Convert.ToInt32(dgClientes.SelectedValue);
-                FormCategorias categoria = new FormCategorias(true);
+                Formularios.FormCategorias.ides = Convert.ToInt32(dgClientes.SelectedValue);
+                Formularios.FormCategorias categoria = new Formularios.FormCategorias(true);
                 categoria.Show();
             }
                        

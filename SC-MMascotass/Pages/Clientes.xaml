@@ -75,10 +75,12 @@
             </Button>
         </StackPanel>
         <StackPanel Grid.Row="2">
-            <DataGrid Name="dgClientes" IsReadOnly="True" ColumnWidth="*"  AutoGenerateColumns="False" ItemsSource="{Binding Source=clientes}" MaxHeight="310">
+            <DataGrid Name="dgClientes" IsReadOnly="True" ColumnWidth="*"  AutoGenerateColumns="False" ItemsSource="{Binding Source=clientes}" MaxHeight="310" >
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="ID Cliente" Binding="{Binding ID}" Width="80" />
                     <DataGridTextColumn Header="Nombre del Cliente" Binding="{Binding Nombre_Cliente}" />
+                    <DataGridTextColumn Header="Direccion" Binding="{Binding Direccion}" />
+                    <DataGridTextColumn Header="Correo" Binding="{Binding Correo}" />
                     <DataGridTextColumn Header="Teléfono" Binding="{Binding Teléfono}" />
                 </DataGrid.Columns>
             </DataGrid>

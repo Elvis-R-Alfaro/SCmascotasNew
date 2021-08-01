@@ -27,7 +27,7 @@
                         FontSize="14"
                         BorderThickness="0"
                         Name="btnNuevo"
-                        Padding="10" Click="btnNuevo_Click" Height="75" VerticalAlignment="Top">
+                        Padding="10" Click="btnNuevo_Click" Margin="0,0,0,0.2">
                 <StackPanel Orientation="Vertical" >
                     <Image Source="/Imagenes/iconos/nuevo.png" HorizontalAlignment="Center" Width="25" Height="25"/>
                     <TextBlock Text="Nuevo" HorizontalAlignment="Center"/>

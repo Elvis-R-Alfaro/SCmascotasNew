@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace SC_MMascotass.Pages
+namespace SC_MMascotass.Pages.Formularios
 {
     public partial class FormCategorias : Window
     {
@@ -31,7 +31,7 @@ namespace SC_MMascotass.Pages
                 categoria = categoria.BuscarCategoria(ides);
                 txtCategoria.Text = categoria.NombreCategoria;
             }
-               
+
         }
 
         private bool VerificarValores()
@@ -68,7 +68,7 @@ namespace SC_MMascotass.Pages
                 spButton2.Visibility = Visibility.Hidden;
             }
         }
-      
+
         private void btnGuardar_Click(object sender, RoutedEventArgs e)
         {
 
@@ -92,7 +92,7 @@ namespace SC_MMascotass.Pages
                 }
                 finally
                 {
-                    txtCategoria.Text=string.Empty;
+                    txtCategoria.Text = string.Empty;
                 }
             }
         }

@@ -1,9 +1,9 @@
-﻿<Window x:Class="SC_MMascotass.Pages.FormInventario"
+﻿<Window x:Class="SC_MMascotass.Pages.Formularios.FormInventario"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:SC_MMascotass.Pages"
+        xmlns:local="clr-namespace:SC_MMascotass.Pages.Formularios"
         mc:Ignorable="d"
         Title="Ingresar Producto" Height="450" Width="800">
     <Grid Margin="10">
@@ -124,7 +124,7 @@
                     <Label Content="Precio Venta"  FontSize="15" VerticalAlignment="Center" Margin="0 4 0 0" DockPanel.Dock="Left"/>
                     <TextBox Name="txtPrecioVenta" FontSize="15" Margin="0 4 0 0" Width="auto"/>
                 </DockPanel>
-                
+
 
 
             </Grid>

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,13 +25,12 @@ namespace SC_MMascotass
             InitializeComponent();
             ErrorLog error = new ErrorLog();
             error.Add(this, "test");
+            AgregarForm(new Pages.Inicio());
         }
 
         private void btnInicio_Click(object sender, RoutedEventArgs e)
         {
-            MenuPrincipal menu = new MenuPrincipal();
-            menu.Show();
-            this.Close();
+            AgregarForm(new Pages.Inicio());
         }
 
         //Funcion Agregar el Form para cargar los formularios
@@ -52,7 +52,7 @@ namespace SC_MMascotass
 
         private void btnCategorias_Click(object sender, RoutedEventArgs e)
         {
-            AgregarForm(new Categorias());
+            AgregarForm(new Pages.Categorias());
         }
 
         private void btnInventario_Click(object sender, RoutedEventArgs e)
@@ -88,5 +88,6 @@ namespace SC_MMascotass
             menu.Show();
             this.Close();
         }
+
     }
 }

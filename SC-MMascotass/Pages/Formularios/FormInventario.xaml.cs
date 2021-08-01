@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace SC_MMascotass.Pages
+namespace SC_MMascotass.Pages.Formularios
 {
     public partial class FormInventario : Window
     {
@@ -43,7 +43,7 @@ namespace SC_MMascotass.Pages
                 txtPrecioCosto.Text = inventario.PrecioCosto.ToString();
                 txtPrecioVenta.Text = inventario.PrecioVenta.ToString();
                 txtStock.Text = inventario.Stock.ToString();
-                
+
             }
 
         }
@@ -224,7 +224,7 @@ namespace SC_MMascotass.Pages
                 finally
                 {
                     Limpiar();
-                    
+
                     //Faltan cosas
                 }
             }

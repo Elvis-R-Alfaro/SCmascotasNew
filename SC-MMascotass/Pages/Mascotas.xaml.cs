@@ -33,7 +33,7 @@ namespace SC_MMascotass.Pages
         private void btnNuevo_Click(object sender, RoutedEventArgs e)
         {
             // Mostrar el formulario de menú principal
-            FormMascotas mascota = new FormMascotas(false);
+            Formularios.FormMascotas mascota = new Formularios.FormMascotas(false);
             mascota.Show();
 
         }
@@ -51,8 +51,8 @@ namespace SC_MMascotass.Pages
                 MessageBox.Show("Por favor selecciona una mascota de la lista");
             else
             {
-                FormMascotas.ides = Convert.ToInt32(dgClientes.SelectedValue);
-                FormMascotas mascota = new FormMascotas(true);
+                Formularios.FormMascotas.ides = Convert.ToInt32(dgClientes.SelectedValue);
+                Formularios.FormMascotas mascota = new Formularios.FormMascotas(true);
                 mascota.Show();
             }
         }

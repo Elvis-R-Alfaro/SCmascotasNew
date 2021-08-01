@@ -12,23 +12,25 @@ namespace SC_MMascotass
     public class Cliente
     {
         //Variable Miembro
-        private static string connectionString = ConfigurationManager.ConnectionStrings["SC_MMascotass.Properties.Settings.MascotasConnectionString"].ConnectionString;
-        private SqlConnection sqlConnection = new SqlConnection(connectionString);
+        private SqlConnection sqlConnection = database.Conexion.ObtenerConexion();
 
         //Propiedades
         public int ID { get; set; }
         public string Nombre_Cliente { get; set; }
         public string Teléfono { get; set; }
+        public string Correo { get; set; }
+        public string Direccion { get; set; }
 
         //Constructor
         public Cliente() { }
-        public Cliente(int idcliente, string nombrecliente, string telefono)
+        public Cliente(int idcliente, string nombrecliente, string telefono, string correo, string direccion)
         {
             ID = idcliente;
             Nombre_Cliente = nombrecliente;
             Teléfono = telefono;
+            Correo = correo;
+            Direccion = direccion;
         }
-
         //Metodos
 
         /// <summary>
@@ -40,8 +42,8 @@ namespace SC_MMascotass
             try
             {
                 //Query de insertar
-                string query = @"INSERT INTO Veterinaria.Cliente (NombreCliente, Telefono) 
-                            VALUES(@NombreCliente,@Telefono)";
+                string query = @"INSERT INTO Veterinaria.Cliente (NombreCliente, Telefono, Correo, Direccion) 
+                            VALUES(@NombreCliente,@Telefono,@Correo,@Direccion)";
 
                 //Establecer la conexion
                 sqlConnection.Open();
@@ -52,6 +54,8 @@ namespace SC_MMascotass
                 //Establecer los valores de los paramawtros
                 sqlCommand.Parameters.AddWithValue("@NombreCliente", cliente.Nombre_Cliente);
                 sqlCommand.Parameters.AddWithValue("@Telefono", cliente.Teléfono);
+                sqlCommand.Parameters.AddWithValue("@Correo", cliente.Correo);
+                sqlCommand.Parameters.AddWithValue("@Direccion", cliente.Direccion);
 
                 //ejecutar el comando insertado
                 sqlCommand.ExecuteNonQuery();
@@ -94,6 +98,8 @@ namespace SC_MMascotass
                     {
                         elCliente.ID = Convert.ToInt32(rdr["IdCliente"]);
                         elCliente.Nombre_Cliente = rdr["NombreCliente"].ToString();
+                        elCliente.Direccion = rdr["Direccion"].ToString();
+                        elCliente.Correo = rdr["Correo"].ToString();
                         elCliente.Teléfono = rdr["Telefono"].ToString();
 
                     }
@@ -125,7 +131,7 @@ namespace SC_MMascotass
             try
             {
                 //Query de seleccion
-                string query = @"SELECT IdCliente, NombreCliente , Telefono
+                string query = @"SELECT *
                                 FROM Veterinaria.Cliente";
 
                 //Establcer la coneccion
@@ -139,7 +145,13 @@ namespace SC_MMascotass
                 {
                     while (rdr.Read())
                     {
-                        clientes.Add(new Cliente { ID = Convert.ToInt32(rdr["IdCliente"]), Nombre_Cliente = rdr["NombreCliente"].ToString(), Teléfono = rdr["Telefono"].ToString() });
+                        clientes.Add(new Cliente { 
+                            ID = Convert.ToInt32(rdr["IdCliente"]), 
+                            Nombre_Cliente = rdr["NombreCliente"].ToString(), 
+                            Direccion = rdr["Direccion"].ToString(), 
+                            Correo = rdr["Correo"].ToString(),
+                            Teléfono = rdr["Telefono"].ToString() 
+                        });
                     }
                 }
                 return clientes;
@@ -186,6 +198,8 @@ namespace SC_MMascotass
                     {
                         elCliente.ID = Convert.ToInt32(rdr["IdCliente"]);
                         elCliente.Nombre_Cliente = rdr["NombreCliente"].ToString();
+                        elCliente.Correo = rdr["Correo"].ToString();
+                        elCliente.Direccion = rdr["Direccion"].ToString();
                         elCliente.Teléfono = rdr["Telefono"].ToString();
 
                     }
@@ -211,7 +225,10 @@ namespace SC_MMascotass
             {
                 //Query de actualizacion
                 string query = @"UPDATE Veterinaria.Cliente
-                                SET NombreCliente = @NombreCliente,
+                                SET 
+                                    NombreCliente = @NombreCliente,
+                                    Correo = @Correo,
+                                    Direccion = @Direccion,
                                     Telefono =@Telefono
                                 WHERE IdCliente = @IdCliente";
 
@@ -224,6 +241,8 @@ namespace SC_MMascotass
                 //Establecer los valores de los parametros
                 sqlCommand.Parameters.AddWithValue("@IdCliente", cliente.ID);
                 sqlCommand.Parameters.AddWithValue("@NombreCliente", cliente.Nombre_Cliente);
+                sqlCommand.Parameters.AddWithValue("@Direccion", cliente.Direccion);
+                sqlCommand.Parameters.AddWithValue("@Correo", cliente.Correo);
                 sqlCommand.Parameters.AddWithValue("@Telefono", cliente.Teléfono);
 
                 //Ejecutar el comando de actualizar
