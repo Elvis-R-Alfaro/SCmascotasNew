@@ -25,13 +25,12 @@ namespace SC_MMascotass
             InitializeComponent();
             ErrorLog error = new ErrorLog();
             error.Add(this, "test");
+            AgregarForm(new Pages.Inicio());
         }
 
         private void btnInicio_Click(object sender, RoutedEventArgs e)
         {
-            MenuPrincipal menu = new MenuPrincipal();
-            menu.Show();
-            this.Close();
+            AgregarForm(new Pages.Inicio());
         }
 
         //Funcion Agregar el Form para cargar los formularios
@@ -90,20 +89,5 @@ namespace SC_MMascotass
             this.Close();
         }
 
-        private void btnayuda_Click(object sender, RoutedEventArgs e)
-        {
-            var file = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory);
-            string targetURL = @"file:///" + file.ToString() + @"Recursos\manual.html";
-
-            try
-            {
-                System.Diagnostics.Process.Start(targetURL);
-            }
-            catch (Exception)
-            {
-               MessageBox.Show("Archivo no encontrado en la Ruta: "+targetURL);
-               MessageBox.Show("Archivo no encontrado");
-            }
-        }
     }
 }

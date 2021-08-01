@@ -1,0 +1,35 @@
+﻿<UserControl x:Class="SC_MMascotass.Pages.Inicio"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:SC_MMascotass.Pages"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3.5*"/>
+            <ColumnDefinition Width="2.85*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        
+
+            <Image Source="/Imagenes/icono.png" Grid.Column="0" Margin="0 0 0 100"></Image>
+            <Image Source="/Imagenes/letra.png" Grid.Column="1"></Image>
+        <Button     Background="Transparent" Grid.Column="2"
+                        Height="40"
+                        Foreground="Black"
+                        VerticalAlignment="Top"
+                        FontSize="14"
+                        BorderThickness="0"
+                        x:Name="btnayuda" Click="btnayuda_Click">
+            <StackPanel Orientation="Horizontal" Width="70">
+                <Image Source="/Imagenes/ayuda.png" Width="15" Height="15" Margin="0 0 5 0"/>
+                <TextBlock Text="Ayuda" VerticalAlignment="Center"/>
+
+            </StackPanel>
+
+        </Button>
+    </Grid>
+</UserControl>
