@@ -112,8 +112,16 @@ namespace SC_MMascotass.Pages.Formularios
             {
                 try
                 {
+                    //caste
+                    ObtenerValoresFormulario();
+
+                    //caste
+                    ObtenerValoresFormulario();
                     //Obtener los valores para el cliente
                     ObtenerValoresFormulario();
+                    //Caste
+
+
 
                     //Insertar los datos de el cliente
                     cliente.CrearCliente(cliente);
