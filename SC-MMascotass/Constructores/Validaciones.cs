@@ -22,6 +22,8 @@ namespace SC_MMascotass.Constructores
         }
 
 
+
+
         #region Login
         public static bool Vacios_Login(string Usuario, string contra)
         {
