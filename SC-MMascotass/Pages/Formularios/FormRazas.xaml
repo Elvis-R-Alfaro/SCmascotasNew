@@ -32,7 +32,7 @@
                         FontSize="14"
                         BorderThickness="0"
                         Name="btnGuardar"
-                        Padding="10" Click="btnGuardar_Click">
+                        Padding="10" Click="btnGuardar_Click" Height="75" VerticalAlignment="Top">
                 <StackPanel Orientation="Vertical" >
                     <Image Source="/Imagenes/iconos/guardar.png" HorizontalAlignment="Center" Width="25" Height="25"/>
                     <TextBlock Text="Nuevo" HorizontalAlignment="Center"/>
