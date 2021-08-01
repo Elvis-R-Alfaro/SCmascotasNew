@@ -49,7 +49,7 @@ namespace SC_MMascotass.Pages.Formularios
                 return false;
             }
 
-
+            
             if (string.IsNullOrWhiteSpace(txtTelefono.Text))
             {
                 MessageBox.Show("¡Ingrese el Teléfono Corectamente!");
