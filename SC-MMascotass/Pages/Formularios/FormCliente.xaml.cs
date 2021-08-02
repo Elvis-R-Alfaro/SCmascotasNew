@@ -108,7 +108,7 @@ namespace SC_MMascotass.Pages.Formularios
 
         private void btnGuardar_Click(object sender, RoutedEventArgs e)
         {
-            if ( Constructores.Validaciones.Vacios_Cliente(txtNombre.Text, txtTelefono.Text, vali))
+            if ( Constructores.Validaciones.Vacios_Cliente(txtNombre.Text, txtTelefono.Text, txtCorreo.Text,txtDireccion.Text,vali))
             {
                 try
                 {

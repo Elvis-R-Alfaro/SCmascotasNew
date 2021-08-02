@@ -47,7 +47,7 @@
 
         </StackPanel>
         <StackPanel Grid.Row="2" Margin="0 10 0 0" >
-            <DataGrid Name="dgVacunas" AutoGenerateColumns="False" IsReadOnly="True" ItemsSource="{Binding Source=vacunas}" MaxHeight="310" ColumnWidth="*">
+            <DataGrid x:Name="dgVacunas" AutoGenerateColumns="False" IsReadOnly="True" ItemsSource="{Binding Source=vacunas}" MaxHeight="310" ColumnWidth="*">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="ID" Binding="{Binding IdHistorialVacunacion}" Width="50"/>
                     <DataGridTextColumn Header="Nombre de la Mascota" Binding="{Binding Mascota}" Width="*"/>
