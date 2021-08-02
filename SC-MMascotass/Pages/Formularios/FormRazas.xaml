@@ -26,16 +26,17 @@
                        VerticalAlignment="Center"
                         />
         </StackPanel>
-        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" Name="spButton1" Grid.ColumnSpan="2" >
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" Name="spButton1" Grid.ColumnSpan="2" Margin="0" Width="260">
             <Button     Background="Transparent"
                         Foreground="Black"
                         FontSize="14"
                         BorderThickness="0"
                         Name="btnGuardar"
-                        Padding="10" Click="btnGuardar_Click" Height="75" VerticalAlignment="Top">
+                        Padding="10" Click="btnGuardar_Click" Margin="0,0,0,-0.2">
                 <StackPanel Orientation="Vertical" >
                     <Image Source="/Imagenes/iconos/guardar.png" HorizontalAlignment="Center" Width="25" Height="25"/>
-                    <TextBlock Text="Nuevo" HorizontalAlignment="Center"/>
+                    <TextBlock Text="Guardar" HorizontalAlignment="Center"/>
+
                 </StackPanel>
 
             </Button>
@@ -43,8 +44,34 @@
                         Foreground="Black"
                         FontSize="14"
                         BorderThickness="0"
-                        Name="btnRestablecer"
-                        Padding="10" Click="btnRestablecer_Click">
+                        Name="btnEditar"
+                        Padding="10" Click="btnEditar_Click"  Margin="0,0,0,-0.2">
+                <StackPanel Orientation="Vertical" >
+                    <Image Source="/Imagenes/iconos/editar.png" HorizontalAlignment="Center" Width="25" Height="25"/>
+                    <TextBlock Text="Editar" HorizontalAlignment="Center"/>
+
+                </StackPanel>
+
+            </Button>
+            <Button     Background="Transparent"
+                        Foreground="Black"
+                        FontSize="14"
+                        BorderThickness="0"
+                        Name="btnEliminar"
+                        Padding="10" Click="btnEliminar_Click"  Height="81" Margin="0,0,0,-0.2" VerticalAlignment="Top">
+                <StackPanel Orientation="Vertical" >
+                    <Image Source="/Imagenes/iconos/eliminar.png" HorizontalAlignment="Center" Width="25" Height="25"/>
+                    <TextBlock Text="Eliminar" HorizontalAlignment="Center"/>
+
+                </StackPanel>
+
+            </Button>
+            <Button     Background="Transparent"
+                        Foreground="Black"
+                        FontSize="14"
+                        BorderThickness="0"
+                        Name="btnLimpiar"
+                        Padding="10" Click="btnLimpiar_Click">
                 <StackPanel Orientation="Vertical" >
                     <Image Source="/Imagenes/iconos/recargar.png" HorizontalAlignment="Center" Width="25" Height="25"/>
                     <TextBlock Text="Limpiar" HorizontalAlignment="Center"/>
@@ -83,115 +110,35 @@
                 <ComboBox Name="cmbesoecie" Width="145" FontSize="15" Grid.Column="3" Grid.Row="0" Margin="0 4 0 0" HorizontalAlignment="Left" />
                 <TextBox Name="txtNombreRaza" FontSize="15" Grid.Column="1" Grid.Row="0" Margin="0 4 0 0"/>
                 <ComboBox Name="cmbaltura" FontSize="15" Grid.Column="1" Grid.Row="2" Margin="0 4 0 0" >
-                    <ComboBoxItem>
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock>15-35 cm</TextBlock>
-                        </StackPanel>
-                    </ComboBoxItem>
-                    <ComboBoxItem>
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock>35-45 cm</TextBlock>
-                        </StackPanel>
-                    </ComboBoxItem>
-                    <ComboBoxItem>
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock>45-55 cm</TextBlock>
-                        </StackPanel>
-                    </ComboBoxItem>
-                    <ComboBoxItem>
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock>70-80 cm</TextBlock>
-                        </StackPanel>
-                    </ComboBoxItem>
-                    <ComboBoxItem>
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock>Más de 80 cm</TextBlock>
-                        </StackPanel>
-                    </ComboBoxItem>
+                    <ComboBoxItem Content="15-35 cm"></ComboBoxItem>
+                    <ComboBoxItem Content="35-45 cm"></ComboBoxItem>
+                    <ComboBoxItem Content="45-55 cm"></ComboBoxItem>
+                    <ComboBoxItem Content="70-80 cm"></ComboBoxItem>
+                    <ComboBoxItem Content="Más de 80 cm"></ComboBoxItem>
                 </ComboBox>
                 <Button Width="50"  Grid.Column="4" ToolTip="Nueva Especie" Name="btnNuevaEspecie"  Background="#FCA311" Click="btnNuevaEspecie_Click"  HorizontalAlignment="Right" Margin="0 4 0 0">
                     <Image Source="/Imagenes/iconos/nuevo.png" Width="20"/>
                 </Button>
                 <ComboBox Name="cmbPesoIdeal" FontSize="15" Grid.Column="3" Grid.Row="2" Margin="0 4 0 0" >
-                    <ComboBoxItem>
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock>1-3 kg</TextBlock>
-                        </StackPanel>
-                    </ComboBoxItem>
-                    <ComboBoxItem>
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock>3-10 kg</TextBlock>
-                        </StackPanel>
-                    </ComboBoxItem>
-                    <ComboBoxItem>
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock>10-25 kg</TextBlock>
-                        </StackPanel>
-                    </ComboBoxItem>
-                    <ComboBoxItem>
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock>25-45 kg</TextBlock>
-                        </StackPanel>
-                    </ComboBoxItem>
-                    <ComboBoxItem>
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock>45-100 kg</TextBlock>
-                        </StackPanel>
-                    </ComboBoxItem>
-                    <ComboBoxItem>
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock>Más de 100 kg</TextBlock>
-                        </StackPanel>
-                    </ComboBoxItem>
+                    <ComboBoxItem Content="1-3 kg"></ComboBoxItem>
+                    <ComboBoxItem Content="3-10 kg"></ComboBoxItem>
+                    <ComboBoxItem Content="10-25 kg"></ComboBoxItem>
+                    <ComboBoxItem Content="25-45 kg"></ComboBoxItem>
+                    <ComboBoxItem Content="45-100 kg"></ComboBoxItem>
+                    <ComboBoxItem Content="Más de 100 kg"></ComboBoxItem>
                 </ComboBox>
                 <ComboBox Name="cmbEsperanzaVida" FontSize="15"  Grid.Column="1" Grid.Row="3" Margin="0 4 0 0" >
-                    <ComboBoxItem>
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock>Menos de 8 años</TextBlock>
-                        </StackPanel>
-                    </ComboBoxItem>
-                    <ComboBoxItem>
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock>8-10 años</TextBlock>
-                        </StackPanel>
-                    </ComboBoxItem>
-                    <ComboBoxItem>
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock>10-12 años</TextBlock>
-                        </StackPanel>
-                    </ComboBoxItem>
-                    <ComboBoxItem>
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock>12-14 años</TextBlock>
-                        </StackPanel>
-                    </ComboBoxItem>
-                    <ComboBoxItem>
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock>14-20 años</TextBlock>
-                        </StackPanel>
-                    </ComboBoxItem>
-                    <ComboBoxItem>
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock>Más de 20 años</TextBlock>
-                        </StackPanel>
-                    </ComboBoxItem>
+                    <ComboBoxItem Content="Menos de 8 años"></ComboBoxItem>
+                    <ComboBoxItem Content="8-10 años"></ComboBoxItem>
+                    <ComboBoxItem Content="10-12 años"></ComboBoxItem>
+                    <ComboBoxItem Content="12-14 años"></ComboBoxItem>
+                    <ComboBoxItem Content="14-20 años"></ComboBoxItem>
+                    <ComboBoxItem Content="Más de 20 años"></ComboBoxItem>
                 </ComboBox>
                 <ComboBox Name="cmbActividadFisica" FontSize="15" Grid.Column="3" Grid.Row="3" Margin="0 4 0 0" >
-                    <ComboBoxItem>
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock>Baja</TextBlock>
-                        </StackPanel>
-                    </ComboBoxItem>
-                    <ComboBoxItem>
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock>Media</TextBlock>
-                        </StackPanel>
-                    </ComboBoxItem>
-                    <ComboBoxItem>
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock>Alta</TextBlock>
-                        </StackPanel>
-                    </ComboBoxItem>
+                    <ComboBoxItem Content="Baja"></ComboBoxItem>
+                    <ComboBoxItem Content="Media"></ComboBoxItem>
+                    <ComboBoxItem Content="Alta"></ComboBoxItem>
                 </ComboBox>
                 <TextBox Name="txtTipoPelo" FontSize="15" Grid.Column="1" Grid.Row="5" Margin="0 4 0 0" />
 
@@ -199,13 +146,13 @@
             <StackPanel Grid.Row="2"  Margin="0 20 0 0">
                 <DataGrid Name="dgClientes"   AutoGenerateColumns="False" IsReadOnly="True" ItemsSource="{Binding Source=mascotas}" MaxHeight="310" ColumnWidth="*" GridLinesVisibility="Horizontal">
                     <DataGrid.Columns>
-                        <DataGridTextColumn Header="Raza" Binding="{Binding IdEspecie}" Width="80" />
+                        <DataGridTextColumn Header="Raza" Binding="{Binding NombreRaza}" Width="80" />
                         <DataGridTextColumn Header="Especie" Binding="{Binding Descripcion}" />
-                        <DataGridTextColumn Header="Altura" Binding="{Binding Familia}" />
-                        <DataGridTextColumn Header="Rango de Peso" Binding="{Binding Familia}" />
-                        <DataGridTextColumn Header="Esperanza de Vida" Binding="{Binding Familia}" />
-                        <DataGridTextColumn Header="Actividad Fisica" Binding="{Binding Familia}" />
-                        <DataGridTextColumn Header="Tipo de Pelo" Binding="{Binding Familia}" />
+                        <DataGridTextColumn Header="Altura" Binding="{Binding Altura}" />
+                        <DataGridTextColumn Header="Rango de Peso" Binding="{Binding RangoPeso}" />
+                        <DataGridTextColumn Header="Esperanza de Vida" Binding="{Binding EsperanzaVida}" />
+                        <DataGridTextColumn Header="Actividad Fisica" Binding="{Binding ActividadFisica}" />
+                        <DataGridTextColumn Header="Tipo de Pelo" Binding="{Binding TipoDePelo}" />
                     </DataGrid.Columns>
                 </DataGrid>
             </StackPanel>
