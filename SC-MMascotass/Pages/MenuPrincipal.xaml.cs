@@ -69,7 +69,7 @@ namespace SC_MMascotass
 
         private void btnVacunacion_Click(object sender, RoutedEventArgs e)
         {
-            AgregarForm(new Pages.Vacunas());
+            AgregarForm(new Pages.Expedientes());
         }
 
         private void btnPersonal_Click(object sender, RoutedEventArgs e)

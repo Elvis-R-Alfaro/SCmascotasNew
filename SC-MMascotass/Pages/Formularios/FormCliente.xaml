@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SC_MMascotass.Pages.Formularios"
         mc:Ignorable="d"
-        Title="Ingresar Cliente" Height="450" Width="800">
-    <Grid Margin="10">
+        Title="Ingresar Cliente" Height="319.686" Width="800">
+    <Grid Margin="10,10,10,33">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>

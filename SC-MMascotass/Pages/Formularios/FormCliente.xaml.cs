@@ -108,12 +108,20 @@ namespace SC_MMascotass.Pages.Formularios
 
         private void btnGuardar_Click(object sender, RoutedEventArgs e)
         {
-            if (VerificarValores())
+            if ( Constructores.Validaciones.Vacios_Cliente(txtNombre.Text, txtTelefono.Text, txtCorreo.Text,txtDireccion.Text,vali))
             {
                 try
                 {
+                    //caste
+                    ObtenerValoresFormulario();
+
+                    //caste
+                    ObtenerValoresFormulario();
                     //Obtener los valores para el cliente
                     ObtenerValoresFormulario();
+                    //Caste
+
+
 
                     ///ELVIS
                     //////ELVIS
@@ -135,6 +143,11 @@ namespace SC_MMascotass.Pages.Formularios
 
 
             }
+            else
+            {
+                MessageBox.Show(Constructores.Validaciones.Mensaje);
+            }
+
         }
 
         //Metodo Limpiar

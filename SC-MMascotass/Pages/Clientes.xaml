@@ -25,7 +25,7 @@
                         Foreground="Black"
                         FontSize="14"
                         BorderThickness="0"
-                        Name="btnNuevo"
+                        x:Name="btnNuevo"
                         Padding="10" Click="btnNuevo_Click">
                 <StackPanel Orientation="Vertical" >
                     <Image Source="/Imagenes/iconos/nuevo.png" HorizontalAlignment="Center" Width="25" Height="25"/>
@@ -38,7 +38,7 @@
                         Foreground="Black"
                         FontSize="14"
                         BorderThickness="0"
-                        Name="btnEditar"
+                        x:Name="btnEditar"
                         Padding="10" Click="btnEditar_Click">
                 <StackPanel Orientation="Vertical" >
                     <Image Source="/Imagenes/iconos/editar.png" HorizontalAlignment="Center" Width="25" Height="25"/>
@@ -51,7 +51,7 @@
                         Foreground="Black"
                         FontSize="14"
                         BorderThickness="0"
-                        Name="btnEliminar"
+                        x:Name="btnEliminar"
                         Padding="10" Click="btnEliminar_Click">
                 <StackPanel Orientation="Vertical" >
                     <Image Source="/Imagenes/iconos/eliminar.png" HorizontalAlignment="Center" Width="25" Height="25"/>
@@ -64,7 +64,7 @@
                         Foreground="Black"
                         FontSize="14"
                         BorderThickness="0"
-                        Name="btnRefrescar"
+                        x:Name="btnRefrescar"
                         Padding="10" Click="btnRefrescar_Click">
                 <StackPanel Orientation="Vertical" >
                     <Image Source="/Imagenes/iconos/recargar.png" HorizontalAlignment="Center" Width="25" Height="25"/>

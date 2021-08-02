@@ -47,7 +47,7 @@
                         Foreground="Black"
                         FontSize="14"
                         BorderThickness="0"
-                        Name="btnRestablecer"
+                        x:Name="btnRestablecer"
                         Padding="10" Click="btnRestablecer_Click">
                 <StackPanel Orientation="Vertical" >
                     <Image Source="/Imagenes/iconos/recargar.png" HorizontalAlignment="Center" Width="25" Height="25"/>
