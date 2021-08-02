@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SC_MMascotass"
         mc:Ignorable="d"
-        Height="600" Width="920" WindowStartupLocation="CenterScreen"
+        Height="600" Width="920" WindowStartupLocation="CenterScreen" Icon="/Imagenes/iconos/iconob.ico"
         >
 
     <Grid Background="#E5E5E5">
@@ -30,13 +30,13 @@
                         Foreground="Black"
                         FontSize="14"
                         BorderThickness="0"
-                        Name="btnInicio" Click="btnInicio_Click">
-                <StackPanel Orientation="Horizontal"  Width="100">
+                        Name="btnInicio" Click="btnInicio_Click" HorizontalAlignment="Left" Width="200">
+                <StackPanel Orientation="Horizontal"  Width="110">
                     <Image Source="/Imagenes/home.png" Width="20" Height="20" Margin="0 0 20 0"/>
                     <TextBlock Text="Inicio" VerticalAlignment="Center"/>
-                
+
                 </StackPanel>
-                
+
             </Button>
 
 
@@ -46,7 +46,7 @@
                         FontSize="14"
                         BorderThickness="0"
                         Name="btnClientes" Click="btnClientes_Click">
-                <StackPanel Orientation="Horizontal" Width="100">
+                <StackPanel Orientation="Horizontal" Width="110">
                     <Image Source="/Imagenes/cliente.png" Width="20" Height="20" Margin="0 0 20 0"/>
                     <TextBlock Text="Clientes" VerticalAlignment="Center"/>
 
@@ -60,7 +60,7 @@
                         FontSize="14"
                         BorderThickness="0"
                         Name="btnMascotas" Click="btnMascotas_Click">
-                <StackPanel Orientation="Horizontal" Width="100">
+                <StackPanel Orientation="Horizontal" Width="110">
                     <Image Source="/Imagenes/mascota.png" Width="20" Height="20" Margin="0 0 20 0"/>
                     <TextBlock Text="Mascotas" VerticalAlignment="Center"/>
 
@@ -73,7 +73,7 @@
                         FontSize="14"
                         BorderThickness="0"
                         Name="btnCategorias" Click="btnCategorias_Click">
-                <StackPanel Orientation="Horizontal" Width="100">
+                <StackPanel Orientation="Horizontal" Width="110">
                     <Image Source="/Imagenes/categoria.png" Width="20" Height="20" Margin="0 0 20 0"/>
                     <TextBlock Text="Categorías" VerticalAlignment="Center"/>
 
@@ -87,9 +87,9 @@
                         FontSize="14"
                         BorderThickness="0"
                         Name="btnInventario" Click="btnInventario_Click">
-                <StackPanel Orientation="Horizontal" Width="100">
+                <StackPanel Orientation="Horizontal" Width="110">
                     <Image Source="/Imagenes/inventario.png" Width="20" Height="20" Margin="0 0 20 0"/>
-                    <TextBlock Text="Inventario" VerticalAlignment="Center"/>
+                    <TextBlock Text="Inventario" VerticalAlignment="Center" />
 
                 </StackPanel>
 
@@ -101,26 +101,14 @@
                         BorderThickness="0"
                         Name="btnVacunacion" Click="btnVacunacion_Click">
                 <StackPanel Orientation="Horizontal" Width="110">
-                    <Image Source="/Imagenes/injection.png" Width="20" Height="20" Margin="0 0 20 0"/>
+                    <Image Source="/Imagenes/expediente.png" Width="20" Height="20" Margin="0 0 20 0"/>
                     <TextBlock Text="Expediente Animal" VerticalAlignment="Center"/>
 
                 </StackPanel>
 
             </Button>
 
-            <Button     Background="Transparent"
-                        Height="50"
-                        Foreground="Black"
-                        FontSize="14"
-                        BorderThickness="0"
-                        Name="btnPersonal" Click="btnPersonal_Click">
-                <StackPanel Orientation="Horizontal" Width="100">
-                    <Image Source="/Imagenes/venta.png" Width="20" Height="20" Margin="0 0 20 0"/>
-                    <TextBlock Text="Personal" VerticalAlignment="Center"/>
 
-                </StackPanel>
-
-            </Button>
 
             <Button     Background="Transparent"
                         Height="50"
@@ -128,8 +116,8 @@
                         FontSize="14"
                         BorderThickness="0"
                         Name="btnUsuarios" Click="btnUsuarios_Click">
-                <StackPanel Orientation="Horizontal" Width="100">
-                    <Image Source="/Imagenes/venta.png" Width="20" Height="20" Margin="0 0 20 0"/>
+                <StackPanel Orientation="Horizontal" Width="110">
+                    <Image Source="/Imagenes/personal.png" Width="20" Height="20" Margin="0 0 20 0"/>
                     <TextBlock Text="Usuarios" VerticalAlignment="Center"/>
 
                 </StackPanel>
@@ -142,15 +130,28 @@
                         FontSize="14"
                         BorderThickness="0"
                         Name="btnReportes" Click="btnReportes_Click">
-                <StackPanel Orientation="Horizontal" Width="100">
-                    <Image Source="/Imagenes/venta.png" Width="20" Height="20" Margin="0 0 20 0"/>
+                <StackPanel Orientation="Horizontal" Width="110">
+                    <Image Source="/Imagenes/reportes.png" Width="20" Height="20" Margin="0 0 20 0"/>
                     <TextBlock Text="Reportes" VerticalAlignment="Center"/>
 
                 </StackPanel>
 
             </Button>
+            <Button     Background="Transparent"
+                        Height="50"
+                        Foreground="Black"
+                        FontSize="14"
+                        BorderThickness="0"
+                        Name="btnPersonal" Click="btnPersonal_Click">
+                <StackPanel Orientation="Horizontal" Width="100" Visibility="Hidden">
+                    <Image Source="/Imagenes/personal.png" Width="20" Height="20" Margin="0 0 20 0"/>
+                    <TextBlock Text="Personal" VerticalAlignment="Center"/>
 
-        </StackPanel>        
+                </StackPanel>
+
+            </Button>
+
+        </StackPanel>
         <StackPanel Grid.Row="1" VerticalAlignment="Bottom">
             <Button     Background="Transparent"
                         Height="50"
@@ -171,13 +172,10 @@
                         Grid.Column="1"
                         Margin="10"
                         x:Name="spPrincipal">
-            <StackPanel Orientation="Horizontal" >
-                <Image Source="/Imagenes/icono.png" Width="350" Margin="0 0 0 100"></Image>
-                <Image Source="/Imagenes/letra.png" Width="300"></Image>
-            </StackPanel>
+            
         </StackPanel>
     </Grid>
-    
 
-    
+
+
 </Window>

@@ -31,7 +31,7 @@ namespace SC_MMascotass.Pages
         private void btnNuevo_Click(object sender, RoutedEventArgs e)
         {
             // Mostrar el formulario de ingreso de productos
-            FormInventario inventario = new FormInventario(false);
+            Formularios.FormInventario inventario = new Formularios.FormInventario(false);
             inventario.Show();
         }
 
@@ -48,8 +48,8 @@ namespace SC_MMascotass.Pages
                 MessageBox.Show("Por favor selecciona un producto");
             else
             {
-                FormInventario.ides = Convert.ToInt32(dgInventario.SelectedValue);
-                FormInventario inventario = new FormInventario(true);
+                Formularios.FormInventario.ides = Convert.ToInt32(dgInventario.SelectedValue);
+                Formularios.FormInventario inventario = new Formularios.FormInventario(true);
                 inventario.Show();
             }
         }

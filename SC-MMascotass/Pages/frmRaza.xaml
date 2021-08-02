@@ -1,0 +1,34 @@
+﻿<Window x:Class="SC_MMascotass.Pages.frmRaza"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SC_MMascotass.Pages"
+        mc:Ignorable="d"
+        Title="Raza" Height="450" Width="800">
+    <Grid>
+        <StackPanel Orientation="Horizontal" x:Name="spNuevaCategoria" Margin="10,10,444,379">
+            <Image Source="/SC-MMascotass;component/Imagenes/mascota.png" Width="25" Margin="0 0 10 0"/>
+            <TextBlock Text="Nueva Raza"
+                FontSize="18"
+                VerticalAlignment="Center"
+                        />
+        </StackPanel>
+        <Label Content="Especie" HorizontalAlignment="Left" Margin="36,70,0,0" VerticalAlignment="Top"/>
+        <Label Content="Nombre de la Raza" HorizontalAlignment="Left" Margin="36,96,0,0" VerticalAlignment="Top"/>
+        <Label Content="Altura" HorizontalAlignment="Left" Margin="36,122,0,0" VerticalAlignment="Top"/>
+        <Label Content="Rango de Peso" HorizontalAlignment="Left" Margin="36,148,0,0" VerticalAlignment="Top"/>
+        <Label Content="Esperanza de vida" HorizontalAlignment="Left" Margin="36,174,0,0" VerticalAlignment="Top"/>
+        <Label Content="Actividad fisica" HorizontalAlignment="Left" Margin="36,200,0,0" VerticalAlignment="Top"/>
+        <Label Content="Tipo de pelo" HorizontalAlignment="Left" Margin="36,226,0,0" VerticalAlignment="Top"/>
+        <ComboBox HorizontalAlignment="Left" Margin="175,70,0,0" VerticalAlignment="Top" Width="120" Height="26"/>
+        <ComboBox HorizontalAlignment="Left" Margin="175,153,0,0" VerticalAlignment="Top" Width="120" Height="21"/>
+        <ComboBox HorizontalAlignment="Left" Margin="175,127,0,0" VerticalAlignment="Top" Width="120" Height="21"/>
+        <ComboBox HorizontalAlignment="Left" Margin="175,179,0,0" VerticalAlignment="Top" Width="120" Height="21"/>
+        <ComboBox HorizontalAlignment="Left" Margin="175,205,0,0" VerticalAlignment="Top" Width="120" Height="21"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="175,101,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="175,231,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="295,70,0,0" VerticalAlignment="Top" Width="30" Height="26" Background="#FFFCA311"/>
+
+    </Grid>
+</Window>

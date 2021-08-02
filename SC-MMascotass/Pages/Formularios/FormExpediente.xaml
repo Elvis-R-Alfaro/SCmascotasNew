@@ -1,0 +1,56 @@
+﻿<Window x:Class="SC_MMascotass.Pages.Formularios.FormExpediente"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SC_MMascotass.Pages.Formularios"
+        mc:Ignorable="d"
+        Title="Nuevo Expediente" Height="241.875" Width="525.313">
+    <Grid Margin="0,0,2,1">
+        <Label Content="Mascota" HorizontalAlignment="Left" Margin="76,66,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtMascota" HorizontalAlignment="Left" Height="34" Margin="144,58,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="257"/>
+        <Button     Background="Transparent"
+                        Foreground="Black"
+                        FontSize="14"
+                        BorderThickness="0"
+                        Name="btnGuardar"
+                        Padding="10" Click="btnGuardar_Click" Margin="419,42,25,108">
+            <StackPanel Orientation="Vertical" >
+                <Image Source="/Imagenes/iconos/guardar.png" HorizontalAlignment="Center" Width="25" Height="25"/>
+                <TextBlock Text="Guardar" HorizontalAlignment="Center"/>
+
+            </StackPanel>
+
+        </Button>
+        <Button     Background="Transparent"
+            Foreground="Black"
+            FontSize="14"
+            BorderThickness="0"
+            x:Name="btnGuardar_Copy"
+            Padding="10" Click="btnGuardar_Click" Margin="419,115,25,30">
+            <StackPanel Orientation="Vertical" >
+                <Image Source="/SC-MMascotass;component/Imagenes/iconos/eliminar.png" HorizontalAlignment="Center" Width="25" Height="25"/>
+                <TextBlock Text="Cancelar" HorizontalAlignment="Center"/>
+
+            </StackPanel>
+
+        </Button>
+
+        <Button ToolTip="Nuevo Expediente" x:Name="btnNuevoExpediente" Background="#FCA311" Margin="401,58,186,118" AllowDrop="True" Click="btnNuevoExpediente_Click">
+            <Image Source="/Imagenes/iconos/nuevo.png" Width="20"/>
+        </Button>
+
+        <Border BorderBrush="Black"   
+        BorderThickness="1" Margin="144,92,119,75" Background="White">
+            <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="389,34.8,-0.4,110.4">
+                <StackPanel Name="resultStack"></StackPanel>
+            </ScrollViewer>
+        </Border>
+        <Image Source="/SC-MMascotass;component/Imagenes/expediente.png" Width="25" Margin="10,10,480,154" RenderTransformOrigin="-0.782,0.822"/>
+        <TextBlock
+            FontSize="18"
+            VerticalAlignment="Center" Margin="49,20,318,164" Height="26"
+                        ><Run Text="Nuev"/><Run Text="o Expediente"/></TextBlock>
+
+    </Grid>
+</Window>

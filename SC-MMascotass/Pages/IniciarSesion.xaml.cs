@@ -61,7 +61,7 @@ namespace SC_MMascotass
             catch (Exception ex)
             {
                 MessageBox.Show("Ha ocurrido un error al momento de realizar la consulta...");
-                Console.WriteLine(ex.Message);
+                MessageBox.Show(ex.ToString());               
             }
         }
 
