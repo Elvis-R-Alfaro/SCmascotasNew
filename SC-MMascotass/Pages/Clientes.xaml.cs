@@ -32,7 +32,7 @@ namespace SC_MMascotass.Pages
 
         private void ObtenerClientes()
         {
-            clientes = cliente.MonstrarCliente();
+            clientes = Constructores.Procedimientos.MonstrarCliente();
             dgClientes.SelectedValuePath = "ID";
             dgClientes.ItemsSource = clientes;
         }
@@ -63,7 +63,7 @@ namespace SC_MMascotass.Pages
                     if (result == MessageBoxResult.Yes)
                     {
                         //Eliminar la Clientes
-                        cliente.EliminarCliente(Convert.ToInt32(dgClientes.SelectedValue));
+                        Constructores.Procedimientos.EliminarCliente(Convert.ToInt32(dgClientes.SelectedValue));
                     }
                 }
 

@@ -40,7 +40,7 @@ namespace SC_MMascotass.Pages
 
         private void ObtenerMascotas()
         {
-            mascotas = mascota.MostrarMascotas();
+            mascotas = Constructores.Procedimientos.MonstrarMascotas();
             dgClientes.SelectedValuePath = "IdMascota";
             dgClientes.ItemsSource = mascotas;
         }
@@ -71,7 +71,7 @@ namespace SC_MMascotass.Pages
                     if (result == MessageBoxResult.Yes)
                     {
                         //Eliminar la mascotas
-                        mascota.EliminarMascota(Convert.ToInt32(dgClientes.SelectedValue));
+                        Constructores.Procedimientos.EliminarMascota(Convert.ToInt32(dgClientes.SelectedValue));
                     }
                 }
 

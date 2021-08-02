@@ -36,7 +36,7 @@ namespace SC_MMascotass.Pages.Formularios
 
         private void ObtenerMascotas()
         {
-            mascotas = mascota.MostrarEspecies();
+            mascotas = Constructores.Procedimientos.MostrarEspecies();
             dgClientes.SelectedValuePath = "IdEspecie";
             dgClientes.ItemsSource = mascotas;
         }
@@ -66,7 +66,7 @@ namespace SC_MMascotass.Pages.Formularios
                     mascota.Familia = txtFamilia.Text;
 
                     //Ejecutamos
-                    mascota.CrearEspecie(mascota);
+                    Constructores.Procedimientos.CrearEspecie(mascota);
 
                     //Mensaje de inserccion exito
                     MessageBox.Show("Datos Insertados Correctamente", "Exito", MessageBoxButton.OK, MessageBoxImage.Information);
@@ -146,7 +146,7 @@ namespace SC_MMascotass.Pages.Formularios
                     if (result == MessageBoxResult.Yes)
                     {
                         //Eliminar la mascotas
-                        mascota.EliminarEspecie(Convert.ToInt32(dgClientes.SelectedValue));
+                        Constructores.Procedimientos.EliminarEspecie(Convert.ToInt32(dgClientes.SelectedValue));
                     }
                 }
 

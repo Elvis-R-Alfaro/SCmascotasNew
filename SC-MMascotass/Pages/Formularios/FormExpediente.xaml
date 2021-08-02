@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SC_MMascotass.Pages.Formularios"
         mc:Ignorable="d"
-        Title="Nuevo Expediente" Height="216.394" Width="518.443">
+        Title="Nuevo Expediente" Height="250" Width="518.443">
     <Grid Margin="10">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -59,34 +59,6 @@
                        VerticalAlignment="Center">
             </TextBlock>
         </StackPanel>
-        <!--<StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" Visibility="Hidden" Name="spButton2">
-            <Button     Background="Transparent"
-                        Foreground="Black"
-                        FontSize="14"
-                        BorderThickness="0"
-                        Name="bntAceptar"
-                        Padding="10" Click="bntAceptar_Click">
-                <StackPanel Orientation="Vertical" >
-                    <Image Source="/Imagenes/iconos/guardar.png" HorizontalAlignment="Center" Width="25" Height="25"/>
-                    <TextBlock Text="Aceptar" HorizontalAlignment="Center"/>
-
-                </StackPanel>
-
-            </Button>
-            <Button     Background="Transparent"
-                        Foreground="Black"
-                        FontSize="14"
-                        BorderThickness="0"
-                        Name="btnCancelar"
-                        Padding="10" Click="btnCancelar_Click">
-                <StackPanel Orientation="Vertical" >
-                    <Image Source="/Imagenes/iconos/recargar.png" HorizontalAlignment="Center" Width="25" Height="25"/>
-                    <TextBlock Text="Cancelar" HorizontalAlignment="Center"/>
-
-                </StackPanel>
-
-            </Button>
-        </StackPanel>-->
         <StackPanel Grid.Row="2">
             <Grid>
                 <Grid.ColumnDefinitions>
@@ -105,5 +77,12 @@
 
             </Grid>
         </StackPanel>
+        <Border Height="50" BorderBrush="Black"   
+        BorderThickness="1" Margin="247 34 0 5" Grid.Row="2" Background="White"  VerticalAlignment="Top">
+            <ScrollViewer VerticalScrollBarVisibility="Auto"
+                          >
+                <StackPanel Name="autoCompleteMascotas"></StackPanel>
+            </ScrollViewer>
+        </Border>
     </Grid>
 </Window>

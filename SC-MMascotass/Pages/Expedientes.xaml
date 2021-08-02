@@ -74,12 +74,14 @@
             </StackPanel>
 
         </Button>
-        <Border BorderBrush="Black"   
-            BorderThickness="1" Margin="263,123,315,272" Background="White">
-            <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="389,34.8,-0.4,110.4">
-                <StackPanel x:Name="resultStack"/>
+        <Border Height="50" BorderBrush="Black"   
+        BorderThickness="1" Margin="0" Grid.Row="2" Grid.Column="1" Background="White"  VerticalAlignment="Top">
+            <ScrollViewer VerticalScrollBarVisibility="Auto"
+                          >
+                <StackPanel Name="autoCompleteMascotas"></StackPanel>
             </ScrollViewer>
         </Border>
+        
 
 
 

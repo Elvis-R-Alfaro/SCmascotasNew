@@ -41,13 +41,13 @@ namespace SC_MMascotass.Pages.Formularios
             //VAlidacion de cargar los datos
             if (visible)
             {
-                mascota = mascota.BuscarMascota(ides);
+                mascota = Constructores.Procedimientos.BuscarMascota(ides);
 
                 txtAliasMascota.Text = mascota.NombreMascota;
                 //txtRaza.Text = mascota.Raza;
                 dtpFechaNacimiento.Text = mascota.Fecha.ToString();
 
-                cliente = cliente.BuscarCliente(mascota.IdCliente);
+                cliente = Constructores.Procedimientos.BuscarCliente(mascota.IdCliente);
                 txtAuCliente.Text = cliente.Nombre_Cliente;
             }
 
@@ -88,7 +88,7 @@ namespace SC_MMascotass.Pages.Formularios
         {
             bool found = false;
             var border = (resultStack.Parent as ScrollViewer).Parent as Border;
-            var data = Mascota.MonstrarMascotas22();
+            var data = Constructores.Procedimientos.MonstrarMascotas22();
 
 
             string query = (sender as TextBox).Text;
@@ -142,7 +142,7 @@ namespace SC_MMascotass.Pages.Formularios
             {
                 var border = (resultStack.Parent as ScrollViewer).Parent as Border;
                 txtAuCliente.Text = (sender as TextBlock).Text;
-                cliente = cliente.BuscarClientID(txtAuCliente.Text);
+                cliente = Constructores.Procedimientos.BuscarClientID(txtAuCliente.Text);
                 border.Visibility = System.Windows.Visibility.Collapsed;
                 ObtenerValoresFormulario();
             };
@@ -205,10 +205,10 @@ namespace SC_MMascotass.Pages.Formularios
         //Obtener los valores del fomrulario en variables
         private void ObtenerValoresFormulario()
         {
-            mascota = mascota.BuscarMascota(ides);
-            cliente = cliente.BuscarCliente(ides);
+            mascota = Constructores.Procedimientos.BuscarMascota(ides);
+            cliente = Constructores.Procedimientos.BuscarCliente(ides);
 
-            cliente = cliente.BuscarClientID(txtAuCliente.Text);
+            cliente = Constructores.Procedimientos.BuscarClientID(txtAuCliente.Text);
             mascota.IdCliente = cliente.ID;
             cliente.Nombre_Cliente = txtAuCliente.Text;
             mascota.NombreMascota = txtAliasMascota.Text;
@@ -226,7 +226,7 @@ namespace SC_MMascotass.Pages.Formularios
                     ObtenerValoresFormulario();
 
 
-                    mascota.CrearMascota(mascota);
+                    Constructores.Procedimientos.CrearMascota(mascota);
 
                     //Mensaje de inserccion exito
                     MessageBox.Show("Datos Insertados Correctamente", "Exito", MessageBoxButton.OK, MessageBoxImage.Information);
@@ -279,7 +279,7 @@ namespace SC_MMascotass.Pages.Formularios
                     ObtenerValoresFormulario();
 
                     //Insertar los datos de la mascota
-                    mascota.EditarMascota(mascota);
+                    Constructores.Procedimientos.EditarMascota(mascota);
 
                     //Mensaje de inserccion exito
                     MessageBox.Show("Datos Modificados Correctamente", "Exito", MessageBoxButton.OK, MessageBoxImage.Information);
