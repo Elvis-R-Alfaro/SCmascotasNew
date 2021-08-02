@@ -17,11 +17,11 @@
             <RowDefinition Height="90"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <DataGrid Name="dgExpediente" AutoGenerateColumns="False" IsReadOnly="True" Margin="0 20 0 0" ItemsSource="{Binding Source=inventarios}" MaxHeight="310" ColumnWidth="*"  Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3">
+        <DataGrid Name="dgExpediente" AutoGenerateColumns="False" IsReadOnly="True" Margin="0 20 0 0" ItemsSource="{Binding Source=expedientes}" MaxHeight="310" ColumnWidth="*"  Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Nombre Cliente" Binding="{Binding Id}" />
-                <DataGridTextColumn Header="Nomcre Dueño" Binding="{Binding Categoria}" />
-                <DataGridTextColumn Header="Fecha de ultima visita" Binding="{Binding Descripcion}" />
+                <DataGridTextColumn Header="Mascota" Binding="{Binding NombreMascota}" />
+                <DataGridTextColumn Header="Cliente" Binding="{Binding NombreCliente}" />
+                <DataGridTextColumn Header="Fecha de ultima visita" Binding="{Binding UltimaVisita}" />
             </DataGrid.Columns>
         </DataGrid>
         <TextBlock HorizontalAlignment="Left" FontSize="24" Margin="10,10,0,0" Grid.Row="0" TextWrapping="Wrap" Text="Expediente animal" VerticalAlignment="Top" RenderTransformOrigin="0.313,-0.395"/>

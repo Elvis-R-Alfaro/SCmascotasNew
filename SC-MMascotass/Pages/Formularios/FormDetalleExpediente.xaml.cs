@@ -19,12 +19,24 @@ namespace SC_MMascotass.Pages.Formularios
     /// </summary>
     public partial class FormDetalleExpediente : Window
     {
+        public static string mascota;
+
         public FormDetalleExpediente()
         {
             InitializeComponent();
         }
 
+        private void ObtenerValores()
+        {
+
+        }
+
         private void btnGuardar_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnCancelar_Click(object sender, RoutedEventArgs e)
         {
 
         }

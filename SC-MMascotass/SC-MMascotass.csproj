@@ -171,6 +171,9 @@
     <Compile Include="Pages\Vacunas.xaml.cs">
       <DependentUpon>Vacunas.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\verExpediente.xaml.cs">
+      <DependentUpon>verExpediente.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Reportes\BuscarPersonalxCargo.xaml.cs">
       <DependentUpon>BuscarPersonalxCargo.xaml</DependentUpon>
     </Compile>
@@ -320,6 +323,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\Vacunas.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\verExpediente.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

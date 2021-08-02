@@ -1256,12 +1256,13 @@ namespace SC_MMascotass.Constructores
             try
             {
                 //Crear el comando SQL
-                SqlCommand sqlCommand = new SqlCommand("CrearExpediente", sqlConnection);
+                SqlCommand sqlCommand = new SqlCommand("Expediente", sqlConnection);
                 sqlCommand.CommandType = System.Data.CommandType.StoredProcedure;
 
                 //Establecer los valores de los paramawtros
                 sqlCommand.Parameters.AddWithValue("@idMascota", expediente.IdMascota);
                 sqlCommand.Parameters.AddWithValue("@fechaRegistro", expediente.FechaRegistro);
+                sqlCommand.Parameters.AddWithValue("@Accion", "Insertar");
 
                 //Establecer la conexion
                 sqlConnection.Open();
@@ -1277,6 +1278,105 @@ namespace SC_MMascotass.Constructores
             finally
             {
                 //Cerrar la conexion
+                sqlConnection.Close();
+            }
+        }
+
+
+        public static List<Expediente> MostrarExpedientes()
+        {
+            //Iniciamos la lista vacia de categorias
+            List<Expediente> expedientes= new List<Expediente>();
+
+            try
+            {
+                //Crear el comando SQL
+                SqlCommand sqlCommand = new SqlCommand("Expediente", sqlConnection);
+                sqlCommand.CommandType = System.Data.CommandType.StoredProcedure;
+
+                //Establecer los valores de los paramawtros
+                sqlCommand.Parameters.AddWithValue("@Accion", "MostrarExpediente");
+
+                //Abrir conexion
+                sqlConnection.Open();
+
+                //Obtener los datos de las categorias
+                using (SqlDataReader rdr = sqlCommand.ExecuteReader())
+                {
+                    while (rdr.Read())
+                    {
+                        expedientes.Add(new Expediente
+                        {
+                            IdExpediente = Convert.ToInt32(rdr["IdExpediente"]),
+                            NombreMascota = rdr["NombreMascota"].ToString(),
+                            NombreCliente = rdr["NombreCliente"].ToString(),
+                            UltimaVisita = (DateTime)rdr["UltimaVisita"]
+                        });
+                    }
+                }
+                return expedientes;
+            }
+            catch (Exception e)
+            {
+
+                throw e;
+            }
+            finally
+            {
+                //Cerrar la conexion
+                sqlConnection.Close();
+            }
+        }
+
+
+        public static List<Expediente> BuscarExpediente(int IdExpediente)
+        {
+            //Iniciamos la lista vacia de categorias
+            List<Expediente> expedientes = new List<Expediente>();
+            try
+            {
+                //Crear el comando SQL
+                SqlCommand sqlCommand = new SqlCommand("Expediente", sqlConnection);
+                sqlCommand.CommandType = System.Data.CommandType.StoredProcedure;
+
+                //Establecer el valor del parametro
+                sqlCommand.Parameters.AddWithValue("@idExpediente", IdExpediente);
+                sqlCommand.Parameters.AddWithValue("@Accion", "BuscarDetalleExpedienteId");
+
+                //Establecer la coneccion
+                sqlConnection.Open();
+
+                using (SqlDataReader rdr = sqlCommand.ExecuteReader())
+                {
+                    while (rdr.Read())
+                    {
+                        expedientes.Add(new Expediente
+                        {
+                           IdDetalle = Convert.ToInt32(rdr["IdDetalle"]),
+                            IdExpediente = Convert.ToInt32(rdr["IdExpediente"]),
+                            IdProducto = Convert.ToInt32(rdr["IdProductoUtilizado"]),
+                            Sintomas = rdr["Descripcion"].ToString(),
+                            Patologia = rdr["Patologia"].ToString(),
+                            TratamientoRecomendado = rdr["TratamientoRecomendado"].ToString(),
+                            IdUsuario = Convert.ToInt32(rdr["IdUsuario"]),
+                            FechaRegistroDeta = (DateTime)rdr["FechaDeRegistro"],
+                            Usuario = rdr["Nombre"].ToString()
+                    });
+                        
+
+                    }
+                }
+
+                return expedientes;
+            }
+            catch (Exception e)
+            {
+
+                throw e;
+            }
+            finally
+            {
+                //Cerrar la conexio
                 sqlConnection.Close();
             }
         }

@@ -20,9 +20,20 @@ namespace SC_MMascotass.Pages
     /// </summary>
     public partial class Expedientes : UserControl
     {
+
+        private Constructores.Expediente expediente = new Constructores.Expediente();
+        private List<Constructores.Expediente> expedientes;
         public Expedientes()
         {
             InitializeComponent();
+            ObtenerExpedientes();
+        }
+
+        private void ObtenerExpedientes()
+        {
+            expedientes = Constructores.Procedimientos.MostrarExpedientes();
+            dgExpediente.SelectedValuePath = "IdExpediente";
+            dgExpediente.ItemsSource = expedientes;
         }
 
         private void btnNuevoExpediente_Click(object sender, RoutedEventArgs e)
@@ -33,8 +44,15 @@ namespace SC_MMascotass.Pages
 
         private void btnVerExpediente_Click(object sender, RoutedEventArgs e)
         {
-            Formularios.FormDetalleExpediente detalleExpediente = new Formularios.FormDetalleExpediente();
-            detalleExpediente.Show();
+            if (dgExpediente.SelectedValue == null)
+                MessageBox.Show("Por favor selecciona un cliente de la lista");
+            else
+            {
+                verExpediente.id = Convert.ToInt32(dgExpediente.SelectedValue);
+                verExpediente veExpediente = new verExpediente();
+                veExpediente.Show();
+            }
+            
         }
 
         private void addItem(string text)

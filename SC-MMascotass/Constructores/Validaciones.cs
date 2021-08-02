@@ -307,6 +307,20 @@ namespace SC_MMascotass.Constructores
             return true;
         }
 
+
+        //Validacion NuevoExpediente
+        public static bool Nuevo_Expediente(string idMascota)
+        {
+            if (ValoresVacios(idMascota) || idMascota=="0")
+            {
+                Mensaje = "¡Ingrese seleccione una mascota ya registrada!";
+                return false;
+            }
+            return true;
+        }
+
+
+
     }
 
 }
