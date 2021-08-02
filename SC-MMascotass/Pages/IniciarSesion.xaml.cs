@@ -31,38 +31,32 @@ namespace SC_MMascotass
 
         private void btnAceptar_Click(object sender, RoutedEventArgs e)
         {
-            try
-            {
-                //Implementar la busqueda del usuario desde la clase usuario
-                Usuario elUsuario = usuario.BuscarUsuario(txtUsername.Text);
+            //Implementar la busqueda del usuario desde la clase usuario
+            Usuario elUsuario = Constructores.Procedimientos.BuscarUsuario(txtUsername.Text);
 
-                //Verificar si el usuario existe 
-                if (elUsuario.Username == null)
+            //Verificar si el usuario existe 
+            if (elUsuario.Username == null)
+            {
+                MessageBox.Show("El usuario o contraseña no es correcta");
+            }
+            else {
+                //Verificar si la contraseña coincide con la de la base
+                if (elUsuario.Password == pwbPassword.Password && elUsuario.Estado)
+                {
+                    MenuPrincipal menu = new MenuPrincipal();
+                    menu.Show();
+                    this.Close();
+                }
+                else if (!elUsuario.Estado)
+                {
+                    MessageBox.Show("El usuario se encuentra inactivo, comuniquese con el personal de IT");
+                }else
                 {
                     MessageBox.Show("El usuario o contraseña no es correcta");
                 }
-                else {
-                    //Verificar si la contraseña coincide con la de la base
-                    if (elUsuario.Password == pwbPassword.Password && elUsuario.Estado)
-                    {
-                        MenuPrincipal menu = new MenuPrincipal();
-                        menu.Show();
-                        this.Close();
-                    }
-                    else if (!elUsuario.Estado)
-                    {
-                        MessageBox.Show("El usuario se encuentra inactivo, comuniquese con el personal de IT");
-                    }else
-                    {
-                        MessageBox.Show("El usuario o contraseña no es correcta");
-                    }
-                }
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Ha ocurrido un error al momento de realizar la consulta...");
-                MessageBox.Show(ex.ToString());               
-            }
+            
+
         }
 
         private void btnCerrar_Click(object sender, RoutedEventArgs e)

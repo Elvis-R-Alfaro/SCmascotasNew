@@ -10,7 +10,7 @@ using System.Configuration;
 
 namespace SC_MMascotass
 {
-    class Usuario
+    public class Usuario
     {
         //Variable miembro
         private SqlConnection sqlConnection = database.Conexion.ObtenerConexion();
@@ -36,56 +36,7 @@ namespace SC_MMascotass
             Estado = estado;
         }
 
-        //Metodos
-
-        /// <summary>
-        /// Verifica si las credenciales de inicio de sesion son correctas.
-        /// </summary>
-        /// <param name="username">El nombre del usuario</param>
-        /// <returns>Los datos del usuario</returns>
-        public Usuario BuscarUsuario(string username)
-        {
-            //Crear ibjeto que almacena la información de los resultados
-            Usuario usuario = new Usuario();
-
-            try
-            {
-                //Crear comando SQL
-                SqlCommand sqlCommand = new SqlCommand("BuscarUsuario", sqlConnection);
-                sqlCommand.CommandType = System.Data.CommandType.StoredProcedure;
-
-                //Establecer los valores de los parámetros
-                sqlCommand.Parameters.AddWithValue("@username", username);
-
-                sqlConnection.Open();
-
-                using (SqlDataReader rdr = sqlCommand.ExecuteReader())
-                {
-                    while (rdr.Read())
-                    {
-                        //Obtener los valores del usuarios si la consulta retorna valores
-                        usuario.Id = Convert.ToInt32(rdr["IdUsuario"]);
-                        usuario.NombreCompleto = rdr["Nombre"].ToString();
-                        usuario.Username = rdr["Usuario"].ToString();
-                        usuario.Password = rdr["Clave"].ToString();
-                        usuario.Estado = Convert.ToBoolean(rdr["Estado"]);
-                    }
-
-                }
-                //retornar el usuario con los valores
-                return usuario;
-            }
-            catch (Exception e)
-            {
-
-                throw e;
-            }
-            finally {
-                //Cerrar la seccion
-                sqlConnection.Close();
-            }
-        }
-
+     
         public List<Usuario> MostrarUsuario()
         {
             //Iniciamos la lista vacia de categorias
