@@ -225,7 +225,6 @@ namespace SC_MMascotass.Pages.Formularios
                     //Obtener los valores para la mascota
                     ObtenerValoresFormulario();
 
-
                     Constructores.Procedimientos.CrearMascota(mascota);
 
                     //Mensaje de inserccion exito

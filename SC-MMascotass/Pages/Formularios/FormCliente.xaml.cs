@@ -123,8 +123,6 @@ namespace SC_MMascotass.Pages.Formularios
                     this.Close();
 
               
-
-
             }
             else
             {

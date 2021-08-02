@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SC_MMascotass.Pages.Formularios"
         mc:Ignorable="d"
-        Title="Ingresar Cliente" Height="319.686" Width="800">
+        Title="Ingresar Cliente" Height="330" Width="800" WindowStartupLocation="CenterScreen">
     <Grid Margin="10,10,10,33">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -31,7 +31,7 @@
                         FontSize="14"
                         BorderThickness="0"
                         Name="btnGuardar"
-                        Padding="10" Click="btnGuardar_Click" Height="75" VerticalAlignment="Top">
+                        Padding="10" Click="btnGuardar_Click" Margin="0,0,0,0.2">
                 <StackPanel Orientation="Vertical" >
                     <Image Source="/Imagenes/iconos/guardar.png" HorizontalAlignment="Center" Width="25" Height="25"/>
                     <TextBlock Text="Nuevo" HorizontalAlignment="Center"/>

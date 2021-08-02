@@ -76,10 +76,10 @@ namespace SC_MMascotass.Constructores
         {
             if (string.IsNullOrWhiteSpace(Campo))
             {
-                return false;
+                return true;
             }
 
-            return true;
+            return false;
         }
 
         //Verificar numero
