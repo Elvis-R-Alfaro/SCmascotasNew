@@ -9,7 +9,7 @@ using System.Configuration;
 
 namespace SC_MMascotass
 {
-    class vacunaciones
+    public class vacunaciones
     {
         //Variable Miembro
         private SqlConnection sqlConnection = database.Conexion.ObtenerConexion();

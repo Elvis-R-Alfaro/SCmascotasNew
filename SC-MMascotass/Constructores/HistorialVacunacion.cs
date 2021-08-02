@@ -9,7 +9,7 @@ using System.Configuration;
 
 namespace SC_MMascotass
 {
-    class HistorialVacunacion
+    public class HistorialVacunacion
     {
         //Variable Miembro
         private SqlConnection sqlConnection = database.Conexion.ObtenerConexion();

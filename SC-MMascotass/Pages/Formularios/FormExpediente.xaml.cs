@@ -33,5 +33,10 @@ namespace SC_MMascotass.Pages.Formularios
         {
 
         }
+
+        private void btnRestablecer_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

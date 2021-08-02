@@ -9,13 +9,14 @@ using System.Configuration;
 
 namespace SC_MMascotass
 {
-    class InventarioC
+    public class InventarioC
     {
         //Variable Miembro
         private SqlConnection sqlConnection = database.Conexion.ObtenerConexion();
 
         //Propiedades
         public int IdCategoria { get; set; }        
+        public int IdProveedor { get; set; }        
         public string Descripcion { get; set; }
         public int Id { get; set; }
         public string Categoria { get; set; }
@@ -25,9 +26,10 @@ namespace SC_MMascotass
 
         //Constructor
         public InventarioC() { }
-        public InventarioC(int idCategoria, string descripcion,string categoria, int id, int stock, double precioCosto, double precioVenta)
+        public InventarioC(int idCategoria, int idproveedor, string descripcion,string categoria, int id, int stock, double precioCosto, double precioVenta)
         {
             IdCategoria = idCategoria;
+            IdProveedor = idproveedor;
             Descripcion = descripcion;
             Categoria = categoria;
             Id = id;

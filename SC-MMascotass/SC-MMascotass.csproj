@@ -100,6 +100,7 @@
     </ApplicationDefinition>
     <Compile Include="Constructores\Cliente.cs" />
     <Compile Include="Constructores\Categoria.cs" />
+    <Compile Include="Constructores\Procedimientos.cs" />
     <Compile Include="Constructores\Validaciones.cs" />
     <Compile Include="database\Conexion.cs" />
     <Compile Include="Constructores\ErrorLog.cs" />

@@ -7,29 +7,41 @@
         mc:Ignorable="d"
         Title="Consulta" Height="336.562" Width="759.688">
     <Grid Margin="0,0,0,23">
-        <Image Source="/Imagenes/expediente.png" Width="25
-               " Margin="10,10,717,227" RenderTransformOrigin="-0.782,0.822"/>
-        <TextBlock Text="Nueva Consulta"
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="75"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" Visibility="Visible" Name="spNuevaCategoria">
+            <Image Source="/Imagenes/expediente.png" Width="25" Margin="0 0 10 0"></Image>
+            <TextBlock Text="Nueva Consulta"
                         FontSize="18"
-                       VerticalAlignment="Center" Margin="49,20,534,237" Height="26"
+                       VerticalAlignment="Center"
                         />
+        </StackPanel>
 
-        <Label Content="Mascota" HorizontalAlignment="Left" Margin="12,150,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.411,0.505"/>
-        <TextBox x:Name="txtMascota" HorizontalAlignment="Left" Height="22" Margin="144,154,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="161" RenderTransformOrigin="-0.216,-0.391"/>
-        <Label x:Name="___No_Name_" Content="Producto o &#xD;&#xA;servicio brindado" HorizontalAlignment="Left" Margin="12,182,0,0" VerticalAlignment="Top" ToolTip="Producto o servicio brindado"/>
-        <TextBox x:Name="txtProducto" HorizontalAlignment="Left" Height="22" Margin="144,192,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="213"/>
-        <Label x:Name="___No_Name__Copy" Content="Sintomatología" HorizontalAlignment="Left" Margin="389,147,0,0" VerticalAlignment="Top" ToolTip="Producto o servicio brindado" Height="27"/>
-        <Label x:Name="___No_Name__Copy1" Content="Patologia Detectada" HorizontalAlignment="Left" Margin="11,228,0,0" VerticalAlignment="Top" ToolTip="Producto o servicio brindado"/>
-        <TextBox x:Name="txtPatologia" HorizontalAlignment="Left" Height="22" Margin="144,228,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="213"/>
-        <RichTextBox x:Name="txtSintomas" HorizontalAlignment="Left" Height="64" Margin="490,128,0,0" VerticalAlignment="Top" Width="240">
+        <Label Content="Mascota" HorizontalAlignment="Left" Margin="20 0 0 0" Grid.Row="2" VerticalAlignment="Top" RenderTransformOrigin="0.411,0.505"/>
+        <TextBox x:Name="txtMascota" HorizontalAlignment="Left" Height="22" Margin="0" Grid.Row="2" Grid.Column="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="180" RenderTransformOrigin="-0.216,-0.391"/>
+        <Label x:Name="___No_Name_" Content="Producto o &#xD;&#xA;servicio brindado" Grid.Row="2" HorizontalAlignment="Left" Margin="20 55 0 0" VerticalAlignment="Top" ToolTip="Producto o servicio brindado"/>
+        <TextBox x:Name="txtProducto" HorizontalAlignment="Left" Height="22" Grid.Row="2" Grid.Column="1"  Margin="0 60 0 0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180"/>
+        <Label x:Name="___No_Name__Copy"  Content="Sintomatología" HorizontalAlignment="Left" Grid.Row="2" Grid.Column="2" Margin="20 19 0 0" VerticalAlignment="Top" ToolTip="Producto o servicio brindado" Height="27"/>
+        <Label x:Name="___No_Name__Copy1" Grid.Row="2" Grid.Column="0" Content="Patologia Detectada" HorizontalAlignment="Left" Margin="20 120 0 0" VerticalAlignment="Top" ToolTip="Producto o servicio brindado"/>
+        <TextBox x:Name="txtPatologia" HorizontalAlignment="Left" Height="22" Margin="0 120 0 0" Grid.Row="2" Grid.Column="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="180"/>
+        <RichTextBox x:Name="txtSintomas" HorizontalAlignment="Right" Grid.Column="2"  Grid.Row="2" Height="64" Margin="0 0 20 0" VerticalAlignment="Top" Width="195" Grid.ColumnSpan="3">
             <FlowDocument>
                 <Paragraph>
                     <Run/>
                 </Paragraph>
             </FlowDocument>
         </RichTextBox>
-        <Label x:Name="___No_Name__Copy2" Content="Tratamiento&#xD;&#xA;Recomendado" HorizontalAlignment="Left" Margin="389,214,0,0" VerticalAlignment="Top" ToolTip="Producto o servicio brindado" Height="45"/>
-        <RichTextBox x:Name="txtTratamiento" HorizontalAlignment="Left" Height="64" Margin="490,206,0,0" VerticalAlignment="Top" Width="240">
+        <Label x:Name="___No_Name__Copy2" Content="Tratamiento&#xD;&#xA;Recomendado" HorizontalAlignment="Left" Margin="20 88 0 0" Grid.Row="2" Grid.Column="2" VerticalAlignment="Top" ToolTip="Producto o servicio brindado" Height="45"/>
+        <RichTextBox x:Name="txtTratamiento" HorizontalAlignment="Right" Grid.Column="2" Grid.Row="2" Height="64" Margin="0 80 20 0" VerticalAlignment="Top" Width="195" Grid.ColumnSpan="3">
             <FlowDocument>
                 <Paragraph>
                     <Run/>
@@ -37,11 +49,11 @@
             </FlowDocument>
         </RichTextBox>
         <Button     Background="Transparent"
-            Foreground="Black"
+            Foreground="Black" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Right"
             FontSize="14"
             BorderThickness="0"
             x:Name="btnGuardar"
-            Padding="10" Click="btnGuardar_Click" Margin="281,49,395,153">
+            Padding="10" Click="btnGuardar_Click" Margin="0">
             <StackPanel Orientation="Vertical" >
                 <Image Source="/SC-MMascotass;component/Imagenes/iconos/guardar.png" HorizontalAlignment="Center" Width="25" Height="25"/>
                 <TextBlock Text="Guardar" HorizontalAlignment="Center"/>
@@ -50,11 +62,11 @@
 
         </Button>
         <Button     Background="Transparent"
-            Foreground="Black"
+            Foreground="Black" Grid.Column="2" Grid.Row="1" HorizontalAlignment="Left"
             FontSize="14"
             BorderThickness="0"
             x:Name="btnGuardar_Copy"
-            Padding="10" Click="btnGuardar_Click" Margin="357,49,324,153">
+            Padding="10" Click="btnGuardar_Click" Margin="0">
             <StackPanel Orientation="Vertical" >
                 <Image Source="/SC-MMascotass;component/Imagenes/iconos/eliminar.png" HorizontalAlignment="Center" Width="25" Height="25"/>
                 <TextBlock Text="Cancelar" HorizontalAlignment="Center"/>

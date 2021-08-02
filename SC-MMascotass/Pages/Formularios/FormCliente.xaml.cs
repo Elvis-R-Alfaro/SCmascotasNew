@@ -110,18 +110,9 @@ namespace SC_MMascotass.Pages.Formularios
         {
             if ( Constructores.Validaciones.Vacios_Cliente(txtNombre.Text, txtTelefono.Text, txtCorreo.Text,txtDireccion.Text,vali))
             {
-                try
-                {
+                
                     //caste
                     ObtenerValoresFormulario();
-
-                    //caste
-                    ObtenerValoresFormulario();
-                    //Obtener los valores para el cliente
-                    ObtenerValoresFormulario();
-                    //Caste
-
-
 
                     //Insertar los datos de el cliente
                     cliente.CrearCliente(cliente);
@@ -131,13 +122,7 @@ namespace SC_MMascotass.Pages.Formularios
                     Limpiar();
                     this.Close();
 
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Revise que los Campos esten Escritos Correctamente");
-                    Console.WriteLine(ex.Message);
-
-                }
+              
 
 
             }
