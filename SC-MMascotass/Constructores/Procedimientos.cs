@@ -1249,6 +1249,40 @@ namespace SC_MMascotass.Constructores
         }
         #endregion
 
+        #region Expediente
+
+        public static void CrearExpediente(Expediente expediente)
+        {
+            try
+            {
+                //Crear el comando SQL
+                SqlCommand sqlCommand = new SqlCommand("CrearExpediente", sqlConnection);
+                sqlCommand.CommandType = System.Data.CommandType.StoredProcedure;
+
+                //Establecer los valores de los paramawtros
+                sqlCommand.Parameters.AddWithValue("@idMascota", expediente.IdMascota);
+                sqlCommand.Parameters.AddWithValue("@fechaRegistro", expediente.FechaRegistro);
+
+                //Establecer la conexion
+                sqlConnection.Open();
+
+                //ejecutar el comando insertado
+                sqlCommand.ExecuteNonQuery();
+            }
+            catch (Exception e)
+            {
+
+                throw e;
+            }
+            finally
+            {
+                //Cerrar la conexion
+                sqlConnection.Close();
+            }
+        }
+
+        #endregion
+
         #region INVENTARIO
 
         /// <summary>

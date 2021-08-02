@@ -19,6 +19,8 @@ namespace SC_MMascotass.Pages.Formularios
     /// </summary>
     public partial class FormExpediente : Window
     {
+        private Mascota mascota = new Mascota();
+        private Constructores.Expediente expediente = new Constructores.Expediente();
         public FormExpediente()
         {
             InitializeComponent();
@@ -31,7 +33,10 @@ namespace SC_MMascotass.Pages.Formularios
 
         private void btnGuardar_Click(object sender, RoutedEventArgs e)
         {
+            expediente.IdMascota = mascota.IdMascota;
+            expediente.FechaRegistro = DateTime.Today;
 
+            Constructores.Procedimientos.CrearExpediente(expediente);
         }
 
         private void btnRestablecer_Click(object sender, RoutedEventArgs e)
@@ -57,7 +62,7 @@ namespace SC_MMascotass.Pages.Formularios
             {
                 var border = (autoCompleteMascotas.Parent as ScrollViewer).Parent as Border;
                 txtexpediente.Text = (sender as TextBlock).Text;
-                //cliente = cliente.BuscarClientID(txtAuCliente.Text);
+                mascota = Constructores.Procedimientos.BuscarMascotaNombre(txtexpediente.Text);
                 border.Visibility = System.Windows.Visibility.Collapsed;
                 //ObtenerValoresFormulario();
             };
