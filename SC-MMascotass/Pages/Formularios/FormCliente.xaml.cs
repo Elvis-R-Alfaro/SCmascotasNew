@@ -33,7 +33,7 @@ namespace SC_MMascotass.Pages.Formularios
             //Validacion de cargar datos
             if (visible)
             {
-                cliente = cliente.BuscarCliente(ides);
+                cliente = Constructores.Procedimientos.BuscarCliente(ides);
                 txtNombre.Text = cliente.Nombre_Cliente;
                 txtTelefono.Text = cliente.Teléfono;
                 txtCorreo.Text = cliente.Correo;
@@ -114,8 +114,8 @@ namespace SC_MMascotass.Pages.Formularios
                     //caste
                     ObtenerValoresFormulario();
 
-                    //Insertar los datos de el cliente
-                    cliente.CrearCliente(cliente);
+                //Insertar los datos de el cliente
+                Constructores.Procedimientos.CrearCliente(cliente);
 
                     //Mensaje de inserccion exito
                     MessageBox.Show("Datos insertados correctamente", "Exito", MessageBoxButton.OK, MessageBoxImage.Information);
@@ -157,7 +157,7 @@ namespace SC_MMascotass.Pages.Formularios
                     ObtenerValoresFormulario();
 
                     //Actualizar los valores en la base de datos
-                    cliente.EditarCliente(cliente);
+                    Constructores.Procedimientos.EditarCliente(cliente);
 
                     //Mensaje de actualizacion realizada
                     MessageBox.Show("Datos modificados correctamente", "Exito", MessageBoxButton.OK, MessageBoxImage.Information);
@@ -175,7 +175,7 @@ namespace SC_MMascotass.Pages.Formularios
 
         private void btnRegresar_Click(object sender, RoutedEventArgs e)
         {
-            cliente = cliente.BuscarCliente(ides);
+            cliente = Constructores.Procedimientos.BuscarCliente(ides);
             txtNombre.Text = cliente.Nombre_Cliente;
             txtTelefono.Text = cliente.Teléfono;
             txtCorreo.Text = cliente.Correo;

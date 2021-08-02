@@ -659,7 +659,7 @@ namespace SC_MMascotass.Constructores
 
         #region Razas
 
-        public void CrearRaza(Mascota mascota)
+        public static void CrearRaza(Mascota mascota)
         {
             try
             {
@@ -692,7 +692,7 @@ namespace SC_MMascotass.Constructores
         #endregion
 
         #region Especies
-        public void CrearEspecie(Mascota mascota)
+        public static void CrearEspecie(Mascota mascota)
         {
             try
             {
@@ -722,7 +722,7 @@ namespace SC_MMascotass.Constructores
             }
         }
 
-        public void EditarEspecie(Mascota mascota)
+        public static void EditarEspecie(Mascota mascota)
         {
             try
             {
@@ -753,7 +753,7 @@ namespace SC_MMascotass.Constructores
             }
         }
 
-        public void EliminarEspecie(int id)
+        public static void EliminarEspecie(int id)
         {
             try
             {
@@ -784,7 +784,7 @@ namespace SC_MMascotass.Constructores
 
 
 
-        public List<Mascota> MostrarEspecies()
+        public static List<Mascota> MostrarEspecies()
         {
             //Iniciamos la lista vacia de categorias
             List<Mascota> mascotas = new List<Mascota>();

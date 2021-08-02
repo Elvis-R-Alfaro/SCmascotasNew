@@ -78,7 +78,7 @@ namespace SC_MMascotass.Pages
                 try
                 {
                     //Obtener los valores para la vacuna
-                    mascota = mascota.BuscarMascotaNombre(txtAuCliente.Text);
+                    mascota = Constructores.Procedimientos.BuscarMascotaNombre(txtAuCliente.Text);
 
                     Vacunaciones.IdMascota = mascota.IdMascota;
                     Vacunaciones.Fecha = DateTime.Now;
@@ -162,7 +162,7 @@ namespace SC_MMascotass.Pages
         {
             bool found = false;
             var border = (autoCompleteCategorias.Parent as ScrollViewer).Parent as Border;
-            var data = Mascota.MonstrarMascotas23();
+            var data = Constructores.Procedimientos.MonstrarMascotas23();
 
 
             string query = (sender as TextBox).Text;
