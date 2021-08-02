@@ -9,7 +9,7 @@ using System.Configuration;
 
 namespace SC_MMascotass
 {
-    class Categoria
+    public class Categoria
     {
         //Variable Miembro
         static private SqlConnection sqlConnection = database.Conexion.ObtenerConexion();

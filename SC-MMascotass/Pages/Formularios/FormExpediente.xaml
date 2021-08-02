@@ -5,52 +5,105 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SC_MMascotass.Pages.Formularios"
         mc:Ignorable="d"
-        Title="Nuevo Expediente" Height="241.875" Width="525.313">
-    <Grid Margin="0,0,2,1">
-        <Label Content="Mascota" HorizontalAlignment="Left" Margin="76,66,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="txtMascota" HorizontalAlignment="Left" Height="34" Margin="144,58,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="257"/>
-        <Button     Background="Transparent"
+        Title="Nuevo Expediente" Height="216.394" Width="518.443">
+    <Grid Margin="10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="75"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal" Visibility="Visible" Name="spNuevaCategoria">
+            <Image Source="/Imagenes/expediente.png" Width="25" Margin="0 0 10 0"></Image>
+            <TextBlock Text="Nuevo Expediente"
+                        FontSize="18"
+                       VerticalAlignment="Center"
+                        />
+        </StackPanel>
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" Visibility="Visible" Name="spButton1">
+            <Button     Background="Transparent"
                         Foreground="Black"
                         FontSize="14"
                         BorderThickness="0"
                         Name="btnGuardar"
-                        Padding="10" Click="btnGuardar_Click" Margin="419,42,25,108">
-            <StackPanel Orientation="Vertical" >
-                <Image Source="/Imagenes/iconos/guardar.png" HorizontalAlignment="Center" Width="25" Height="25"/>
-                <TextBlock Text="Guardar" HorizontalAlignment="Center"/>
+                        Padding="10" Click="btnGuardar_Click">
+                <StackPanel Orientation="Vertical" >
+                    <Image Source="/Imagenes/iconos/guardar.png" HorizontalAlignment="Center" Width="25" Height="25"/>
+                    <TextBlock Text="Guardar" HorizontalAlignment="Center"/>
 
-            </StackPanel>
+                </StackPanel>
 
-        </Button>
-        <Button     Background="Transparent"
-            Foreground="Black"
-            FontSize="14"
-            BorderThickness="0"
-            x:Name="btnGuardar_Copy"
-            Padding="10" Click="btnGuardar_Click" Margin="419,115,25,30">
-            <StackPanel Orientation="Vertical" >
-                <Image Source="/SC-MMascotass;component/Imagenes/iconos/eliminar.png" HorizontalAlignment="Center" Width="25" Height="25"/>
-                <TextBlock Text="Cancelar" HorizontalAlignment="Center"/>
+            </Button>
+            <Button     Background="Transparent"
+                        Foreground="Black"
+                        FontSize="14"
+                        BorderThickness="0"
+                        Name="btnRestablecer"
+                        Padding="10" Click="btnRestablecer_Click">
+                <StackPanel Orientation="Vertical" >
+                    <Image Source="/Imagenes/iconos/recargar.png" HorizontalAlignment="Center" Width="25" Height="25"/>
+                    <TextBlock Text="Limpiar" HorizontalAlignment="Center"/>
 
-            </StackPanel>
+                </StackPanel>
 
-        </Button>
+            </Button>
+        </StackPanel>
 
-        <Button ToolTip="Nuevo Expediente" x:Name="btnNuevoExpediente" Background="#FCA311" Margin="401,58,186,118" AllowDrop="True" Click="btnNuevoExpediente_Click">
-            <Image Source="/Imagenes/iconos/nuevo.png" Width="20"/>
-        </Button>
+        <StackPanel Orientation="Horizontal" Visibility="Hidden" Name="spEditarCategoria">
+            <Image Source="/Imagenes/categoria.png" Width="25" Margin="0 0 10 0"></Image>
+            <TextBlock Text="Editar Categoría"
+                       FontSize="18"
+                       VerticalAlignment="Center">
+            </TextBlock>
+        </StackPanel>
+        <!--<StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" Visibility="Hidden" Name="spButton2">
+            <Button     Background="Transparent"
+                        Foreground="Black"
+                        FontSize="14"
+                        BorderThickness="0"
+                        Name="bntAceptar"
+                        Padding="10" Click="bntAceptar_Click">
+                <StackPanel Orientation="Vertical" >
+                    <Image Source="/Imagenes/iconos/guardar.png" HorizontalAlignment="Center" Width="25" Height="25"/>
+                    <TextBlock Text="Aceptar" HorizontalAlignment="Center"/>
 
-        <Border BorderBrush="Black"   
-        BorderThickness="1" Margin="144,92,119,75" Background="White">
-            <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="389,34.8,-0.4,110.4">
-                <StackPanel Name="resultStack"></StackPanel>
-            </ScrollViewer>
-        </Border>
-        <Image Source="/SC-MMascotass;component/Imagenes/expediente.png" Width="25" Margin="10,10,480,154" RenderTransformOrigin="-0.782,0.822"/>
-        <TextBlock
-            FontSize="18"
-            VerticalAlignment="Center" Margin="49,20,318,164" Height="26"
-                        ><Run Text="Nuev"/><Run Text="o Expediente"/></TextBlock>
+                </StackPanel>
 
+            </Button>
+            <Button     Background="Transparent"
+                        Foreground="Black"
+                        FontSize="14"
+                        BorderThickness="0"
+                        Name="btnCancelar"
+                        Padding="10" Click="btnCancelar_Click">
+                <StackPanel Orientation="Vertical" >
+                    <Image Source="/Imagenes/iconos/recargar.png" HorizontalAlignment="Center" Width="25" Height="25"/>
+                    <TextBlock Text="Cancelar" HorizontalAlignment="Center"/>
+
+                </StackPanel>
+
+            </Button>
+        </StackPanel>-->
+        <StackPanel Grid.Row="2">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+
+
+
+                <Label Content="Nombre de la Mascota" Grid.Row="0" FontSize="15" VerticalAlignment="Center" Margin="0 4 0 0"/>
+
+                <TextBox Name="txtexpediente" FontSize="15" Grid.Column="1" Grid.Row="0" Margin="0 4 0 0"/>
+
+            </Grid>
+        </StackPanel>
     </Grid>
 </Window>
