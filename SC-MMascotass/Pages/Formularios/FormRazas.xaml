@@ -80,6 +80,34 @@
 
             </Button>
         </StackPanel>
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" Name="spButton2" Visibility="Hidden"  Grid.ColumnSpan="2" Margin="0" Width="260">
+            <Button     Background="Transparent"
+                        Foreground="Black"
+                        FontSize="14"
+                        BorderThickness="0"
+                        Name="btnAceptar"
+                        Padding="10" Click="btnAceptar_Click">
+                <StackPanel Orientation="Vertical" >
+                    <Image Source="/Imagenes/iconos/guardar.png" HorizontalAlignment="Center" Width="25" Height="25"/>
+                    <TextBlock Text="Aceptar" HorizontalAlignment="Center"/>
+
+                </StackPanel>
+
+            </Button>
+            <Button     Background="Transparent"
+                        Foreground="Black"
+                        FontSize="14"
+                        BorderThickness="0"
+                        Name="btnCancelar"
+                        Padding="10" Click="btnCancelar_Click">
+                <StackPanel Orientation="Vertical" >
+                    <Image Source="/Imagenes/iconos/recargar.png" HorizontalAlignment="Center" Width="25" Height="25"/>
+                    <TextBlock Text="Cancelar" HorizontalAlignment="Center"/>
+
+                </StackPanel>
+
+            </Button>
+        </StackPanel>
         <StackPanel Grid.Row="2" Grid.ColumnSpan="2" Margin="0,0.8,-0.4,-0.6">
             <Grid>
                 <Grid.ColumnDefinitions>
@@ -146,12 +174,12 @@
             <StackPanel Grid.Row="2"  Margin="0 20 0 0">
                 <DataGrid Name="dgClientes"   AutoGenerateColumns="False" IsReadOnly="True" ItemsSource="{Binding Source=mascotas}" MaxHeight="310" ColumnWidth="*" GridLinesVisibility="Horizontal">
                     <DataGrid.Columns>
-                        <DataGridTextColumn Header="Raza" Binding="{Binding NombreRaza}" Width="80" />
+                        <DataGridTextColumn Header="Raza" Binding="{Binding NombreRaza}" Width="100" />
                         <DataGridTextColumn Header="Especie" Binding="{Binding Descripcion}" />
-                        <DataGridTextColumn Header="Altura" Binding="{Binding Altura}" />
+                        <DataGridTextColumn Header="Altura" Binding="{Binding Altura}" Width="70"/>
                         <DataGridTextColumn Header="Rango de Peso" Binding="{Binding RangoPeso}" />
                         <DataGridTextColumn Header="Esperanza de Vida" Binding="{Binding EsperanzaVida}" />
-                        <DataGridTextColumn Header="Actividad Fisica" Binding="{Binding ActividadFisica}" />
+                        <DataGridTextColumn Header="Actividad Fisica" Binding="{Binding ActividadFisica}" Width="100" />
                         <DataGridTextColumn Header="Tipo de Pelo" Binding="{Binding TipoDePelo}" />
                     </DataGrid.Columns>
                 </DataGrid>

@@ -44,7 +44,9 @@ namespace SC_MMascotass.Pages.Formularios
                 mascota = Constructores.Procedimientos.BuscarMascota(ides);
 
                 txtAliasMascota.Text = mascota.NombreMascota;
-                //txtRaza.Text = mascota.Raza;
+                cmbraza.Text = mascota.NombreRaza;
+                cmbraza.SelectedValuePath = mascota.IdRaza.ToString();
+                cmbsexo.Text = mascota.Sexo;
                 dtpFechaNacimiento.Text = mascota.Fecha.ToString();
 
                 cliente = Constructores.Procedimientos.BuscarCliente(mascota.IdCliente);
@@ -192,11 +194,6 @@ namespace SC_MMascotass.Pages.Formularios
             //    MessageBox.Show("¡Ingrese la raza de la Mascota!");
             //    return false;
             //}
-            else if (string.IsNullOrWhiteSpace(txtColorPelo.Text))
-            {
-                MessageBox.Show("¡Ingrese el Color de Pelo de la mascota!");
-                return false;
-            }
 
 
             return true;
@@ -212,8 +209,9 @@ namespace SC_MMascotass.Pages.Formularios
             mascota.IdCliente = cliente.ID;
             cliente.Nombre_Cliente = txtAuCliente.Text;
             mascota.NombreMascota = txtAliasMascota.Text;
-            //mascota.Raza = txtRaza.Text;
-            mascota.Fecha = dtpFechaNacimiento.DisplayDate;
+            mascota.Sexo = cmbsexo.SelectionBoxItem.ToString();
+            mascota.IdRaza = Convert.ToInt32(cmbraza.SelectedValuePath);
+            mascota.Fecha = dtpFechaNacimiento.SelectedDate.Value;
 
         }
         private void btnGuardar_Click(object sender, RoutedEventArgs e)
@@ -265,8 +263,8 @@ namespace SC_MMascotass.Pages.Formularios
         {
             txtAliasMascota.Text = string.Empty;
             txtAuCliente.Text = string.Empty;
-            txtColorPelo.Text = string.Empty;
-            //txtRaza.Text = string.Empty;
+            cmbsexo.Text = "";
+            cmbraza.Text = "";
         }
         private void btnAceptar_Click(object sender, RoutedEventArgs e)
         {

@@ -393,6 +393,8 @@ namespace SC_MMascotass.Constructores
                             IdCliente = Convert.ToInt32(rdr["IdCliente"]),
                             IdRaza = Convert.ToInt32(rdr["IdRaza"]),
                             NombreMascota = rdr["NombreMascota"].ToString(),
+                            NombreRaza = rdr["NombreRaza"].ToString(),
+                            Cliente = rdr["NombreCliente"].ToString(),
                             Sexo = rdr["Sexo"].ToString(),
                             Fecha = (DateTime)rdr["FechaDeNacimiento"]
                         });
@@ -530,6 +532,7 @@ namespace SC_MMascotass.Constructores
                         laMascota.IdRaza = Convert.ToInt32(rdr["IdRaza"]);
 
                         laMascota.NombreMascota = rdr["NombreMascota"].ToString();
+                        laMascota.NombreRaza = rdr["NombreRaza"].ToString();
                         laMascota.Sexo = rdr["Sexo"].ToString();
                         laMascota.Fecha = (DateTime)rdr["FechaDeNacimiento"];
                     }
@@ -799,6 +802,7 @@ namespace SC_MMascotass.Constructores
                             IdEspecie = Convert.ToInt32(rdr["IdEspecie"]),
                             IdRaza = Convert.ToInt32(rdr["IdRaza"]),
                             NombreRaza = rdr["NombreRaza"].ToString(),
+                            Descripcion = rdr["Descripcion"].ToString(),
                             Altura = rdr["Altura"].ToString(),
                             RangoPeso = rdr["RangoPeso"].ToString(),
                             EsperanzaVida = rdr["EsperanzaVida"].ToString(),

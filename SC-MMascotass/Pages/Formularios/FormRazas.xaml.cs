@@ -116,6 +116,7 @@ namespace SC_MMascotass.Pages.Formularios
         {
             if (VerificarValores())
             {
+
                 try
                 {
                     //Obtener los valores para la mascota
@@ -149,18 +150,58 @@ namespace SC_MMascotass.Pages.Formularios
 
         private void Limpiar()
         {
+            spButton1.Visibility = Visibility.Visible;
+            spButton2.Visibility = Visibility.Hidden;
             txtNombreRaza.Text = "";
             txtTipoPelo.Text = "";
+            cmbActividadFisica.Text = "";
+            cmbaltura.Text = "";
+            cmbesoecie.Text = "";
+            cmbPesoIdeal.Text = "";
+            cmbEsperanzaVida.Text = "";
         }
 
         private void btnRestablecer_Click(object sender, RoutedEventArgs e)
         {
-            
+            Limpiar();
         }
 
         private void btnAceptar_Click(object sender, RoutedEventArgs e)
         {
+            if (VerificarValores())
+            {
 
+                try
+                {
+                    //Obtener los valores para la mascota
+                    mascota.IdEspecie = Convert.ToInt32(cmbesoecie.SelectedValuePath);
+                    mascota.NombreRaza = txtNombreRaza.Text;
+                    mascota.Altura = cmbaltura.SelectionBoxItem.ToString();
+                    mascota.RangoPeso = cmbPesoIdeal.SelectionBoxItem.ToString();
+                    mascota.EsperanzaVida = cmbEsperanzaVida.SelectionBoxItem.ToString();
+                    mascota.ActividadFisica = cmbActividadFisica.SelectionBoxItem.ToString();
+                    mascota.TipoDePelo = txtTipoPelo.Text;
+
+                    mascota.IdRaza = Convert.ToInt32(dgClientes.SelectedValue);
+
+                    //Ejecutamos
+                    Constructores.Procedimientos.EditarRaza(mascota);
+
+                    //Mensaje de inserccion exito
+                    MessageBox.Show("Datos Editados Correctamente", "Exito", MessageBoxButton.OK, MessageBoxImage.Information);
+                    ObtenerRazas();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Ha ocurrido un error al momento de editar la raza....");
+                    Console.WriteLine(ex.Message);
+                }
+                finally
+                {
+                    Limpiar();
+
+                }
+            }
         }
 
         private void btnRegresar_Click(object sender, RoutedEventArgs e)
@@ -180,8 +221,8 @@ namespace SC_MMascotass.Pages.Formularios
                 MessageBox.Show("Por favor selecciona una especie de la lista");
             else
             {
-                //spButton1.Visibility = Visibility.Hidden;
-                //spButton2.Visibility = Visibility.Visible;
+                spButton1.Visibility = Visibility.Hidden;
+                spButton2.Visibility = Visibility.Visible;
                 try
                 {
                     //Query busqueda
@@ -229,12 +270,49 @@ namespace SC_MMascotass.Pages.Formularios
 
         private void btnEliminar_Click(object sender, RoutedEventArgs e)
         {
+            try
+            {
+                if (dgClientes.SelectedValue == null)
+                    MessageBox.Show("Por favor, seleccione una especie de la lista");
+                else
+                {
+                    //Monstrar mensjae de confirmacion
+                    MessageBoxResult result = MessageBox.Show("¿Deseas eliminar la raza?", "Confirmar", MessageBoxButton.YesNo, MessageBoxImage.Warning);
 
+                    if (result == MessageBoxResult.Yes)
+                    {
+                        //Eliminar la mascotas
+                        Constructores.Procedimientos.EliminarRaza(Convert.ToInt32(dgClientes.SelectedValue));
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ha ocurrido un error al eliminar la raza...");
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                //Actualizar el listbox de mascotas
+                ObtenerRazas();
+                Limpiar();
+            }
         }
 
         private void btnLimpiar_Click(object sender, RoutedEventArgs e)
         {
+            Limpiar();   
+        }
+
+        private void btnAceptar_Click_1(object sender, RoutedEventArgs e)
+        {
             
+        }
+
+        private void btnCancelar_Click(object sender, RoutedEventArgs e)
+        {
+            Limpiar();
         }
     }
 }
