@@ -21,14 +21,30 @@ namespace SC_MMascotass.Pages.Formularios
     {
         public static string mascota;
 
-        public FormDetalleExpediente()
+        public FormDetalleExpediente(bool visible)
         {
             InitializeComponent();
+
+            if (visible)
+            {
+                btnAceptar.Visibility = Visibility.Visible;
+                btnRegresaar.Visibility = Visibility.Visible;
+                btnGuardar.Visibility = Visibility.Hidden;
+                btnCancelar.Visibility = Visibility.Hidden;
+            }
         }
 
         private void ObtenerValores()
         {
 
+        }
+
+        private void Limpiar()
+        {
+            btnAceptar.Visibility = Visibility.Hidden;
+            btnRegresaar.Visibility = Visibility.Hidden;
+            btnGuardar.Visibility = Visibility.Visible;
+            btnCancelar.Visibility = Visibility.Visible;
         }
 
         private void btnGuardar_Click(object sender, RoutedEventArgs e)
@@ -37,6 +53,16 @@ namespace SC_MMascotass.Pages.Formularios
         }
 
         private void btnCancelar_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnAceptar_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnRegresaar_Click(object sender, RoutedEventArgs e)
         {
 
         }

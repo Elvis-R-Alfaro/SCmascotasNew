@@ -41,7 +41,7 @@ namespace SC_MMascotass.Pages
         private void btnNuevo_Click(object sender, RoutedEventArgs e)
         {
             //Formularios.FormDetalleExpediente.mascota = txtNombreMascota.Text;
-            Formularios.FormDetalleExpediente detalleExpediente = new Formularios.FormDetalleExpediente();
+            Formularios.FormDetalleExpediente detalleExpediente = new Formularios.FormDetalleExpediente(false);
 
             detalleExpediente.txtMascota.Text = txtNombreMascota.Text;
             detalleExpediente.Show();
@@ -49,7 +49,14 @@ namespace SC_MMascotass.Pages
 
         private void btnEditar_Click(object sender, RoutedEventArgs e)
         {
-
+            if (dgDetalle.SelectedValue == null)
+                MessageBox.Show("Por favor selecciona un consulta de la lista");
+            else
+            {
+                
+                Formularios.FormDetalleExpediente detalleExpediente = new Formularios.FormDetalleExpediente(true);
+                detalleExpediente.Show();
+            }
         }
 
         private void btnEliminar_Click(object sender, RoutedEventArgs e)
