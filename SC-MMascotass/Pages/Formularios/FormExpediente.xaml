@@ -73,12 +73,12 @@
 
                 <Label Content="Nombre de la Mascota" Grid.Row="0" FontSize="15" VerticalAlignment="Center" Margin="0 4 0 0"/>
 
-                <TextBox Name="txtexpediente" FontSize="15" Grid.Column="1" Grid.Row="0" Margin="0 4 0 0"/>
+                <TextBox Name="txtexpediente" FontSize="15" Grid.Column="1" Grid.Row="0" Margin="0 4 0 0" KeyUp="txtexpediente_KeyUp"/>
 
             </Grid>
         </StackPanel>
         <Border Height="50" BorderBrush="Black"   
-        BorderThickness="1" Margin="247 34 0 5" Grid.Row="2" Background="White"  VerticalAlignment="Top">
+        BorderThickness="1" Margin="247 34 0 5" Grid.Row="2" Background="White"  VerticalAlignment="Top" Visibility="Collapsed">
             <ScrollViewer VerticalScrollBarVisibility="Auto"
                           >
                 <StackPanel Name="autoCompleteMascotas"></StackPanel>
