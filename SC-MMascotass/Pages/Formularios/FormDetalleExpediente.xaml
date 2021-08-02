@@ -27,7 +27,7 @@
         </StackPanel>
 
         <Label Content="Mascota" HorizontalAlignment="Left" Margin="20 0 0 0" Grid.Row="2" VerticalAlignment="Top" RenderTransformOrigin="0.411,0.505"/>
-        <TextBox x:Name="txtMascota" HorizontalAlignment="Left" Height="22" Margin="0" Grid.Row="2" Grid.Column="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="180" RenderTransformOrigin="-0.216,-0.391"/>
+        <TextBox x:Name="txtMascota" HorizontalAlignment="Left" Height="22" Margin="0" Grid.Row="2" Grid.Column="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="180" RenderTransformOrigin="-0.216,-0.391" IsEnabled="False"/>
         <Label x:Name="___No_Name_" Content="Producto o &#xD;&#xA;servicio brindado" Grid.Row="2" HorizontalAlignment="Left" Margin="20 55 0 0" VerticalAlignment="Top" ToolTip="Producto o servicio brindado"/>
         <TextBox x:Name="txtProducto" HorizontalAlignment="Left" Height="22" Grid.Row="2" Grid.Column="1"  Margin="0 60 0 0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180"/>
         <Label x:Name="___No_Name__Copy"  Content="Sintomatología" HorizontalAlignment="Left" Grid.Row="2" Grid.Column="2" Margin="20 19 0 0" VerticalAlignment="Top" ToolTip="Producto o servicio brindado" Height="27"/>
@@ -65,8 +65,8 @@
             Foreground="Black" Grid.Column="2" Grid.Row="1" HorizontalAlignment="Left"
             FontSize="14"
             BorderThickness="0"
-            x:Name="btnGuardar_Copy"
-            Padding="10" Click="btnGuardar_Click" Margin="0">
+            x:Name="btnCancelar"
+            Padding="10" Margin="0" Click="btnCancelar_Click">
             <StackPanel Orientation="Vertical" >
                 <Image Source="/SC-MMascotass;component/Imagenes/iconos/eliminar.png" HorizontalAlignment="Center" Width="25" Height="25"/>
                 <TextBlock Text="Cancelar" HorizontalAlignment="Center"/>

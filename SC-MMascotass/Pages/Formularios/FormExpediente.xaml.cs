@@ -26,6 +26,13 @@ namespace SC_MMascotass.Pages.Formularios
             InitializeComponent();
         }
 
+        private void limpiarForm()
+        {
+            txtexpediente.Text = string.Empty;
+            expediente.IdMascota = 0;
+
+        }
+
         private void btnNuevoExpediente_Click(object sender, RoutedEventArgs e)
         {
 
@@ -33,10 +40,21 @@ namespace SC_MMascotass.Pages.Formularios
 
         private void btnGuardar_Click(object sender, RoutedEventArgs e)
         {
+            MessageBox.Show(expediente.IdMascota.ToString());
             expediente.IdMascota = mascota.IdMascota;
-            expediente.FechaRegistro = DateTime.Today;
+            if (Constructores.Validaciones.Nuevo_Expediente(expediente.IdMascota.ToString()))
+            {
+                
+                expediente.FechaRegistro = DateTime.Today;
 
-            Constructores.Procedimientos.CrearExpediente(expediente);
+                Constructores.Procedimientos.CrearExpediente(expediente);
+                limpiarForm();
+                MessageBox.Show("Datos insertados correctamente", "Exito", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else
+            {
+                MessageBox.Show(Constructores.Validaciones.Mensaje);
+            }
         }
 
         private void btnRestablecer_Click(object sender, RoutedEventArgs e)
