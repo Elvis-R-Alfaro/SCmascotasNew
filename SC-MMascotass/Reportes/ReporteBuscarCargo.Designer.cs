@@ -29,37 +29,38 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource3 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.DataSetPrincipal = new SC_MMascotass.Reportes.DataSetPrincipal();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource2 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.BuscarPersonalxCargoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.DataSetPrincipal = new SC_MMascotass.Reportes.DataSetPrincipal();
+            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.BuscarPersonalxCargoTableAdapter = new SC_MMascotass.Reportes.DataSetPrincipalTableAdapters.BuscarPersonalxCargoTableAdapter();
-            ((System.ComponentModel.ISupportInitialize)(this.DataSetPrincipal)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BuscarPersonalxCargoBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DataSetPrincipal)).BeginInit();
             this.SuspendLayout();
             // 
-            // reportViewer1
+            // BuscarPersonalxCargoBindingSource
             // 
-            this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            reportDataSource3.Name = "DataSet1";
-            reportDataSource3.Value = this.BuscarPersonalxCargoBindingSource;
-            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource3);
-            this.reportViewer1.LocalReport.ReportEmbeddedResource = "SC_MMascotass.Reportes.ReporteEmpleadoxCargo.rdlc";
-            this.reportViewer1.Location = new System.Drawing.Point(0, 0);
-            this.reportViewer1.Name = "reportViewer1";
-            this.reportViewer1.ServerReport.BearerToken = null;
-            this.reportViewer1.Size = new System.Drawing.Size(800, 450);
-            this.reportViewer1.TabIndex = 0;
+            this.BuscarPersonalxCargoBindingSource.DataMember = "BuscarPersonalxCargo";
+            this.BuscarPersonalxCargoBindingSource.DataSource = this.DataSetPrincipal;
             // 
             // DataSetPrincipal
             // 
             this.DataSetPrincipal.DataSetName = "DataSetPrincipal";
             this.DataSetPrincipal.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // BuscarPersonalxCargoBindingSource
+            // reportViewer1
             // 
-            this.BuscarPersonalxCargoBindingSource.DataMember = "BuscarPersonalxCargo";
-            this.BuscarPersonalxCargoBindingSource.DataSource = this.DataSetPrincipal;
+            this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            reportDataSource2.Name = "DataSet1";
+            reportDataSource2.Value = this.BuscarPersonalxCargoBindingSource;
+            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource2);
+            this.reportViewer1.LocalReport.ReportEmbeddedResource = "SC_MMascotass.Reportes.ReporteEmpleadoxCargo.rdlc";
+            this.reportViewer1.Location = new System.Drawing.Point(0, 0);
+            this.reportViewer1.Name = "reportViewer1";
+            this.reportViewer1.ServerReport.BearerToken = null;
+            this.reportViewer1.Size = new System.Drawing.Size(800, 450);
+            this.reportViewer1.TabIndex = 0;
+            this.reportViewer1.Load += new System.EventHandler(this.reportViewer1_Load);
             // 
             // BuscarPersonalxCargoTableAdapter
             // 
@@ -72,10 +73,11 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.reportViewer1);
             this.Name = "ReporteBuscarCargo";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ReporteBuscarCargo";
             this.Load += new System.EventHandler(this.ReporteBuscarCargo_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.DataSetPrincipal)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BuscarPersonalxCargoBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DataSetPrincipal)).EndInit();
             this.ResumeLayout(false);
 
         }

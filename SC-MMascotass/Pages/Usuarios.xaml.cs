@@ -30,7 +30,7 @@ namespace SC_MMascotass.Pages
 
         private void btnNuevo_Click(object sender, RoutedEventArgs e)
         {
-            FormUsuarios usuario = new FormUsuarios(false);
+            Formularios.FormUsuarios usuario = new Formularios.FormUsuarios(false);
             usuario.Show();
         }
 

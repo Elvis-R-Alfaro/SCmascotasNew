@@ -25,7 +25,7 @@
                         Foreground="Black"
                         FontSize="14"
                         BorderThickness="0"
-                        Name="btnNuevo"
+                        x:Name="btnNuevo"
                         Padding="10" Click="btnNuevo_Click">
                 <StackPanel Orientation="Vertical" >
                     <Image Source="/Imagenes/iconos/nuevo.png" HorizontalAlignment="Center" Width="25" Height="25"/>
@@ -38,7 +38,7 @@
                         Foreground="Black"
                         FontSize="14"
                         BorderThickness="0"
-                        Name="btnEditar"
+                        x:Name="btnEditar"
                         Padding="10" Click="btnEditar_Click">
                 <StackPanel Orientation="Vertical" >
                     <Image Source="/Imagenes/iconos/editar.png" HorizontalAlignment="Center" Width="25" Height="25"/>
@@ -51,7 +51,7 @@
                         Foreground="Black"
                         FontSize="14"
                         BorderThickness="0"
-                        Name="btnEliminar"
+                        x:Name="btnEliminar"
                         Padding="10" Click="btnEliminar_Click">
                 <StackPanel Orientation="Vertical" >
                     <Image Source="/Imagenes/iconos/eliminar.png" HorizontalAlignment="Center" Width="25" Height="25"/>
@@ -64,7 +64,7 @@
                         Foreground="Black"
                         FontSize="14"
                         BorderThickness="0"
-                        Name="btnRefrescar"
+                        x:Name="btnRefrescar"
                         Padding="10" Click="btnRefrescar_Click">
                 <StackPanel Orientation="Vertical" >
                     <Image Source="/Imagenes/iconos/recargar.png" HorizontalAlignment="Center" Width="25" Height="25"/>
@@ -75,10 +75,12 @@
             </Button>
         </StackPanel>
         <StackPanel Grid.Row="2">
-            <DataGrid Name="dgClientes" IsReadOnly="True" ColumnWidth="*"  AutoGenerateColumns="False" ItemsSource="{Binding Source=clientes}" MaxHeight="310">
+            <DataGrid Name="dgClientes" IsReadOnly="True" ColumnWidth="*"  AutoGenerateColumns="False" ItemsSource="{Binding Source=clientes}" MaxHeight="310" >
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="ID Cliente" Binding="{Binding ID}" Width="80" />
                     <DataGridTextColumn Header="Nombre del Cliente" Binding="{Binding Nombre_Cliente}" />
+                    <DataGridTextColumn Header="Direccion" Binding="{Binding Direccion}" />
+                    <DataGridTextColumn Header="Correo" Binding="{Binding Correo}" />
                     <DataGridTextColumn Header="Teléfono" Binding="{Binding Teléfono}" />
                 </DataGrid.Columns>
             </DataGrid>

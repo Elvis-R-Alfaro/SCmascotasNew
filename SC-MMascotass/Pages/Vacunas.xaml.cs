@@ -27,8 +27,7 @@ namespace SC_MMascotass.Pages
         private List<Mascota> mascotas;
         private List<HistorialVacunacion> vacunas;
 
-        private static string connectionString = ConfigurationManager.ConnectionStrings["SC_MMascotass.Properties.Settings.MascotasConnectionString"].ConnectionString;
-        private SqlConnection sqlConnection = new SqlConnection(connectionString);
+        static private SqlConnection sqlConnection = database.Conexion.ObtenerConexion();
 
         private vacunaciones Vacunaciones = new vacunaciones();
         private List<vacunaciones> vacunaciones;

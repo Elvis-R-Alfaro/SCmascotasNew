@@ -14,6 +14,7 @@
     <WarningLevel>4</WarningLevel>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -24,6 +25,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -33,6 +35,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
@@ -58,9 +61,11 @@
     <Reference Include="System.Configuration.ConfigurationManager, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Configuration.ConfigurationManager.5.0.0\lib\net461\System.Configuration.ConfigurationManager.dll</HintPath>
     </Reference>
+    <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.OracleClient" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
     <Reference Include="System.Net" />
     <Reference Include="System.Security" />
     <Reference Include="System.Security.AccessControl, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
@@ -93,47 +98,61 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Cliente.cs" />
-    <Compile Include="Categoria.cs" />
-    <Compile Include="ErrorLog.cs" />
+    <Compile Include="Constructores\Cliente.cs" />
+    <Compile Include="Constructores\Categoria.cs" />
+    <Compile Include="Constructores\Validaciones.cs" />
+    <Compile Include="database\Conexion.cs" />
+    <Compile Include="Constructores\ErrorLog.cs" />
     <Compile Include="Pages\Categorias.xaml.cs">
       <DependentUpon>Categorias.xaml</DependentUpon>
     </Compile>
-    <Compile Include="HistorialVacunacion.cs" />
-    <Compile Include="InventarioC.cs" />
-    <Compile Include="Mascota.cs" />
+    <Compile Include="Constructores\HistorialVacunacion.cs" />
+    <Compile Include="Constructores\InventarioC.cs" />
+    <Compile Include="Constructores\Mascota.cs" />
+    <Compile Include="Pages\Expedientes.xaml.cs">
+      <DependentUpon>Expedientes.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Formularios\FormCategorias.xaml.cs">
+      <DependentUpon>FormCategorias.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Formularios\FormCliente.xaml.cs">
+      <DependentUpon>FormCliente.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Formularios\FormConsultas.xaml.cs">
+      <DependentUpon>FormConsultas.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Formularios\FormDetalleExpediente.xaml.cs">
+      <DependentUpon>FormDetalleExpediente.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Formularios\FormEspecies.xaml.cs">
+      <DependentUpon>FormEspecies.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Formularios\FormExpediente.xaml.cs">
+      <DependentUpon>FormExpediente.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Formularios\FormInventario.xaml.cs">
+      <DependentUpon>FormInventario.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Formularios\FormMascotas.xaml.cs">
+      <DependentUpon>FormMascotas.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Formularios\FormPersonal.xaml.cs">
+      <DependentUpon>FormPersonal.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Formularios\FormRazas.xaml.cs">
+      <DependentUpon>FormRazas.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Formularios\FormUsuarios.xaml.cs">
+      <DependentUpon>FormUsuarios.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Inicio.xaml.cs">
+      <DependentUpon>Inicio.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\MenuPrincipal.xaml.cs">
       <DependentUpon>MenuPrincipal.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\Clientes.xaml.cs">
       <DependentUpon>Clientes.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\FormCategorias.xaml.cs">
-      <DependentUpon>FormCategorias.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\FormCliente.xaml.cs">
-      <DependentUpon>FormCliente.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\FormConsulta.xaml.cs">
-      <DependentUpon>FormConsulta.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\FormEspecie.xaml.cs">
-      <DependentUpon>FormEspecie.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\FormInventario.xaml.cs">
-      <DependentUpon>FormInventario.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\FormMascotas.xaml.cs">
-      <DependentUpon>FormMascotas.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\FormPersonal.xaml.cs">
-      <DependentUpon>FormPersonal.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\FormRaza.xaml.cs">
-      <DependentUpon>FormRaza.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\FormUsuarios.xaml.cs">
-      <DependentUpon>FormUsuarios.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\Inventario.xaml.cs">
       <DependentUpon>Inventario.xaml</DependentUpon>
@@ -150,16 +169,25 @@
     <Compile Include="Pages\Vacunas.xaml.cs">
       <DependentUpon>Vacunas.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Reportes\BucarPersona.cs">
-      <SubType>Form</SubType>
+    <Compile Include="Reportes\BuscarPersonalxCargo.xaml.cs">
+      <DependentUpon>BuscarPersonalxCargo.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Reportes\BucarPersona.Designer.cs">
-      <DependentUpon>BucarPersona.cs</DependentUpon>
+    <Compile Include="Reportes\CasosxVeterinario.xaml.cs">
+      <DependentUpon>CasosxVeterinario.xaml</DependentUpon>
     </Compile>
     <Compile Include="Reportes\DataSetPrincipal.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSetPrincipal.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\InformeVacunaxMascota.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\InformeVacunaxMascota.Designer.cs">
+      <DependentUpon>InformeVacunaxMascota.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\MascotasxCliente.xaml.cs">
+      <DependentUpon>MascotasxCliente.xaml</DependentUpon>
     </Compile>
     <Compile Include="Reportes\ReporteBuscarCargo.cs">
       <SubType>Form</SubType>
@@ -167,13 +195,85 @@
     <Compile Include="Reportes\ReporteBuscarCargo.Designer.cs">
       <DependentUpon>ReporteBuscarCargo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reportes\ReporteCasosxVeterinario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\ReporteCasosxVeterinario.Designer.cs">
+      <DependentUpon>ReporteCasosxVeterinario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\ReporteMascotasxCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\ReporteMascotasxCliente.Designer.cs">
+      <DependentUpon>ReporteMascotasxCliente.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reportes\Reportes.xaml.cs">
       <DependentUpon>Reportes.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Reportes\ReporteVencimientoxFecha.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\ReporteVencimientoxFecha.Designer.cs">
+      <DependentUpon>ReporteVencimientoxFecha.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\VacunaxMascota.xaml.cs">
+      <DependentUpon>VacunaxMascota.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\VencimientoxFecha.xaml.cs">
+      <DependentUpon>VencimientoxFecha.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
-    <Compile Include="Usuario.cs" />
-    <Compile Include="vacunaciones.cs" />
+    <Compile Include="Constructores\Usuario.cs" />
+    <Compile Include="Constructores\vacunaciones.cs" />
     <Page Include="Pages\Categorias.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Expedientes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Formularios\FormCategorias.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Formularios\FormCliente.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Formularios\FormConsultas.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Formularios\FormDetalleExpediente.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Formularios\FormEspecies.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Formularios\FormExpediente.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Formularios\FormInventario.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Formularios\FormMascotas.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Formularios\FormPersonal.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Formularios\FormRazas.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Formularios\FormUsuarios.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -189,47 +289,15 @@
       <DependentUpon>IniciarSesion.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Pages\Inicio.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\MenuPrincipal.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\Clientes.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\FormCategorias.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\FormCliente.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\FormConsulta.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\FormEspecie.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\FormInventario.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\FormMascotas.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\FormPersonal.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\FormRaza.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\FormUsuarios.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -253,7 +321,27 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Reportes\BuscarPersonalxCargo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reportes\CasosxVeterinario.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reportes\MascotasxCliente.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Reportes\Reportes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reportes\VacunaxMascota.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reportes\VencimientoxFecha.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -276,13 +364,26 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reportes\BucarPersona.resx">
-      <DependentUpon>BucarPersona.cs</DependentUpon>
+    <EmbeddedResource Include="Reportes\InformeCasosxVeterinario.rdlc" />
+    <EmbeddedResource Include="Reportes\InformeMascotasxCliente.rdlc" />
+    <EmbeddedResource Include="Reportes\InformeVacunaxMascota.rdlc" />
+    <EmbeddedResource Include="Reportes\InformeVacunaxMascota.resx">
+      <DependentUpon>InformeVacunaxMascota.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\InformeVencimientoxFecha.rdlc" />
     <EmbeddedResource Include="Reportes\ReporteBuscarCargo.resx">
       <DependentUpon>ReporteBuscarCargo.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\ReporteCasosxVeterinario.resx">
+      <DependentUpon>ReporteCasosxVeterinario.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reportes\ReporteEmpleadoxCargo.rdlc" />
+    <EmbeddedResource Include="Reportes\ReporteMascotasxCliente.resx">
+      <DependentUpon>ReporteMascotasxCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\ReporteVencimientoxFecha.resx">
+      <DependentUpon>ReporteVencimientoxFecha.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -310,14 +411,15 @@
   <ItemGroup>
     <Resource Include="Imagenes\crossed.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="eLogs\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="database\databasequery.sql" />
     <Resource Include="Imagenes\expediente.png" />
     <Resource Include="Imagenes\personal.png" />
     <Resource Include="Imagenes\reportes.png" />
+    <Resource Include="Imagenes\ayuda.png" />
+    <Resource Include="Imagenes\iconos\icono.ico" />
+    <Resource Include="Imagenes\iconos\iconob.ico" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
