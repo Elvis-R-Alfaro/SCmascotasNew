@@ -26,7 +26,7 @@
         </DataGrid>
         <TextBlock HorizontalAlignment="Left" FontSize="24" Margin="10,10,0,0" Grid.Row="0" TextWrapping="Wrap" Text="Expediente animal" VerticalAlignment="Top" RenderTransformOrigin="0.313,-0.395"/>
         <Label Content="Nombre de la mascota" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="1" Margin="0 8 0 0" VerticalAlignment="Top"/>
-        <TextBox x:Name="txtBuscarExpMascota"  Grid.Row="1" Grid.Column="1" Height="33" Margin="0" TextWrapping="Wrap" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="222" TextAlignment="Center"/>
+        <TextBox x:Name="txtBuscarExpMascota"  Grid.Row="1" Grid.Column="1" Height="33" Margin="0" TextWrapping="Wrap" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="222" TextAlignment="Center" KeyUp="txtBuscarExpMascota_KeyUp"/>
         <Button ToolTip="Buscar Mascota" Name="btnBuscarMascota" Grid.Row="1" Grid.Column="1" Width="50" Height="33" Background="#14213D" Margin="0" HorizontalAlignment="Right" VerticalAlignment="Bottom">
             <Image Source="/Imagenes/iconos/buscarWH.png" Width="20" Margin="5"/>
         </Button>
@@ -75,9 +75,8 @@
 
         </Button>
         <Border Height="50" BorderBrush="Black"   
-        BorderThickness="1" Margin="0" Grid.Row="2" Grid.Column="1" Background="White"  VerticalAlignment="Top">
-            <ScrollViewer VerticalScrollBarVisibility="Auto"
-                          >
+        BorderThickness="1" Margin="0" Grid.Row="2" Grid.Column="1" Background="White"  VerticalAlignment="Top" Visibility="Collapsed">
+            <ScrollViewer VerticalScrollBarVisibility="Auto">
                 <StackPanel Name="autoCompleteMascotas"></StackPanel>
             </ScrollViewer>
         </Border>
