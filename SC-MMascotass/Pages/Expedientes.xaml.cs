@@ -48,8 +48,10 @@ namespace SC_MMascotass.Pages
                 MessageBox.Show("Por favor selecciona un cliente de la lista");
             else
             {
+               
                 verExpediente.id = Convert.ToInt32(dgExpediente.SelectedValue);
                 verExpediente veExpediente = new verExpediente();
+                veExpediente.txtNombreMascota.Text = dgExpediente.SelectedCells[0].ToString();
                 veExpediente.Show();
             }
             

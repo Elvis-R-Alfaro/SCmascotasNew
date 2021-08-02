@@ -114,19 +114,19 @@
                 <Label Content="Nombre Cliente" Grid.Row="1" FontSize="15" VerticalAlignment="Center" Margin="0 4 0 0"/>
 
                 <TextBox x:Name="txtNombreMascota" FontSize="15" Grid.Column="1" Grid.Row="0" Margin="0 4 0 0" Grid.ColumnSpan="2"/>
-                <TextBox Name="txtFamilia" FontSize="15" Grid.Column="1" Grid.Row="1" Margin="0 4 0 0" Grid.ColumnSpan="2"/>
+                <TextBox x:Name="txtCliente" FontSize="15" Grid.Column="1" Grid.Row="1" Margin="0 4 0 0" Grid.ColumnSpan="2"/>
 
 
             </Grid>
 
             <StackPanel Grid.Row="2" Margin="0 20 0 0">
-                <DataGrid x:Name="dgDetalle" AutoGenerateColumns="False" IsReadOnly="True" ItemsSource="{Binding Source=expedientes}" MaxHeight="310" ColumnWidth="*" GridLinesVisibility="Horizontal">
+                <DataGrid x:Name="dgDetalle" AutoGenerateColumns="False" IsReadOnly="True" ItemsSource="{Binding Source=expedientes}" MaxHeight="310" ColumnWidth="*" GridLinesVisibility="Horizontal" Height="211">
                     <DataGrid.Columns>
-                        <DataGridTextColumn Header="ID" Binding="{Binding IdDetalle}" Width="30"/>
 
                         <DataGridTextColumn Header="Sintomatología" Binding="{Binding Sintomas}" Width="*"/>
+                        <DataGridTextColumn Header="Producto" Binding="{Binding Producto}" Width="*"/>
                         <DataGridTextColumn Header="Patología" Binding="{Binding Patologia}" Width="*"/>
-                        <DataGridTextColumn Header="Tratamiento " Binding="{Binding TratamientoRecomendado}" Width="*"/>
+                        <DataGridTextColumn Header="Tratamiento" Binding="{Binding TratamientoRecomendado}" Width="*"/>
                         <DataGridTextColumn Header="Registrado por" Binding="{Binding Usuario}" Width="*"/>
                         <DataGridTextColumn Header="Fecha" Binding="{Binding FechaRegistroDeta}" Width="170"/>
                     </DataGrid.Columns>

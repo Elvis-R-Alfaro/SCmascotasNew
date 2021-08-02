@@ -1355,6 +1355,7 @@ namespace SC_MMascotass.Constructores
                            IdDetalle = Convert.ToInt32(rdr["IdDetalle"]),
                             IdExpediente = Convert.ToInt32(rdr["IdExpediente"]),
                             IdProducto = Convert.ToInt32(rdr["IdProductoUtilizado"]),
+                            Producto = rdr["NombreProducto"].ToString(),
                             Sintomas = rdr["Descripcion"].ToString(),
                             Patologia = rdr["Patologia"].ToString(),
                             TratamientoRecomendado = rdr["TratamientoRecomendado"].ToString(),
