@@ -14,7 +14,6 @@ namespace SC_MMascotass.Constructores
     {
         //Conexion
         private static SqlConnection sqlConnection = database.Conexion.ObtenerConexion();
-
         public static string MensajeProcedimiento;
         
         #region LOGIN
@@ -693,11 +692,14 @@ namespace SC_MMascotass.Constructores
 
                 //ejecutar el comando insertado
                 sqlCommand.ExecuteNonQuery();
-            }
-            catch (Exception e)
-            {
 
-                throw e;
+                //Mensaje de inserccion exito
+                MessageBox.Show("Datos Insertados Correctamente", "Exito", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ha ocurrido un error al momento de insertar la raza....");
+                Console.WriteLine(ex.Message);
             }
             finally
             {
@@ -730,11 +732,14 @@ namespace SC_MMascotass.Constructores
 
                 //ejecutar el comando insertado
                 sqlCommand.ExecuteNonQuery();
+
+                //Mensaje de inserccion exito
+                MessageBox.Show("Datos Editados Correctamente", "Exito", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             catch (Exception e)
             {
-
-                throw e;
+                MessageBox.Show("Ha ocurrido un error al momento de editar la raza....");
+                Console.WriteLine(e.Message);
             }
             finally
             {
@@ -763,12 +768,56 @@ namespace SC_MMascotass.Constructores
             }
             catch (Exception e)
             {
-
-                throw e;
+                MessageBox.Show("Ha ocurrido un error al eliminar la raza...");
+                Console.WriteLine(e.Message);
             }
             finally
             {
                 //Cerrar la conexion
+                sqlConnection.Close();
+            }
+        }
+
+        public static Mascota CargarDatosEditarRazas(int id)
+        {
+            Mascota mascota = new Mascota();
+            try
+            {
+                //Crear el comando SQL
+                SqlCommand sqlCommand = new SqlCommand("Razas", sqlConnection);
+                sqlCommand.CommandType = System.Data.CommandType.StoredProcedure;
+
+                //Establecer el valor del parametro
+                sqlCommand.Parameters.AddWithValue("@IdRaza", id);
+                sqlCommand.Parameters.AddWithValue("@Accion", "CargarDatosEditarRazas");
+
+                //Establecer la coneccion
+                sqlConnection.Open();
+
+                using (SqlDataReader rdr = sqlCommand.ExecuteReader())
+                {
+                    while (rdr.Read())
+                    {
+                        mascota.NombreRaza = rdr["NombreRaza"].ToString();
+                        mascota.Altura = rdr["Altura"].ToString();
+                        mascota.ActividadFisica = rdr["ActividadFisica"].ToString();
+                        mascota.RangoPeso = rdr["RangoPeso"].ToString();
+                        mascota.Descripcion = rdr["Descripcion"].ToString();
+                        mascota.EsperanzaVida = rdr["EsperanzaVida"].ToString();
+                        mascota.TipoDePelo = rdr["TipoDePelo"].ToString();
+                    }
+                }
+                return mascota;
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error al cargar los datos");
+                return mascota;
+            }
+            finally
+            {
+                //Cerrar la conexio
                 sqlConnection.Close();
             }
         }
@@ -846,11 +895,14 @@ namespace SC_MMascotass.Constructores
 
                 //ejecutar el comando insertado
                 sqlCommand.ExecuteNonQuery();
+
+                //Mensaje de inserccion exito
+                MessageBox.Show("Datos Insertados Correctamente", "Exito", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             catch (Exception e)
             {
-
-                throw e;
+                MessageBox.Show("Ha ocurrido un error al momento de insertar la mascota....");
+                Console.WriteLine(e.Message);
             }
             finally
             {
@@ -878,11 +930,12 @@ namespace SC_MMascotass.Constructores
 
                 //ejecutar el comando insertado
                 sqlCommand.ExecuteNonQuery();
+
+                MessageBox.Show("La especie se han editado correctamente");
             }
             catch (Exception e)
             {
-
-                throw e;
+                MessageBox.Show("Error al editar la especie");
             }
             finally
             {
@@ -908,11 +961,14 @@ namespace SC_MMascotass.Constructores
 
                 //ejecutar el comando insertado
                 sqlCommand.ExecuteNonQuery();
+
+                MessageBox.Show("Se ha eliminado la especie correctamente");
             }
             catch (Exception e)
             {
 
-                throw e;
+                MessageBox.Show("Ha ocurrido un error al eliminar la especie...");
+                Console.WriteLine(e.Message);
             }
             finally
             {
@@ -921,7 +977,44 @@ namespace SC_MMascotass.Constructores
             }
         }
 
+        public static Mascota CargarDatosEditarEspecies(int id)
+        {
+            Mascota mascota = new Mascota();
+            try
+            {
+                //Crear el comando SQL
+                SqlCommand sqlCommand = new SqlCommand("Especies", sqlConnection);
+                sqlCommand.CommandType = System.Data.CommandType.StoredProcedure;
 
+                //Establecer el valor del parametro
+                sqlCommand.Parameters.AddWithValue("@IdEspecie", id);
+                sqlCommand.Parameters.AddWithValue("@Accion", "CargarDatosEditarEspecies");
+
+                //Establecer la coneccion
+                sqlConnection.Open();
+
+                using (SqlDataReader rdr = sqlCommand.ExecuteReader())
+                {
+                    while (rdr.Read())
+                    {
+                        mascota.Descripcion = rdr["Descripcion"].ToString();
+                        mascota.Familia = rdr["Familia"].ToString();
+                    }
+                }
+                return mascota;
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error al cargar los datos");
+                return mascota;
+            }
+            finally
+            {
+                //Cerrar la conexio
+                sqlConnection.Close();
+            }
+        }
 
         public static List<Mascota> MostrarEspecies()
         {

@@ -62,7 +62,7 @@ namespace SC_MMascotass.Pages.Formularios
             }
             catch (Exception)
             {
-                throw;
+                MessageBox.Show("Error al cargar las Especies");
             }
             finally
             {
@@ -115,36 +115,21 @@ namespace SC_MMascotass.Pages.Formularios
         private void btnGuardar_Click(object sender, RoutedEventArgs e)
         {
             if (VerificarValores())
-            {
+            {                
+                //Obtener los valores para la mascota
+                mascota.IdEspecie = Convert.ToInt32(cmbesoecie.SelectedValuePath);
+                mascota.NombreRaza = txtNombreRaza.Text;
+                mascota.Altura = cmbaltura.SelectionBoxItem.ToString();
+                mascota.RangoPeso = cmbPesoIdeal.SelectionBoxItem.ToString();
+                mascota.EsperanzaVida = cmbEsperanzaVida.SelectionBoxItem.ToString();
+                mascota.ActividadFisica = cmbActividadFisica.SelectionBoxItem.ToString();
+                mascota.TipoDePelo = txtTipoPelo.Text;
 
-                try
-                {
-                    //Obtener los valores para la mascota
-                    mascota.IdEspecie = Convert.ToInt32(cmbesoecie.SelectedValuePath);
-                    mascota.NombreRaza = txtNombreRaza.Text;
-                    mascota.Altura = cmbaltura.SelectionBoxItem.ToString();
-                    mascota.RangoPeso = cmbPesoIdeal.SelectionBoxItem.ToString();
-                    mascota.EsperanzaVida = cmbEsperanzaVida.SelectionBoxItem.ToString();
-                    mascota.ActividadFisica = cmbActividadFisica.SelectionBoxItem.ToString();
-                    mascota.TipoDePelo = txtTipoPelo.Text;
+                //Ejecutamos
+                Constructores.Procedimientos.CrearRaza(mascota);
 
-                    //Ejecutamos
-                    Constructores.Procedimientos.CrearRaza(mascota);
-
-                    //Mensaje de inserccion exito
-                    MessageBox.Show("Datos Insertados Correctamente", "Exito", MessageBoxButton.OK, MessageBoxImage.Information);
-                    ObtenerRazas();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Ha ocurrido un error al momento de insertar la raza....");
-                    Console.WriteLine(ex.Message);
-                }
-                finally
-                {
-                    Limpiar();
-
-                }
+                ObtenerRazas();
+                Limpiar();
             }
         }
 
@@ -171,42 +156,28 @@ namespace SC_MMascotass.Pages.Formularios
             if (VerificarValores())
             {
 
-                try
-                {
-                    //Obtener los valores para la mascota
-                    mascota.IdEspecie = Convert.ToInt32(cmbesoecie.SelectedValuePath);
-                    mascota.NombreRaza = txtNombreRaza.Text;
-                    mascota.Altura = cmbaltura.SelectionBoxItem.ToString();
-                    mascota.RangoPeso = cmbPesoIdeal.SelectionBoxItem.ToString();
-                    mascota.EsperanzaVida = cmbEsperanzaVida.SelectionBoxItem.ToString();
-                    mascota.ActividadFisica = cmbActividadFisica.SelectionBoxItem.ToString();
-                    mascota.TipoDePelo = txtTipoPelo.Text;
+                //Obtener los valores para la mascota
+                mascota.IdEspecie = Convert.ToInt32(cmbesoecie.SelectedValuePath);
+                mascota.NombreRaza = txtNombreRaza.Text;
+                mascota.Altura = cmbaltura.SelectionBoxItem.ToString();
+                mascota.RangoPeso = cmbPesoIdeal.SelectionBoxItem.ToString();
+                mascota.EsperanzaVida = cmbEsperanzaVida.SelectionBoxItem.ToString();
+                mascota.ActividadFisica = cmbActividadFisica.SelectionBoxItem.ToString();
+                mascota.TipoDePelo = txtTipoPelo.Text;
 
-                    mascota.IdRaza = Convert.ToInt32(dgClientes.SelectedValue);
+                mascota.IdRaza = Convert.ToInt32(dgClientes.SelectedValue);
 
-                    //Ejecutamos
-                    Constructores.Procedimientos.EditarRaza(mascota);
+                //Ejecutamos
+                Constructores.Procedimientos.EditarRaza(mascota);
 
-                    //Mensaje de inserccion exito
-                    MessageBox.Show("Datos Editados Correctamente", "Exito", MessageBoxButton.OK, MessageBoxImage.Information);
-                    ObtenerRazas();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Ha ocurrido un error al momento de editar la raza....");
-                    Console.WriteLine(ex.Message);
-                }
-                finally
-                {
-                    Limpiar();
-
-                }
+                ObtenerRazas();
+                Limpiar();
             }
         }
 
         private void btnRegresar_Click(object sender, RoutedEventArgs e)
         {
-
+            this.Close();
         }
 
         private void btnNuevaEspecie_Click(object sender, RoutedEventArgs e)
@@ -223,91 +194,42 @@ namespace SC_MMascotass.Pages.Formularios
             {
                 spButton1.Visibility = Visibility.Hidden;
                 spButton2.Visibility = Visibility.Visible;
-                try
-                {
-                    //Query busqueda
-                    string query = @"SELECT Veterinaria.Raza.*, Veterinaria.Especie.Descripcion
-                        FROM     Veterinaria.Especie INNER JOIN
-                  Veterinaria.Raza ON Veterinaria.Especie.IdEspecie = Veterinaria.Raza.IdEspecie
-				  WHERE  (Veterinaria.Raza.IdRaza = @IdRaza)";
-
-                    //Establecer la coneccion
-                    sqlConnection.Open();
-
-                    //Crear el comando SQL
-                    SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
-
-                    //Establecer el valor del parametro
-                    sqlCommand.Parameters.AddWithValue("@IdRaza", Convert.ToInt32(dgClientes.SelectedValue));
-
-                    using (SqlDataReader rdr = sqlCommand.ExecuteReader())
-                    {
-                        while (rdr.Read())
-                        {
-                            txtNombreRaza.Text = rdr["NombreRaza"].ToString();
-                            cmbaltura.Text = rdr["Altura"].ToString();
-                            cmbActividadFisica.Text = rdr["ActividadFisica"].ToString();
-                            cmbPesoIdeal.Text = rdr["RangoPeso"].ToString();
-                            cmbesoecie.Text = rdr["Descripcion"].ToString();
-                            cmbEsperanzaVida.Text = rdr["EsperanzaVida"].ToString();
-                            txtTipoPelo.Text = rdr["TipoDePelo"].ToString();
-                        }
-                    }
-
-                }
-                catch (Exception ex)
-                {
-
-                    throw ex;
-                }
-                finally
-                {
-                    //Cerrar la conexio
-                    sqlConnection.Close();
-                }
+                mascota = Constructores.Procedimientos.CargarDatosEditarRazas(Convert.ToInt32(dgClientes.SelectedValue));
+                txtNombreRaza.Text = mascota.NombreRaza;
+                cmbaltura.Text = mascota.Altura;
+                cmbActividadFisica.Text = mascota.ActividadFisica;
+                cmbPesoIdeal.Text =mascota.RangoPeso;
+                cmbesoecie.Text = mascota.Descripcion;
+                cmbEsperanzaVida.Text = mascota.EsperanzaVida;
+                txtTipoPelo.Text = mascota.TipoDePelo;
             }
         }
 
         private void btnEliminar_Click(object sender, RoutedEventArgs e)
         {
-            try
+
+            if (dgClientes.SelectedValue == null)
+                MessageBox.Show("Por favor, seleccione una especie de la lista");
+            else
             {
-                if (dgClientes.SelectedValue == null)
-                    MessageBox.Show("Por favor, seleccione una especie de la lista");
-                else
+                //Monstrar mensjae de confirmacion
+                MessageBoxResult result = MessageBox.Show("¿Deseas eliminar la raza?", "Confirmar", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+
+                if (result == MessageBoxResult.Yes)
                 {
-                    //Monstrar mensjae de confirmacion
-                    MessageBoxResult result = MessageBox.Show("¿Deseas eliminar la raza?", "Confirmar", MessageBoxButton.YesNo, MessageBoxImage.Warning);
-
-                    if (result == MessageBoxResult.Yes)
-                    {
-                        //Eliminar la mascotas
-                        Constructores.Procedimientos.EliminarRaza(Convert.ToInt32(dgClientes.SelectedValue));
-                    }
+                    //Eliminar la mascotas
+                    Constructores.Procedimientos.EliminarRaza(Convert.ToInt32(dgClientes.SelectedValue));
                 }
+            }
+            //Actualizar el listbox de mascotas
+            ObtenerRazas();
+            Limpiar();
 
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Ha ocurrido un error al eliminar la raza...");
-                Console.WriteLine(ex.Message);
-            }
-            finally
-            {
-                //Actualizar el listbox de mascotas
-                ObtenerRazas();
-                Limpiar();
-            }
         }
 
         private void btnLimpiar_Click(object sender, RoutedEventArgs e)
         {
             Limpiar();   
-        }
-
-        private void btnAceptar_Click_1(object sender, RoutedEventArgs e)
-        {
-            
         }
 
         private void btnCancelar_Click(object sender, RoutedEventArgs e)

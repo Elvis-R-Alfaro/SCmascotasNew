@@ -95,12 +95,14 @@ namespace SC_MMascotass.Pages
 
         private void btnRazas_Click(object sender, RoutedEventArgs e)
         {
-
+            Formularios.FormRazas razas = new Formularios.FormRazas(false);
+            razas.Show();
         }
 
         private void btnEspecie_Click(object sender, RoutedEventArgs e)
         {
-
+            Formularios.FormEspecies especies = new Formularios.FormEspecies(false);
+            especies.Show();
         }
     }
 }
