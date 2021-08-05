@@ -92,5 +92,15 @@ namespace SC_MMascotass.Pages
         {
             ObtenerMascotas();
         }
+
+        private void btnRazas_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnEspecie_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

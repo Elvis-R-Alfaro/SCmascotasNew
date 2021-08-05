@@ -146,7 +146,6 @@ namespace SC_MMascotass.Pages.Formularios
                 txtAuCliente.Text = (sender as TextBlock).Text;
                 cliente = Constructores.Procedimientos.BuscarClientID(txtAuCliente.Text);
                 border.Visibility = System.Windows.Visibility.Collapsed;
-                ObtenerValoresFormulario();
             };
 
             block.MouseEnter += (sender, e) =>

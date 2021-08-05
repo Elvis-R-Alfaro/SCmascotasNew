@@ -139,9 +139,9 @@
 
             </Grid>
         </StackPanel>
-        <Border Height="60" BorderBrush="Black"  
-        BorderThickness="1" Margin="0 0 50 19" Width="220" Grid.Row="2" Background="White" HorizontalAlignment="Right">
-            <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="0 0 50 50">
+        <Border Height="90" BorderBrush="Black"  
+        BorderThickness="1" Margin="0 15 50 0" Width="220" Grid.Row="2" Background="White" HorizontalAlignment="Right" Grid.RowSpan="2">
+            <ScrollViewer VerticalScrollBarVisibility="Auto"  Margin="0.2,-0.8,-0.8,-0.2">
                 <StackPanel Name="resultStack"></StackPanel>
             </ScrollViewer>
         </Border>
