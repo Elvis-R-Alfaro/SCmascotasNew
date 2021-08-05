@@ -19,7 +19,11 @@ namespace SC_MMascotass.Pages.Formularios
     /// </summary>
     public partial class FormDetalleExpediente : Window
     {
+        public static int IdDetalle;
+
         public static string mascota;
+
+        private Constructores.Expediente expediente = new Constructores.Expediente();
 
         public FormDetalleExpediente(bool visible)
         {
@@ -27,6 +31,13 @@ namespace SC_MMascotass.Pages.Formularios
 
             if (visible)
             {
+                expediente = Constructores.Procedimientos.BuscarDetalleExpedienteId(IdDetalle);
+                txtProducto.Text = expediente.Producto;
+                txtSintomas.Text = expediente.Sintomas;
+                txtPatologia.Text = expediente.Patologia;
+                txtTratamiento.Text = expediente.TratamientoRecomendado;
+                txtMascota.Text = mascota;
+
                 btnAceptar.Visibility = Visibility.Visible;
                 btnRegresaar.Visibility = Visibility.Visible;
                 btnGuardar.Visibility = Visibility.Hidden;

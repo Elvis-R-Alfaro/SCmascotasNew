@@ -1314,7 +1314,7 @@ namespace SC_MMascotass.Constructores
                             IdExpediente = Convert.ToInt32(rdr["IdExpediente"]),
                             NombreMascota = rdr["NombreMascota"].ToString(),
                             NombreCliente = rdr["NombreCliente"].ToString(),
-                            UltimaVisita = (DateTime)rdr["UltimaVisita"]
+                            UltimaVisita = rdr["UltimaVisita"].ToString()
                         });
                     }
                 }
@@ -1345,7 +1345,7 @@ namespace SC_MMascotass.Constructores
 
                 //Establecer el valor del parametro
                 sqlCommand.Parameters.AddWithValue("@idExpediente", IdExpediente);
-                sqlCommand.Parameters.AddWithValue("@Accion", "BuscarDetalleExpedienteId");
+                sqlCommand.Parameters.AddWithValue("@Accion", "BuscarExpedienteId");
 
                 //Establecer la coneccion
                 sqlConnection.Open();
@@ -1359,6 +1359,7 @@ namespace SC_MMascotass.Constructores
                            IdDetalle = Convert.ToInt32(rdr["IdDetalle"]),
                             IdExpediente = Convert.ToInt32(rdr["IdExpediente"]),
                             IdProducto = Convert.ToInt32(rdr["IdProductoUtilizado"]),
+                            Producto = rdr["NombreProducto"].ToString(),
                             Sintomas = rdr["Descripcion"].ToString(),
                             Patologia = rdr["Patologia"].ToString(),
                             TratamientoRecomendado = rdr["TratamientoRecomendado"].ToString(),
@@ -1372,6 +1373,56 @@ namespace SC_MMascotass.Constructores
                 }
 
                 return expedientes;
+            }
+            catch (Exception e)
+            {
+
+                throw e;
+            }
+            finally
+            {
+                //Cerrar la conexio
+                sqlConnection.Close();
+            }
+        }
+
+
+        public static Expediente BuscarDetalleExpedienteId(int IdDetalleExpediente)
+        {
+            Expediente elExpediente = new Expediente();
+            try
+            {
+                //Crear el comando SQL
+                SqlCommand sqlCommand = new SqlCommand("Expediente", sqlConnection);
+                sqlCommand.CommandType = System.Data.CommandType.StoredProcedure;
+
+                //Establecer el valor del parametro
+                sqlCommand.Parameters.AddWithValue("@idExpediente", IdDetalleExpediente);
+                sqlCommand.Parameters.AddWithValue("@Accion", "BuscarDetalleExpedienteId");
+
+                //Establecer la coneccion
+                sqlConnection.Open();
+
+                using (SqlDataReader rdr = sqlCommand.ExecuteReader())
+                {
+                    while (rdr.Read())
+                    {
+                        elExpediente.IdDetalle = Convert.ToInt32(rdr["IdDetalle"]);
+                        elExpediente.IdExpediente = Convert.ToInt32(rdr["IdExpediente"]);
+                        elExpediente.IdProducto = Convert.ToInt32(rdr["IdProductoUtilizado"]);
+                        elExpediente.Producto = rdr["NombreProducto"].ToString();
+                        elExpediente.Sintomas = rdr["Descripcion"].ToString();
+                        elExpediente.Patologia = rdr["Patologia"].ToString();
+                        elExpediente.TratamientoRecomendado = rdr["TratamientoRecomendado"].ToString();
+                        elExpediente.IdUsuario = Convert.ToInt32(rdr["IdUsuario"]);
+                        elExpediente.FechaRegistroDeta = (DateTime)rdr["FechaDeRegistro"];
+                        elExpediente.Usuario = rdr["Nombre"].ToString();
+
+
+                    }
+                }
+
+                return elExpediente;
             }
             catch (Exception e)
             {
