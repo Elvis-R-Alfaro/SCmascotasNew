@@ -765,6 +765,8 @@ namespace SC_MMascotass.Constructores
 
                 //ejecutar el comando insertado
                 sqlCommand.ExecuteNonQuery();
+
+                MessageBox.Show("Se ha eliminado la raza correctamente...");
             }
             catch (Exception e)
             {
