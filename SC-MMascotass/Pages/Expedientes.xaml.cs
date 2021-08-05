@@ -50,12 +50,41 @@ namespace SC_MMascotass.Pages
             {
                
                 verExpediente.id = Convert.ToInt32(dgExpediente.SelectedValue);
+                object row = dgExpediente.SelectedItem;
+                int columnIndex = dgExpediente.Columns.Single(c => c.Header.Equals("Mascota")).DisplayIndex;
+                String cardName = (dgExpediente.SelectedCells[columnIndex].Column.GetCellContent(row) as TextBlock).Text;
+
+                object row2 = dgExpediente.SelectedItem;
+                int columnIndex2 = dgExpediente.Columns.Single(c => c.Header.Equals("Cliente")).DisplayIndex;
+                String cardName2 = (dgExpediente.SelectedCells[columnIndex2].Column.GetCellContent(row2) as TextBlock).Text;
                 verExpediente veExpediente = new verExpediente();
-                veExpediente.txtNombreMascota.Text = dgExpediente.SelectedCells[0].ToString();
+                veExpediente.txtNombreMascota.Text = cardName;
+                veExpediente.txtCliente.Text = cardName2;
                 veExpediente.Show();
             }
             
         }
+
+        public static T GetVisualChild<T>(Visual parent) where T : Visual
+        {
+            T child = default(T);
+            int numVisuals = VisualTreeHelper.GetChildrenCount(parent);
+            for (int i = 0; i < numVisuals; i++)
+            {
+                Visual v = (Visual)VisualTreeHelper.GetChild(parent, i);
+                child = v as T;
+                if (child == null)
+                {
+                    child = GetVisualChild<T>(v);
+                }
+                if (child != null)
+                {
+                    break;
+                }
+            }
+            return child;
+        }
+
 
         private void addItem(string text)
         {

@@ -319,7 +319,20 @@ namespace SC_MMascotass.Constructores
             return true;
         }
 
-
+        //Validacion DetalleExpediente
+        public static bool Vacios_DetalleExpediente(string producto,string patologia,string sintomas, string tratamiento)
+        {
+            if (ValoresVacios(producto)){
+                Mensaje = "¡Ingrese el producto";
+                return false;
+            }
+            if (ValoresVacios(tratamiento))
+            {
+                Mensaje = "¡Ingrese el tratamiento recomendado";
+                return false;
+            }
+            return true;
+        }
 
     }
 

@@ -24,7 +24,7 @@ namespace SC_MMascotass.Constructores
 
         public string NombreCliente { get; set; }
 
-        public DateTime UltimaVisita { get; set; }
+        public string UltimaVisita { get; set; }
 
         public int IdDetalle { get; set; }
         public int IdProducto { get; set; }
@@ -42,7 +42,7 @@ namespace SC_MMascotass.Constructores
 
         public Expediente() { }
 
-        public Expediente(int idExpediente,int idMascota,string nombreMascota, DateTime fechaRegistro, string nombreCliente, DateTime ultimaVisita, int idDetalle, int idProducto, string sintomas, string patologia, string tratamiento,int idUsuario, DateTime fechaRegistroDeta, string usuario,string producto)
+        public Expediente(int idExpediente,int idMascota,string nombreMascota, DateTime fechaRegistro, string nombreCliente, string ultimaVisita, int idDetalle, int idProducto, string sintomas, string patologia, string tratamiento,int idUsuario, DateTime fechaRegistroDeta, string usuario,string producto)
         {
             IdMascota = idMascota;
             NombreMascota = nombreMascota;

@@ -113,8 +113,8 @@
                 <Label Content="Nombre mascota" Grid.Row="0" FontSize="15" VerticalAlignment="Center" Margin="0 4 0 0"/>
                 <Label Content="Nombre Cliente" Grid.Row="1" FontSize="15" VerticalAlignment="Center" Margin="0 4 0 0"/>
 
-                <TextBox x:Name="txtNombreMascota" FontSize="15" Grid.Column="1" Grid.Row="0" Margin="0 4 0 0" Grid.ColumnSpan="2"/>
-                <TextBox x:Name="txtCliente" FontSize="15" Grid.Column="1" Grid.Row="1" Margin="0 4 0 0" Grid.ColumnSpan="2"/>
+                <TextBox x:Name="txtNombreMascota" FontSize="15" Grid.Column="1" Grid.Row="0" Margin="0 4 0 0" Grid.ColumnSpan="2" IsReadOnly="True"/>
+                <TextBox x:Name="txtCliente" FontSize="15" Grid.Column="1" Grid.Row="1" Margin="0 4 0 0" Grid.ColumnSpan="2" IsReadOnly="True"/>
 
 
             </Grid>
