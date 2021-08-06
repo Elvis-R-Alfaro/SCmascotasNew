@@ -10,7 +10,7 @@ using System.Text.RegularExpressions;
 using System.Windows.Input;
 namespace SC_MMascotass.Constructores
 {
-    public class Validaciones
+    public class Validaciones //ludwin
     {
         public static string Mensaje;
 
