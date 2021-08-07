@@ -815,6 +815,7 @@ namespace SC_MMascotass.Constructores
             catch (Exception e)
             {
                 MessageBox.Show("Error al cargar los datos");
+                Console.WriteLine(e.Message);
                 return mascota;
             }
             finally
@@ -938,6 +939,7 @@ namespace SC_MMascotass.Constructores
             catch (Exception e)
             {
                 MessageBox.Show("Error al editar la especie");
+                Console.WriteLine(e.Message);
             }
             finally
             {
@@ -1009,6 +1011,7 @@ namespace SC_MMascotass.Constructores
             catch (Exception e)
             {
                 MessageBox.Show("Error al cargar los datos");
+                Console.WriteLine(e.Message);
                 return mascota;
             }
             finally
@@ -1092,8 +1095,8 @@ namespace SC_MMascotass.Constructores
             }
             catch (Exception e)
             {
-
-                throw e;
+                MessageBox.Show("Ha ocurrido un error al momento de insertar la categoria....");
+                Console.WriteLine(e.Message);
             }
             finally
             {
@@ -1261,7 +1264,8 @@ namespace SC_MMascotass.Constructores
             }
             catch (Exception e)
             {
-                throw e;
+                MessageBox.Show("Error al momento de editar la categoria....");
+                Console.WriteLine(e.Message);
             }
             finally
             {
@@ -1293,7 +1297,8 @@ namespace SC_MMascotass.Constructores
             }
             catch (Exception e)
             {
-                throw e;
+                MessageBox.Show("Ha ocurrido un error al eliminar la habitacion...");
+                Console.WriteLine(e.Message);
             }
             finally
             {
