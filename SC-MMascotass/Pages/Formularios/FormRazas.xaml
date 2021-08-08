@@ -111,9 +111,9 @@
         <StackPanel Grid.Row="2" Grid.ColumnSpan="2" Margin="0,0.8,-0.4,-0.6">
             <Grid>
                 <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.8*"/>
                     <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="0.7*"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
@@ -127,15 +127,15 @@
                 </Grid.RowDefinitions>
 
 
-                <Label Content="Especie" Grid.Row="0" Grid.Column="2" FontSize="15" VerticalAlignment="Center" Margin="0 4 0 0"/>
+                <Label Content="Especie" Grid.Row="0" Grid.Column="2" FontSize="15" VerticalAlignment="Center" Margin="10 4 0 0"/>
                 <Label Content="Nombre de la Raza" Grid.Row="0" FontSize="15" VerticalAlignment="Center" Margin="0 4 0 0"/>
                 <Label Content="Altura" Grid.Row="2" FontSize="15" VerticalAlignment="Center" Margin="0 4 0 0"/>
-                <Label Content="Rango de Peso" Grid.Row="2" Grid.Column="2" FontSize="15" VerticalAlignment="Bottom" Margin="0,0,193.4,34" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
+                <Label Content="Rango de Peso" Grid.Row="2" Grid.Column="2" FontSize="15" VerticalAlignment="Bottom" Margin="10,0,193.4,34" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
                 <Label Content="Esperanza de Vida" Grid.Row="3" Grid.Column="0" FontSize="15" VerticalAlignment="Center" Margin="0 4 0 0"/>
-                <Label Content="Actividad fisica" Grid.Row="3" Grid.Column="2" FontSize="15" VerticalAlignment="Center" Margin="0 4 0 0"/>
+                <Label Content="Actividad fisica" Grid.Row="3" Grid.Column="2" FontSize="15" VerticalAlignment="Center" Margin="10 4 0 0"/>
                 <Label Content="Tipo de Pelo" Grid.Row="5" FontSize="15" VerticalAlignment="Center" Margin="0 4 0 0"/>
 
-                <ComboBox Name="cmbesoecie" Width="145" FontSize="15" Grid.Column="3" Grid.Row="0" Margin="0 4 0 0" HorizontalAlignment="Left" />
+                <ComboBox Name="cmbesoecie" Width="171" FontSize="15" Grid.Column="3" Grid.Row="0" Margin="0 4 0 0" HorizontalAlignment="Left" />
                 <TextBox Name="txtNombreRaza" FontSize="15" Grid.Column="1" Grid.Row="0" Margin="0 4 0 0"/>
                 <ComboBox Name="cmbaltura" FontSize="15" Grid.Column="1" Grid.Row="2" Margin="0 4 0 0" >
                     <ComboBoxItem Content="15-35 cm"></ComboBoxItem>

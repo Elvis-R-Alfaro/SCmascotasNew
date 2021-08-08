@@ -1554,6 +1554,7 @@ namespace SC_MMascotass.Constructores
 
                 //Establecer los valores de los paramawtros
                 sqlCommand.Parameters.AddWithValue("@IdProveedor", producto.IdProveedor);
+                sqlCommand.Parameters.AddWithValue("@@IdCategoria", producto.IdCategoria);
                 sqlCommand.Parameters.AddWithValue("@NombreProducto", producto.Descripcion);
                 sqlCommand.Parameters.AddWithValue("@PrecioCosto", producto.PrecioCosto);
                 sqlCommand.Parameters.AddWithValue("@PrecioVenta", producto.PrecioVenta);
@@ -1565,11 +1566,14 @@ namespace SC_MMascotass.Constructores
 
                 //ejecutar el comando insertado
                 sqlCommand.ExecuteNonQuery();
-            }
-            catch (Exception e)
-            {
 
-                throw e;
+                //Mensaje de inserccion exito
+                MessageBox.Show("Datos Insertados Correctamente", "Exito", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ha ocurrido un error al momento de insertar los datos en el inventario....");
+                Console.WriteLine(ex.Message);
             }
             finally
             {
@@ -1582,7 +1586,7 @@ namespace SC_MMascotass.Constructores
         /// Monstrar todos los productos
         /// </summary>
         /// <returns>Listado de Productos</returns>
-        public static List<InventarioC> MonstrarInventario()
+        public static List<InventarioC> MostrarInventario()
         {
             //Iniciamos la lista vacia de categorias
             List<InventarioC> inventarios = new List<InventarioC>();
@@ -1609,6 +1613,7 @@ namespace SC_MMascotass.Constructores
                             Id = Convert.ToInt32(rdr["IdProducto"]),
                             IdCategoria = Convert.ToInt32(rdr["IdCategoria"]),
                             IdProveedor = Convert.ToInt32(rdr["IdProveedor"]),
+                            NombreProveedor = rdr["NombreProveedor"].ToString(),
                             Descripcion = rdr["NombreProducto"].ToString(),
                             Categoria = rdr["NombreCategoria"].ToString(),
                             PrecioCosto = Convert.ToDouble(rdr["PrecioCosto"]),
@@ -1662,6 +1667,7 @@ namespace SC_MMascotass.Constructores
                         elProducto.IdProveedor = Convert.ToInt32(rdr["IdProveedor"]);
                         elProducto.Descripcion = rdr["NombreProducto"].ToString();
                         elProducto.IdCategoria = Convert.ToInt32(rdr["IdCategoria"]);
+                        elProducto.NombreProveedor = rdr["NombreProveedor"].ToString();
                         elProducto.PrecioCosto = Convert.ToDouble(rdr["PrecioCosto"]);
                         elProducto.PrecioVenta = Convert.ToDouble(rdr["PrecioVenta"]);
                         elProducto.Stock = Convert.ToInt32(rdr["Stock"]);
@@ -1694,7 +1700,7 @@ namespace SC_MMascotass.Constructores
                 sqlCommand.CommandType = System.Data.CommandType.StoredProcedure;
 
                 //Establecer los valores de los parametros
-                sqlCommand.Parameters.AddWithValue("@id", producto.Id);
+                sqlCommand.Parameters.AddWithValue("@IdProducto", producto.Id);
                 sqlCommand.Parameters.AddWithValue("@IdCategoria", producto.IdCategoria);
                 sqlCommand.Parameters.AddWithValue("@IdProveedor", producto.IdProveedor);
                 sqlCommand.Parameters.AddWithValue("@NombreProducto", producto.Descripcion);
@@ -1708,10 +1714,14 @@ namespace SC_MMascotass.Constructores
 
                 //Ejecutar el comando de actualizar
                 sqlCommand.ExecuteNonQuery();
+
+                //Mensaje de actualizacion realizada
+                MessageBox.Show("Datos Modificado Correctamente", "Exito", MessageBoxButton.OK, MessageBoxImage.Information);
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-                throw e;
+                MessageBox.Show("Error al momento de actualizar el producto....");
+                Console.WriteLine(ex.Message);
             }
             finally
             {
@@ -1724,7 +1734,7 @@ namespace SC_MMascotass.Constructores
         /// </summary>
         /// <param name="id"></param>
 
-        public static void EliminarRegistro(int id)
+        public static void EliminarProducto(int id)
         {
             try
             {
@@ -1735,7 +1745,7 @@ namespace SC_MMascotass.Constructores
 
                 //Establecer el valor del parametro
                 sqlCommand.Parameters.AddWithValue("@IdProducto", id);
-                sqlCommand.Parameters.AddWithValue("@Accion", "EliminarRegistro");
+                sqlCommand.Parameters.AddWithValue("@Accion", "EliminarProducto");
 
                 //Establecer la conexion SQL
                 sqlConnection.Open();

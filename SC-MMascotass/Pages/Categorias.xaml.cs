@@ -38,7 +38,7 @@ namespace SC_MMascotass.Pages
         
         private void ObtenerCategorias()
         {
-            categorias = categoria.MonstrarCategorias();
+            categorias = Constructores.Procedimientos.MonstrarCategorias();
             dgClientes.SelectedValuePath = "Id";
             dgClientes.ItemsSource = categorias;
         }
@@ -69,7 +69,7 @@ namespace SC_MMascotass.Pages
                 if (result == MessageBoxResult.Yes)
                 {
                     //Eliminar la categoria
-                    categoria.EliminarCategoria(Convert.ToInt32(dgClientes.SelectedValue));
+                    Constructores.Procedimientos.EliminarCategoria(Convert.ToInt32(dgClientes.SelectedValue));
                     ObtenerCategorias();
                 }
                     

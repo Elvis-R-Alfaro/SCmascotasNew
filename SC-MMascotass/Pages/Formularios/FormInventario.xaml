@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" WindowStartupLocation="CenterScreen"
         xmlns:local="clr-namespace:SC_MMascotass.Pages.Formularios"
         mc:Ignorable="d"
-        Title="Ingresar Producto" Height="450" Width="800">
+        Title="Ingresar Producto" Height="300" Width="850">
     <Grid Margin="10">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -13,7 +13,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="30"/>
             <RowDefinition Height="75"/>
-            <RowDefinition Height="295.2"/>
+            <RowDefinition Height="155"/>
         </Grid.RowDefinitions>
         <StackPanel Orientation="Horizontal">
             <Image Source="/Imagenes/inventario.png" Width="25" Margin="0 0 10 0"></Image>
@@ -81,57 +81,60 @@
         <StackPanel Grid.Row="2">
             <Grid>
                 <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.6*"/>
                     <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="0.6*"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="auto"/>
                     <RowDefinition Height="auto"/>
                     <RowDefinition Height="auto"/>
-                    <RowDefinition Height="auto"/>
-                    <RowDefinition Height="auto"/>
                 </Grid.RowDefinitions>
 
 
+                <Label Content="Categoría" Grid.Column="2" FontSize="15" VerticalAlignment="Center" Margin="10 4 0 0"/>
 
-                <Label Content="Categoría" Grid.Row="0" FontSize="15" VerticalAlignment="Center" Margin="0 4 0 0"/>
 
-
-                <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="0">
-                    <TextBox Width="300" Padding="5, 3, 5, 3" 
-                             Name="txtAuCategoria" KeyUp="txtAuCategoria_KeyUp"/>
-                    <Button Width="50"  Grid.Column="2" ToolTip="Nuevo Producto" Name="btnNuevoCategoria" Background="#FCA311" Click="btnNuevoCliente_Click">
-                        <Image Source="/Imagenes/iconos/nuevo.png" Width="20"/>
-                    </Button>
-                </StackPanel>
+                <!--<StackPanel Orientation="Horizontal" Grid.Column="3"  HorizontalAlignment="Right">-->
+                <TextBox Margin="0 4 0 0" Padding="5, 3, 5, 3"  Name="txtAuCategoria" KeyUp="txtAuCategoria_KeyUp" Grid.Column="3"/>
+                <Button Width="50" Margin="0 4 0 0" ToolTip="Nuevo Producto" Name="btnNuevoCategoria" Background="#FCA311" Click="btnNuevoCliente_Click" Grid.Column="3" HorizontalAlignment="Right">
+                    <Image Source="/Imagenes/iconos/nuevo.png" Width="20"/>
+                </Button>
+                <!--</StackPanel>-->
 
                 <Label Content="Código" Grid.Row="1" FontSize="15" VerticalAlignment="Center" Margin="0 4 0 0" Visibility="Hidden"/>
                 <TextBox Name="txtCodigo" FontSize="15" Grid.Column="1" Grid.Row="1" Margin="0 4 0 0" Visibility="Hidden"/>
 
-                <Label Content="Descripción" Grid.Row="2" FontSize="15" VerticalAlignment="Center" Margin="0 4 0 0"/>
-                <TextBox Name="txtDescripcion" FontSize="15" Grid.Column="1" Grid.Row="2" Margin="0 4 0 0"/>
+                <Label Content="Producto" FontSize="15" VerticalAlignment="Center" Margin="0 4 0 0" />
+                <TextBox Name="txtproducto" FontSize="15" Grid.Column="1"  Margin="0 4 0 0"/>
 
-                <Label Content="Stock" Grid.Row="3" FontSize="15" VerticalAlignment="Center" Margin="0 4 0 0"/>
-                <TextBox Name="txtStock" FontSize="15" Grid.Column="1" Grid.Row="3" Margin="0 4 0 0"/>
+                <Label Content="Proveedor" Grid.Row="1" FontSize="15" VerticalAlignment="Center" Margin="0 4 0 0" />
+                <ComboBox Name="cmbproveedor" Grid.Row="1" FontSize="15" Grid.Column="1"  Margin="0 4 0 0" Width="208" HorizontalAlignment="Left"/>
+                <Button Width="50" ToolTip="Nuevo Proveedor" Name="btnnuevoProveedor" Margin="0 4 0 0" Background="#FCA311" Click="btnnuevoProveedor_Click" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Right">
+                    <Image Source="/Imagenes/iconos/nuevo.png" Width="20"/>
+                </Button>
+
+                <Label Content="Stock Inicial" Grid.Row="1" Grid.Column="2" FontSize="15" VerticalAlignment="Center" Margin="10 4 0 0"/>
+                <TextBox Name="txtStock" FontSize="15" Grid.Row="1" Margin="0 4 0 0" Grid.Column="3" Grid.RowSpan="1"/>
 
 
-                <DockPanel Grid.Row="4" Grid.Column="0">
-                    <Label Content="Precio Costo"  FontSize="15" VerticalAlignment="Center" Margin="0 4 0 0" DockPanel.Dock="Left"/>
-                    <TextBox Name="txtPrecioCosto" FontSize="15" Margin="0 4 4 0" Width="auto"/>
-                </DockPanel>
 
-                <DockPanel Grid.Row="4" Grid.Column="1">
-                    <Label Content="Precio Venta"  FontSize="15" VerticalAlignment="Center" Margin="0 4 0 0" DockPanel.Dock="Left"/>
-                    <TextBox Name="txtPrecioVenta" FontSize="15" Margin="0 4 0 0" Width="auto"/>
-                </DockPanel>
+                <Label Content="Precio Costo"  FontSize="15" VerticalAlignment="Center" Margin="0 4 0 0" Grid.Row="2"/>
+                <TextBox Name="txtPrecioCosto" FontSize="15" Margin="0 4 0 0" Width="auto" Grid.Row="2" Grid.Column="1"/>
+
+
+                <Label Content="Precio Venta"  FontSize="15" VerticalAlignment="Center" Margin="10 4 0 0" Grid.Column="2" Grid.Row="2"/>
+                <TextBox Name="txtPrecioVenta" FontSize="15" Margin="0 4 0 0" Width="auto" Grid.Row="2" Grid.Column="3"/>
+
 
 
 
             </Grid>
         </StackPanel>
-        <Border Height="150" BorderBrush="Black"   
-        BorderThickness="1" Margin="389,35,0,109" Grid.Row="2" Background="White">
-            <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <Border BorderBrush="Black"
+        BorderThickness="1" Margin="568,35.8,0.2,47.4" Grid.Row="2" Background="White">
+            <ScrollViewer VerticalScrollBarVisibility="Auto" >
                 <StackPanel Name="autoCompleteCategorias"></StackPanel>
             </ScrollViewer>
         </Border>

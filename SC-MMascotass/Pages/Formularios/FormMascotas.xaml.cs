@@ -60,8 +60,11 @@ namespace SC_MMascotass.Pages.Formularios
             try
             {
                 //Crear el comando SQL
-                SqlCommand sqlCommand = new SqlCommand("CargarRazasCombo", sqlConnection);
+                SqlCommand sqlCommand = new SqlCommand("Mascotas", sqlConnection);
                 sqlCommand.CommandType = System.Data.CommandType.StoredProcedure;
+
+                //Enviar Parametros
+                sqlCommand.Parameters.AddWithValue("@Accion", "CargarRazasCombo");
 
                 //Abrir conexion
                 sqlConnection.Open();

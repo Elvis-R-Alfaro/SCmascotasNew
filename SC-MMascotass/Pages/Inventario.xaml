@@ -80,6 +80,7 @@
                     <DataGridTextColumn Header="ID" Binding="{Binding Id}" Width="50"/>
                     <DataGridTextColumn Header="Categoria" Binding="{Binding Categoria}" Width="120"/>
                     <DataGridTextColumn Header="Nombre del Producto" Binding="{Binding Descripcion}" />
+                    <DataGridTextColumn Header="Proveedor" Binding="{Binding NombreProveedor}" Width="130"/>
                     <DataGridTextColumn Header="Stock" Binding="{Binding Stock}" Width="80"/>
                     <DataGridTextColumn Header="Precio-Costo" Binding="{Binding PrecioCosto}" Width="100"/>
                     <DataGridTextColumn Header="Precio-Venta" Binding="{Binding PrecioVenta}" Width="100"/>

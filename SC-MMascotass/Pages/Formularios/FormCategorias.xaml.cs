@@ -28,7 +28,7 @@ namespace SC_MMascotass.Pages.Formularios
             //Validacion de carga de datos
             if (visible)
             {
-                categoria = categoria.BuscarCategoria(ides);
+                categoria = Constructores.Procedimientos.BuscarCategoria(ides);
                 txtCategoria.Text = categoria.NombreCategoria;
             }
 
@@ -77,7 +77,7 @@ namespace SC_MMascotass.Pages.Formularios
                 categoria.NombreCategoria = txtCategoria.Text;
 
                 //Insertar los datos de la categoria
-                categoria.CrearCategoria(categoria);
+                Constructores.Procedimientos.CrearCategoria(categoria);
 
                 //Mensaje de inserccion exito
                 MessageBox.Show("Datos insertados correctamente", "Exito", MessageBoxButton.OK, MessageBoxImage.Information);              
@@ -99,7 +99,7 @@ namespace SC_MMascotass.Pages.Formularios
                 ObtenerValoresFormulario();
 
                 //Actualizar los valores en la base de datos
-                categoria.EditarCategoria(categoria);
+                Constructores.Procedimientos.EditarCategoria(categoria);
 
                 //Mensaje de actualizacion realizada
                 MessageBox.Show("Datos Modificados correctamente", "Exito", MessageBoxButton.OK, MessageBoxImage.Information);
