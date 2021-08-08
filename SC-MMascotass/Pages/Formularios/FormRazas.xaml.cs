@@ -44,34 +44,10 @@ namespace SC_MMascotass.Pages.Formularios
         }
         private void CargarEspeciesCombo()
         {
-            try
-            {
-                //Crear el comando SQL
-                SqlCommand sqlCommand = new SqlCommand("Razas", sqlConnection);
-                sqlCommand.CommandType = System.Data.CommandType.StoredProcedure;
-
-                //Enviar Parametros
-                sqlCommand.Parameters.AddWithValue("@Accion", "CargarEspeciesCombo");
-
-                //Abrir conexion
-                sqlConnection.Open();
-
-                SqlDataReader dr = sqlCommand.ExecuteReader();
-                while (dr.Read())
-                {
-                    cmbesoecie.Items.Add(dr["Descripcion"].ToString());
-                    cmbesoecie.SelectedValuePath = dr["IdEspecie"].ToString();
-                }
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Error al cargar las Especies");
-            }
-            finally
-            {
-                //Cerrar la conexion
-                sqlConnection.Close();
-            }
+            mascotas = Constructores.Procedimientos.CargarEspeciesCombo();
+            cmbesoecie.DisplayMemberPath = "Descripcion";
+            cmbesoecie.SelectedValuePath = "IdEspecie";
+            cmbesoecie.ItemsSource = mascotas;
         }
 
         private bool VerificarValores()
@@ -120,7 +96,7 @@ namespace SC_MMascotass.Pages.Formularios
             if (VerificarValores())
             {                
                 //Obtener los valores para la mascota
-                mascota.IdEspecie = Convert.ToInt32(cmbesoecie.SelectedValuePath);
+                mascota.IdEspecie = Convert.ToInt32(cmbesoecie.SelectedValue);
                 mascota.NombreRaza = txtNombreRaza.Text;
                 mascota.Altura = cmbaltura.SelectionBoxItem.ToString();
                 mascota.RangoPeso = cmbPesoIdeal.SelectionBoxItem.ToString();
@@ -130,9 +106,11 @@ namespace SC_MMascotass.Pages.Formularios
 
                 //Ejecutamos
                 Constructores.Procedimientos.CrearRaza(mascota);
-
-                ObtenerRazas();
-                Limpiar();
+                if (Constructores.Procedimientos.error == 0)
+                {
+                    ObtenerRazas();
+                    Limpiar();
+                }                    
             }
         }
 
@@ -160,7 +138,7 @@ namespace SC_MMascotass.Pages.Formularios
             {
 
                 //Obtener los valores para la mascota
-                mascota.IdEspecie = Convert.ToInt32(cmbesoecie.SelectedValuePath);
+                mascota.IdEspecie = Convert.ToInt32(cmbesoecie.SelectedValue);
                 mascota.NombreRaza = txtNombreRaza.Text;
                 mascota.Altura = cmbaltura.SelectionBoxItem.ToString();
                 mascota.RangoPeso = cmbPesoIdeal.SelectionBoxItem.ToString();
@@ -172,9 +150,12 @@ namespace SC_MMascotass.Pages.Formularios
 
                 //Ejecutamos
                 Constructores.Procedimientos.EditarRaza(mascota);
-
-                ObtenerRazas();
-                Limpiar();
+                if (Constructores.Procedimientos.error == 0)
+                {
+                    ObtenerRazas();
+                    Limpiar();
+                }
+                    
             }
         }
 
@@ -198,13 +179,21 @@ namespace SC_MMascotass.Pages.Formularios
                 spButton1.Visibility = Visibility.Hidden;
                 spButton2.Visibility = Visibility.Visible;
                 mascota = Constructores.Procedimientos.CargarDatosEditarRazas(Convert.ToInt32(dgClientes.SelectedValue));
-                txtNombreRaza.Text = mascota.NombreRaza;
-                cmbaltura.Text = mascota.Altura;
-                cmbActividadFisica.Text = mascota.ActividadFisica;
-                cmbPesoIdeal.Text =mascota.RangoPeso;
-                cmbesoecie.Text = mascota.Descripcion;
-                cmbEsperanzaVida.Text = mascota.EsperanzaVida;
-                txtTipoPelo.Text = mascota.TipoDePelo;
+                if (Constructores.Procedimientos.error == 0)
+                {
+                    txtNombreRaza.Text = mascota.NombreRaza;
+                    cmbaltura.Text = mascota.Altura;
+                    cmbActividadFisica.Text = mascota.ActividadFisica;
+                    cmbPesoIdeal.Text = mascota.RangoPeso;
+                    cmbesoecie.Text = mascota.Descripcion;
+                    cmbEsperanzaVida.Text = mascota.EsperanzaVida;
+                    txtTipoPelo.Text = mascota.TipoDePelo;
+                }
+                else
+                {
+                    Limpiar();
+                }
+                
             }
         }
 
@@ -222,17 +211,19 @@ namespace SC_MMascotass.Pages.Formularios
                 {
                     //Eliminar la mascotas
                     Constructores.Procedimientos.EliminarRaza(Convert.ToInt32(dgClientes.SelectedValue));
+                    if (Constructores.Procedimientos.error == 0)
+                    {
+                        ObtenerRazas();
+                        Limpiar();
+                    }
                 }
             }
-            //Actualizar el listbox de mascotas
-            ObtenerRazas();
-            Limpiar();
 
         }
 
         private void btnLimpiar_Click(object sender, RoutedEventArgs e)
         {
-            Limpiar();   
+            Limpiar();
         }
 
         private void btnCancelar_Click(object sender, RoutedEventArgs e)

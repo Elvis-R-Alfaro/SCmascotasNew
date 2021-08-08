@@ -40,7 +40,7 @@
                         Foreground="Black"
                         FontSize="14"
                         BorderThickness="0"
-                        Name="btnCancelar"
+                        Name="btnCancelar" Click="btnCancelar_Click"
                         Padding="10">
                 <StackPanel Orientation="Vertical" >
                     <Image Source="/Imagenes/iconos/recargar.png" HorizontalAlignment="Center" Width="25" Height="25"/>
@@ -69,7 +69,7 @@
                         FontSize="14"
                         BorderThickness="0"
                         Name="btnRestablecer"
-                        Padding="10" Click="btnRestablecer_Click_1">
+                        Padding="10" Click="btnRestablecer_Click_2">
                 <StackPanel Orientation="Vertical" >
                     <Image Source="/Imagenes/iconos/recargar.png" HorizontalAlignment="Center" Width="25" Height="25"/>
                     <TextBlock Text="Limpiar" HorizontalAlignment="Center"/>
