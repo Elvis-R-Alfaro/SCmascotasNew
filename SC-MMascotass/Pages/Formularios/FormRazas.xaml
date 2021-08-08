@@ -32,7 +32,7 @@
                         FontSize="14"
                         BorderThickness="0"
                         Name="btnGuardar"
-                        Padding="10" Click="btnGuardar_Click" Margin="0,0,0,-0.2">
+                        Padding="10" Click="btnGuardar_Click" Height="75" VerticalAlignment="Top">
                 <StackPanel Orientation="Vertical" >
                     <Image Source="/Imagenes/iconos/guardar.png" HorizontalAlignment="Center" Width="25" Height="25"/>
                     <TextBlock Text="Guardar" HorizontalAlignment="Center"/>
@@ -80,12 +80,40 @@
 
             </Button>
         </StackPanel>
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" Name="spButton2" Visibility="Hidden"  Grid.ColumnSpan="2" Margin="0" Width="260">
+            <Button     Background="Transparent"
+                        Foreground="Black"
+                        FontSize="14"
+                        BorderThickness="0"
+                        Name="btnAceptar"
+                        Padding="10" Click="btnAceptar_Click">
+                <StackPanel Orientation="Vertical" >
+                    <Image Source="/Imagenes/iconos/guardar.png" HorizontalAlignment="Center" Width="25" Height="25"/>
+                    <TextBlock Text="Aceptar" HorizontalAlignment="Center"/>
+
+                </StackPanel>
+
+            </Button>
+            <Button     Background="Transparent"
+                        Foreground="Black"
+                        FontSize="14"
+                        BorderThickness="0"
+                        Name="btnCancelar"
+                        Padding="10" Click="btnCancelar_Click">
+                <StackPanel Orientation="Vertical" >
+                    <Image Source="/Imagenes/iconos/recargar.png" HorizontalAlignment="Center" Width="25" Height="25"/>
+                    <TextBlock Text="Cancelar" HorizontalAlignment="Center"/>
+
+                </StackPanel>
+
+            </Button>
+        </StackPanel>
         <StackPanel Grid.Row="2" Grid.ColumnSpan="2" Margin="0,0.8,-0.4,-0.6">
             <Grid>
                 <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.8*"/>
                     <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="0.7*"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
@@ -99,15 +127,15 @@
                 </Grid.RowDefinitions>
 
 
-                <Label Content="Especie" Grid.Row="0" Grid.Column="2" FontSize="15" VerticalAlignment="Center" Margin="0 4 0 0"/>
+                <Label Content="Especie" Grid.Row="0" Grid.Column="2" FontSize="15" VerticalAlignment="Center" Margin="10 4 0 0"/>
                 <Label Content="Nombre de la Raza" Grid.Row="0" FontSize="15" VerticalAlignment="Center" Margin="0 4 0 0"/>
                 <Label Content="Altura" Grid.Row="2" FontSize="15" VerticalAlignment="Center" Margin="0 4 0 0"/>
-                <Label Content="Rango de Peso" Grid.Row="2" Grid.Column="2" FontSize="15" VerticalAlignment="Bottom" Margin="0,0,193.4,34" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
+                <Label Content="Rango de Peso" Grid.Row="2" Grid.Column="2" FontSize="15" VerticalAlignment="Bottom" Margin="10,0,193.4,34" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
                 <Label Content="Esperanza de Vida" Grid.Row="3" Grid.Column="0" FontSize="15" VerticalAlignment="Center" Margin="0 4 0 0"/>
-                <Label Content="Actividad fisica" Grid.Row="3" Grid.Column="2" FontSize="15" VerticalAlignment="Center" Margin="0 4 0 0"/>
+                <Label Content="Actividad fisica" Grid.Row="3" Grid.Column="2" FontSize="15" VerticalAlignment="Center" Margin="10 4 0 0"/>
                 <Label Content="Tipo de Pelo" Grid.Row="5" FontSize="15" VerticalAlignment="Center" Margin="0 4 0 0"/>
 
-                <ComboBox Name="cmbesoecie" Width="145" FontSize="15" Grid.Column="3" Grid.Row="0" Margin="0 4 0 0" HorizontalAlignment="Left" />
+                <ComboBox Name="cmbesoecie" Width="171" FontSize="15" Grid.Column="3" Grid.Row="0" Margin="0 4 0 0" HorizontalAlignment="Left" />
                 <TextBox Name="txtNombreRaza" FontSize="15" Grid.Column="1" Grid.Row="0" Margin="0 4 0 0"/>
                 <ComboBox Name="cmbaltura" FontSize="15" Grid.Column="1" Grid.Row="2" Margin="0 4 0 0" >
                     <ComboBoxItem Content="15-35 cm"></ComboBoxItem>
@@ -146,12 +174,12 @@
             <StackPanel Grid.Row="2"  Margin="0 20 0 0">
                 <DataGrid Name="dgClientes"   AutoGenerateColumns="False" IsReadOnly="True" ItemsSource="{Binding Source=mascotas}" MaxHeight="310" ColumnWidth="*" GridLinesVisibility="Horizontal">
                     <DataGrid.Columns>
-                        <DataGridTextColumn Header="Raza" Binding="{Binding NombreRaza}" Width="80" />
+                        <DataGridTextColumn Header="Raza" Binding="{Binding NombreRaza}" Width="100" />
                         <DataGridTextColumn Header="Especie" Binding="{Binding Descripcion}" />
-                        <DataGridTextColumn Header="Altura" Binding="{Binding Altura}" />
+                        <DataGridTextColumn Header="Altura" Binding="{Binding Altura}" Width="70"/>
                         <DataGridTextColumn Header="Rango de Peso" Binding="{Binding RangoPeso}" />
                         <DataGridTextColumn Header="Esperanza de Vida" Binding="{Binding EsperanzaVida}" />
-                        <DataGridTextColumn Header="Actividad Fisica" Binding="{Binding ActividadFisica}" />
+                        <DataGridTextColumn Header="Actividad Fisica" Binding="{Binding ActividadFisica}" Width="100" />
                         <DataGridTextColumn Header="Tipo de Pelo" Binding="{Binding TipoDePelo}" />
                     </DataGrid.Columns>
                 </DataGrid>

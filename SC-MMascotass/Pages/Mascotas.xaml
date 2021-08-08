@@ -26,6 +26,19 @@
                         Foreground="Black"
                         FontSize="14"
                         BorderThickness="0"
+                        Name="btnEspecie"
+                        Padding="10" Click="btnEspecie_Click"  Margin="0,0,50,0">
+                <StackPanel Orientation="Vertical" >
+                    <Image Source="/Imagenes/mascota.png" HorizontalAlignment="Center" Width="25" Height="25"/>
+                    <TextBlock Text="Agregar Especie" HorizontalAlignment="Center"/>
+
+                </StackPanel>
+
+            </Button>
+            <Button     Background="Transparent"
+                        Foreground="Black"
+                        FontSize="14"
+                        BorderThickness="0"
                         Name="btnNuevo"
                         Padding="10" Click="btnNuevo_Click" Margin="0,0,0,0.2">
                 <StackPanel Orientation="Vertical" >
@@ -70,6 +83,19 @@
                 <StackPanel Orientation="Vertical" >
                     <Image Source="/Imagenes/iconos/recargar.png" HorizontalAlignment="Center" Width="25" Height="25"/>
                     <TextBlock Text="Refrescar" HorizontalAlignment="Center"/>
+
+                </StackPanel>
+
+            </Button>
+            <Button     Background="Transparent"
+                        Foreground="Black"
+                        FontSize="14"
+                        BorderThickness="0"
+                        Name="btnRazas"
+                        Padding="10" Margin="50 0 0 0" Click="btnRazas_Click">
+                <StackPanel Orientation="Vertical" >
+                    <Image Source="/Imagenes/mascota.png" HorizontalAlignment="Center" Width="25" Height="25"/>
+                    <TextBlock Text="Agregar Raza" HorizontalAlignment="Center"/>
 
                 </StackPanel>
 

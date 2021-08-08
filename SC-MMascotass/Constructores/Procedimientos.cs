@@ -14,7 +14,6 @@ namespace SC_MMascotass.Constructores
     {
         //Conexion
         private static SqlConnection sqlConnection = database.Conexion.ObtenerConexion();
-
         public static string MensajeProcedimiento;
         
         #region LOGIN
@@ -393,6 +392,8 @@ namespace SC_MMascotass.Constructores
                             IdCliente = Convert.ToInt32(rdr["IdCliente"]),
                             IdRaza = Convert.ToInt32(rdr["IdRaza"]),
                             NombreMascota = rdr["NombreMascota"].ToString(),
+                            NombreRaza = rdr["NombreRaza"].ToString(),
+                            Cliente = rdr["NombreCliente"].ToString(),
                             Sexo = rdr["Sexo"].ToString(),
                             Fecha = (DateTime)rdr["FechaDeNacimiento"]
                         });
@@ -530,6 +531,7 @@ namespace SC_MMascotass.Constructores
                         laMascota.IdRaza = Convert.ToInt32(rdr["IdRaza"]);
 
                         laMascota.NombreMascota = rdr["NombreMascota"].ToString();
+                        laMascota.NombreRaza = rdr["NombreRaza"].ToString();
                         laMascota.Sexo = rdr["Sexo"].ToString();
                         laMascota.Fecha = (DateTime)rdr["FechaDeNacimiento"];
                     }
@@ -690,11 +692,14 @@ namespace SC_MMascotass.Constructores
 
                 //ejecutar el comando insertado
                 sqlCommand.ExecuteNonQuery();
-            }
-            catch (Exception e)
-            {
 
-                throw e;
+                //Mensaje de inserccion exito
+                MessageBox.Show("Datos Insertados Correctamente", "Exito", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ha ocurrido un error al momento de insertar la raza....");
+                Console.WriteLine(ex.Message);
             }
             finally
             {
@@ -727,11 +732,14 @@ namespace SC_MMascotass.Constructores
 
                 //ejecutar el comando insertado
                 sqlCommand.ExecuteNonQuery();
+
+                //Mensaje de inserccion exito
+                MessageBox.Show("Datos Editados Correctamente", "Exito", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             catch (Exception e)
             {
-
-                throw e;
+                MessageBox.Show("Ha ocurrido un error al momento de editar la raza....");
+                Console.WriteLine(e.Message);
             }
             finally
             {
@@ -757,15 +765,62 @@ namespace SC_MMascotass.Constructores
 
                 //ejecutar el comando insertado
                 sqlCommand.ExecuteNonQuery();
+
+                MessageBox.Show("Se ha eliminado la raza correctamente...");
             }
             catch (Exception e)
             {
-
-                throw e;
+                MessageBox.Show("Ha ocurrido un error al eliminar la raza...");
+                Console.WriteLine(e.Message);
             }
             finally
             {
                 //Cerrar la conexion
+                sqlConnection.Close();
+            }
+        }
+
+        public static Mascota CargarDatosEditarRazas(int id)
+        {
+            Mascota mascota = new Mascota();
+            try
+            {
+                //Crear el comando SQL
+                SqlCommand sqlCommand = new SqlCommand("Razas", sqlConnection);
+                sqlCommand.CommandType = System.Data.CommandType.StoredProcedure;
+
+                //Establecer el valor del parametro
+                sqlCommand.Parameters.AddWithValue("@IdRaza", id);
+                sqlCommand.Parameters.AddWithValue("@Accion", "CargarDatosEditarRazas");
+
+                //Establecer la coneccion
+                sqlConnection.Open();
+
+                using (SqlDataReader rdr = sqlCommand.ExecuteReader())
+                {
+                    while (rdr.Read())
+                    {
+                        mascota.NombreRaza = rdr["NombreRaza"].ToString();
+                        mascota.Altura = rdr["Altura"].ToString();
+                        mascota.ActividadFisica = rdr["ActividadFisica"].ToString();
+                        mascota.RangoPeso = rdr["RangoPeso"].ToString();
+                        mascota.Descripcion = rdr["Descripcion"].ToString();
+                        mascota.EsperanzaVida = rdr["EsperanzaVida"].ToString();
+                        mascota.TipoDePelo = rdr["TipoDePelo"].ToString();
+                    }
+                }
+                return mascota;
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error al cargar los datos");
+                Console.WriteLine(e.Message);
+                return mascota;
+            }
+            finally
+            {
+                //Cerrar la conexio
                 sqlConnection.Close();
             }
         }
@@ -799,6 +854,7 @@ namespace SC_MMascotass.Constructores
                             IdEspecie = Convert.ToInt32(rdr["IdEspecie"]),
                             IdRaza = Convert.ToInt32(rdr["IdRaza"]),
                             NombreRaza = rdr["NombreRaza"].ToString(),
+                            Descripcion = rdr["Descripcion"].ToString(),
                             Altura = rdr["Altura"].ToString(),
                             RangoPeso = rdr["RangoPeso"].ToString(),
                             EsperanzaVida = rdr["EsperanzaVida"].ToString(),
@@ -842,11 +898,14 @@ namespace SC_MMascotass.Constructores
 
                 //ejecutar el comando insertado
                 sqlCommand.ExecuteNonQuery();
+
+                //Mensaje de inserccion exito
+                MessageBox.Show("Datos Insertados Correctamente", "Exito", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             catch (Exception e)
             {
-
-                throw e;
+                MessageBox.Show("Ha ocurrido un error al momento de insertar la mascota....");
+                Console.WriteLine(e.Message);
             }
             finally
             {
@@ -874,11 +933,13 @@ namespace SC_MMascotass.Constructores
 
                 //ejecutar el comando insertado
                 sqlCommand.ExecuteNonQuery();
+
+                MessageBox.Show("La especie se han editado correctamente");
             }
             catch (Exception e)
             {
-
-                throw e;
+                MessageBox.Show("Error al editar la especie");
+                Console.WriteLine(e.Message);
             }
             finally
             {
@@ -904,11 +965,14 @@ namespace SC_MMascotass.Constructores
 
                 //ejecutar el comando insertado
                 sqlCommand.ExecuteNonQuery();
+
+                MessageBox.Show("Se ha eliminado la especie correctamente");
             }
             catch (Exception e)
             {
 
-                throw e;
+                MessageBox.Show("Ha ocurrido un error al eliminar la especie...");
+                Console.WriteLine(e.Message);
             }
             finally
             {
@@ -917,7 +981,45 @@ namespace SC_MMascotass.Constructores
             }
         }
 
+        public static Mascota CargarDatosEditarEspecies(int id)
+        {
+            Mascota mascota = new Mascota();
+            try
+            {
+                //Crear el comando SQL
+                SqlCommand sqlCommand = new SqlCommand("Especies", sqlConnection);
+                sqlCommand.CommandType = System.Data.CommandType.StoredProcedure;
 
+                //Establecer el valor del parametro
+                sqlCommand.Parameters.AddWithValue("@IdEspecie", id);
+                sqlCommand.Parameters.AddWithValue("@Accion", "CargarDatosEditarEspecies");
+
+                //Establecer la coneccion
+                sqlConnection.Open();
+
+                using (SqlDataReader rdr = sqlCommand.ExecuteReader())
+                {
+                    while (rdr.Read())
+                    {
+                        mascota.Descripcion = rdr["Descripcion"].ToString();
+                        mascota.Familia = rdr["Familia"].ToString();
+                    }
+                }
+                return mascota;
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error al cargar los datos");
+                Console.WriteLine(e.Message);
+                return mascota;
+            }
+            finally
+            {
+                //Cerrar la conexio
+                sqlConnection.Close();
+            }
+        }
 
         public static List<Mascota> MostrarEspecies()
         {
@@ -993,8 +1095,8 @@ namespace SC_MMascotass.Constructores
             }
             catch (Exception e)
             {
-
-                throw e;
+                MessageBox.Show("Ha ocurrido un error al momento de insertar la categoria....");
+                Console.WriteLine(e.Message);
             }
             finally
             {
@@ -1162,7 +1264,8 @@ namespace SC_MMascotass.Constructores
             }
             catch (Exception e)
             {
-                throw e;
+                MessageBox.Show("Error al momento de editar la categoria....");
+                Console.WriteLine(e.Message);
             }
             finally
             {
@@ -1194,7 +1297,8 @@ namespace SC_MMascotass.Constructores
             }
             catch (Exception e)
             {
-                throw e;
+                MessageBox.Show("Ha ocurrido un error al eliminar la habitacion...");
+                Console.WriteLine(e.Message);
             }
             finally
             {
@@ -1450,6 +1554,7 @@ namespace SC_MMascotass.Constructores
 
                 //Establecer los valores de los paramawtros
                 sqlCommand.Parameters.AddWithValue("@IdProveedor", producto.IdProveedor);
+                sqlCommand.Parameters.AddWithValue("@@IdCategoria", producto.IdCategoria);
                 sqlCommand.Parameters.AddWithValue("@NombreProducto", producto.Descripcion);
                 sqlCommand.Parameters.AddWithValue("@PrecioCosto", producto.PrecioCosto);
                 sqlCommand.Parameters.AddWithValue("@PrecioVenta", producto.PrecioVenta);
@@ -1461,11 +1566,14 @@ namespace SC_MMascotass.Constructores
 
                 //ejecutar el comando insertado
                 sqlCommand.ExecuteNonQuery();
-            }
-            catch (Exception e)
-            {
 
-                throw e;
+                //Mensaje de inserccion exito
+                MessageBox.Show("Datos Insertados Correctamente", "Exito", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ha ocurrido un error al momento de insertar los datos en el inventario....");
+                Console.WriteLine(ex.Message);
             }
             finally
             {
@@ -1478,7 +1586,7 @@ namespace SC_MMascotass.Constructores
         /// Monstrar todos los productos
         /// </summary>
         /// <returns>Listado de Productos</returns>
-        public static List<InventarioC> MonstrarInventario()
+        public static List<InventarioC> MostrarInventario()
         {
             //Iniciamos la lista vacia de categorias
             List<InventarioC> inventarios = new List<InventarioC>();
@@ -1505,6 +1613,7 @@ namespace SC_MMascotass.Constructores
                             Id = Convert.ToInt32(rdr["IdProducto"]),
                             IdCategoria = Convert.ToInt32(rdr["IdCategoria"]),
                             IdProveedor = Convert.ToInt32(rdr["IdProveedor"]),
+                            NombreProveedor = rdr["NombreProveedor"].ToString(),
                             Descripcion = rdr["NombreProducto"].ToString(),
                             Categoria = rdr["NombreCategoria"].ToString(),
                             PrecioCosto = Convert.ToDouble(rdr["PrecioCosto"]),
@@ -1558,6 +1667,7 @@ namespace SC_MMascotass.Constructores
                         elProducto.IdProveedor = Convert.ToInt32(rdr["IdProveedor"]);
                         elProducto.Descripcion = rdr["NombreProducto"].ToString();
                         elProducto.IdCategoria = Convert.ToInt32(rdr["IdCategoria"]);
+                        elProducto.NombreProveedor = rdr["NombreProveedor"].ToString();
                         elProducto.PrecioCosto = Convert.ToDouble(rdr["PrecioCosto"]);
                         elProducto.PrecioVenta = Convert.ToDouble(rdr["PrecioVenta"]);
                         elProducto.Stock = Convert.ToInt32(rdr["Stock"]);
@@ -1590,7 +1700,7 @@ namespace SC_MMascotass.Constructores
                 sqlCommand.CommandType = System.Data.CommandType.StoredProcedure;
 
                 //Establecer los valores de los parametros
-                sqlCommand.Parameters.AddWithValue("@id", producto.Id);
+                sqlCommand.Parameters.AddWithValue("@IdProducto", producto.Id);
                 sqlCommand.Parameters.AddWithValue("@IdCategoria", producto.IdCategoria);
                 sqlCommand.Parameters.AddWithValue("@IdProveedor", producto.IdProveedor);
                 sqlCommand.Parameters.AddWithValue("@NombreProducto", producto.Descripcion);
@@ -1604,10 +1714,14 @@ namespace SC_MMascotass.Constructores
 
                 //Ejecutar el comando de actualizar
                 sqlCommand.ExecuteNonQuery();
+
+                //Mensaje de actualizacion realizada
+                MessageBox.Show("Datos Modificado Correctamente", "Exito", MessageBoxButton.OK, MessageBoxImage.Information);
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-                throw e;
+                MessageBox.Show("Error al momento de actualizar el producto....");
+                Console.WriteLine(ex.Message);
             }
             finally
             {
@@ -1620,7 +1734,7 @@ namespace SC_MMascotass.Constructores
         /// </summary>
         /// <param name="id"></param>
 
-        public static void EliminarRegistro(int id)
+        public static void EliminarProducto(int id)
         {
             try
             {
@@ -1631,7 +1745,7 @@ namespace SC_MMascotass.Constructores
 
                 //Establecer el valor del parametro
                 sqlCommand.Parameters.AddWithValue("@IdProducto", id);
-                sqlCommand.Parameters.AddWithValue("@Accion", "EliminarRegistro");
+                sqlCommand.Parameters.AddWithValue("@Accion", "EliminarProducto");
 
                 //Establecer la conexion SQL
                 sqlConnection.Open();

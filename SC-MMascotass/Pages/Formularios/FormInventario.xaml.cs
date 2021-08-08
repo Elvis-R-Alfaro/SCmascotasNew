@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,12 +19,14 @@ namespace SC_MMascotass.Pages.Formularios
     {
         private InventarioC inventario = new InventarioC();
         private Categoria categoria = new Categoria();
+        private SqlConnection sqlConnection = database.Conexion.ObtenerConexion();
 
         //Variable de id
         public static int ides;
         public FormInventario(bool visible)
         {
             InitializeComponent();
+            CargarCombobox();
 
             //Monstrar botones visibles/invisibles
             MonstrarBotones(visible);
@@ -34,18 +37,51 @@ namespace SC_MMascotass.Pages.Formularios
 
             //Validacion de cargar datos
             if (visible)
-            {
-                inventario = inventario.BuscarProducto(ides);
-                categoria = categoria.BuscarCategoria(inventario.IdCategoria);
+            { 
+                inventario = Constructores.Procedimientos.BuscarProducto(ides);
+                categoria = Constructores.Procedimientos.BuscarCategoria(inventario.IdCategoria);
 
                 txtAuCategoria.Text = categoria.NombreCategoria;
-                txtDescripcion.Text = inventario.Descripcion;
+                txtproducto.Text = inventario.Descripcion;
                 txtPrecioCosto.Text = inventario.PrecioCosto.ToString();
                 txtPrecioVenta.Text = inventario.PrecioVenta.ToString();
                 txtStock.Text = inventario.Stock.ToString();
-
+                cmbproveedor.Text = inventario.NombreProveedor;
+                cmbproveedor.SelectedValuePath = inventario.IdProveedor.ToString();
             }
 
+        }
+
+        private void CargarCombobox()
+        {
+            try
+            {
+                //Crear el comando SQL
+                SqlCommand sqlCommand = new SqlCommand("Inventario", sqlConnection);
+                sqlCommand.CommandType = System.Data.CommandType.StoredProcedure;
+
+                //Enviar Parametros
+                sqlCommand.Parameters.AddWithValue("@Accion", "CargarProveedorCombo");
+
+                //Abrir conexion
+                sqlConnection.Open();
+
+                SqlDataReader dr = sqlCommand.ExecuteReader();
+                while (dr.Read())
+                {
+                    cmbproveedor.Items.Add(dr["NombreProveedor"].ToString());
+                    cmbproveedor.SelectedValuePath = dr["IdProveedor"].ToString();
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Error al cargar los Proveedores");
+            }
+            finally
+            {
+                //Cerrar la conexion
+                sqlConnection.Close();
+            }
         }
 
         private bool VerificarValores()
@@ -55,9 +91,9 @@ namespace SC_MMascotass.Pages.Formularios
                 MessageBox.Show("¡Ingrese el Nombre de la Categoría!");
                 return false;
             }
-            if (string.IsNullOrWhiteSpace(txtDescripcion.Text))
+            if (string.IsNullOrWhiteSpace(txtproducto.Text))
             {
-                MessageBox.Show("¡Ingrese la Descripción del producto!");
+                MessageBox.Show("¡Ingrese el Producto!");
                 return false;
             }
             if (string.IsNullOrWhiteSpace(txtStock.Text))
@@ -81,10 +117,14 @@ namespace SC_MMascotass.Pages.Formularios
         //Obtener los datos del formulario
         private void ObtenerValoresFormulario()
         {
-            inventario.Descripcion = txtDescripcion.Text;
+            categoria = Constructores.Procedimientos.BuscarCategoriasId(txtAuCategoria.Text);
+
+            inventario.IdCategoria = categoria.Id;
+            inventario.Descripcion = txtproducto.Text;
             inventario.Stock = Convert.ToInt32(txtStock.Text);
             inventario.PrecioCosto = Convert.ToDouble(txtPrecioCosto.Text);
             inventario.PrecioVenta = Convert.ToDouble(txtPrecioVenta.Text);
+            inventario.IdProveedor = Convert.ToInt32(cmbproveedor.SelectedValuePath);
         }
 
         //Funcion de ocultar botones
@@ -107,7 +147,7 @@ namespace SC_MMascotass.Pages.Formularios
         {
             bool found = false;
             var border = (autoCompleteCategorias.Parent as ScrollViewer).Parent as Border;
-            var data = Categoria.MonstrarMascotas22();
+            var data = Constructores.Procedimientos.MonstrarCategorias22();
 
             string query = (sender as TextBox).Text;
 
@@ -189,44 +229,32 @@ namespace SC_MMascotass.Pages.Formularios
         {
             txtAuCategoria.Text = string.Empty;
             txtCodigo.Text = string.Empty;
-            txtDescripcion.Text = string.Empty;
+            txtproducto.Text = string.Empty;
             txtPrecioCosto.Text = string.Empty;
             txtPrecioVenta.Text = string.Empty;
-            txtStock.Text = string.Empty;
+            txtStock.Text = "";
+            cmbproveedor.Text = "";
         }
 
         private void btnGuardar_Click(object sender, RoutedEventArgs e)
         {
             if (VerificarValores())
-            {
-                try
-                {
-                    //Obtener los valores para el inventario
-                    categoria = categoria.BuscarCategoriasId(txtAuCategoria.Text);
+            {                
+                //Obtener los valores para el inventario
+                categoria = Constructores.Procedimientos.BuscarCategoriasId(txtAuCategoria.Text);
 
-                    inventario.IdCategoria = categoria.Id;
-                    inventario.Descripcion = txtDescripcion.Text;
-                    inventario.Stock = Convert.ToInt32(txtStock.Text);
-                    inventario.PrecioCosto = Convert.ToDouble(txtPrecioCosto.Text);
-                    inventario.PrecioVenta = Convert.ToDouble(txtPrecioVenta.Text);
+                inventario.IdCategoria = categoria.Id;
+                inventario.Descripcion = txtproducto.Text;
+                inventario.IdProveedor = Convert.ToInt32(cmbproveedor.SelectedValuePath);
+                inventario.Stock = Convert.ToInt32(txtStock.Text);
+                inventario.PrecioCosto = Convert.ToDouble(txtPrecioCosto.Text);
+                inventario.PrecioVenta = Convert.ToDouble(txtPrecioVenta.Text);
 
-                    //Insertar los datos del inventario
-                    inventario.CrearProducto(inventario);
-
-                    //Mensaje de inserccion exito
-                    MessageBox.Show("Datos Insertados Correctamente", "Exito", MessageBoxButton.OK, MessageBoxImage.Information);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Ha ocurrido un error al momento de insertar los datos en el inventario....");
-                    Console.WriteLine(ex.Message);
-                }
-                finally
-                {
-                    Limpiar();
-
-                    //Faltan cosas
-                }
+                //Insertar los datos del inventario
+                Constructores.Procedimientos.CrearProducto(inventario);                
+                
+                Limpiar();
+                this.Close();
             }
         }
 
@@ -239,26 +267,17 @@ namespace SC_MMascotass.Pages.Formularios
         {
             if (VerificarValores())
             {
-                try
-                {
-                    //Obtener los valores para el inventario desde el formulario
-                    ObtenerValoresFormulario();
+                
+                //Obtener los valores para el inventario desde el formulario
+                ObtenerValoresFormulario();
 
-                    //Actualizar los valores en la base de datos
-                    inventario.EditarProducto(inventario);
+                //Actualizar los valores en la base de datos
+                Constructores.Procedimientos.EditarProducto(inventario);                
 
-                    //Mensaje de actualizacion realizada
-                    MessageBox.Show("Datos Modificado Correctamente", "Exito", MessageBoxButton.OK, MessageBoxImage.Information);
-
-                    //Limpiar formulario
-                    Limpiar();
-                    this.Close();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error al momento de actualizar el producto....");
-                    Console.WriteLine(ex.Message);
-                }
+                //Limpiar formulario
+                Limpiar();
+                this.Close();
+                
             }
         }
 
@@ -270,6 +289,11 @@ namespace SC_MMascotass.Pages.Formularios
         private void btnRestablecer_Click_1(object sender, RoutedEventArgs e)
         {
             Limpiar();
+        }
+
+        private void btnnuevoProveedor_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

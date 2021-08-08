@@ -28,7 +28,7 @@ namespace SC_MMascotass.Pages.Formularios
             //Validacion de carga de datos
             if (visible)
             {
-                categoria = categoria.BuscarCategoria(ides);
+                categoria = Constructores.Procedimientos.BuscarCategoria(ides);
                 txtCategoria.Text = categoria.NombreCategoria;
             }
 
@@ -71,29 +71,17 @@ namespace SC_MMascotass.Pages.Formularios
 
         private void btnGuardar_Click(object sender, RoutedEventArgs e)
         {
-
             if (VerificarValores())
             {
-                try
-                {
-                    //Obtener los valores para la categoria
-                    categoria.NombreCategoria = txtCategoria.Text;
+                //Obtener los valores para la categoria
+                categoria.NombreCategoria = txtCategoria.Text;
 
-                    //Insertar los datos de la categoria
-                    categoria.CrearCategoria(categoria);
+                //Insertar los datos de la categoria
+                Constructores.Procedimientos.CrearCategoria(categoria);
 
-                    //Mensaje de inserccion exito
-                    MessageBox.Show("Datos insertados correctamente", "Exito", MessageBoxButton.OK, MessageBoxImage.Information);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Ha ocurrido un error al momento de insertar la categoria....");
-                    Console.WriteLine(ex.Message);
-                }
-                finally
-                {
-                    txtCategoria.Text = string.Empty;
-                }
+                //Mensaje de inserccion exito
+                MessageBox.Show("Datos insertados correctamente", "Exito", MessageBoxButton.OK, MessageBoxImage.Information);              
+                this.Close();                
             }
         }
 
@@ -106,25 +94,18 @@ namespace SC_MMascotass.Pages.Formularios
         {
             if (VerificarValores())
             {
-                try
-                {
-                    //Obtener los valores para la categoria desde el formulario
-                    ObtenerValoresFormulario();
 
-                    //Actualizar los valores en la base de datos
-                    categoria.EditarCategoria(categoria);
+                //Obtener los valores para la categoria desde el formulario
+                ObtenerValoresFormulario();
 
-                    //Mensaje de actualizacion realizada
-                    MessageBox.Show("Datos Modificados correctamente", "Exito", MessageBoxButton.OK, MessageBoxImage.Information);
+                //Actualizar los valores en la base de datos
+                Constructores.Procedimientos.EditarCategoria(categoria);
 
-                    //Limpiar formulario
-                    this.Close();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error al momento de actualizar la categoria....");
-                    Console.WriteLine(ex.Message);
-                }
+                //Mensaje de actualizacion realizada
+                MessageBox.Show("Datos Modificados correctamente", "Exito", MessageBoxButton.OK, MessageBoxImage.Information);
+
+                //Limpiar formulario
+                this.Close();
             }
         }
 

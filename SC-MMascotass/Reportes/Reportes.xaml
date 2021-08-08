@@ -15,8 +15,8 @@
             <RowDefinition Height="70"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        
-        
+
+
 
         <StackPanel Orientation="Horizontal" >
             <Image Source="/Imagenes/icono.png" Width="50" Margin="20 0"></Image>
@@ -27,18 +27,10 @@
             <Label FontSize="25" Content="Reportería"  HorizontalAlignment="Center"/>
 
         </StackPanel>
-        
+
         <StackPanel Grid.Row="1">
 
-            <Button     Background="Transparent"
-                        Height="50"
-                        Foreground="Black"
-                        FontSize="14"
-                        BorderThickness="0"
-                        Name="btnR4" Click="btnR4_Click" Content="Reporte productos vencidos según fecha" >
-
-            </Button>
-
+            <Label Content="Consultas" HorizontalAlignment="Center" Background="DarkGray" Width="280"/>
             <Button     Background="Transparent"
                         Height="50"
                         Foreground="Black" 
@@ -49,7 +41,7 @@
             </Button>
 
 
-            
+            <Label Content="Mascotas" HorizontalAlignment="Center" Background="DarkGray" Width="280" ></Label>
             <Button     Background="Transparent"
                         Height="50"
                         Foreground="Black" 
@@ -67,7 +59,7 @@
                         Name="btnR2" Click="btnR2_Click" Content="Reporte de vacunas de la mascota" >
 
             </Button>
-            
+            <Label Content="Personal" HorizontalAlignment="Center" Background="DarkGray" Width="280"></Label>
             <Button     Background="Transparent"
                         Height="50"
                         Foreground="Black"
@@ -76,7 +68,8 @@
                         Name="btnR1" Click="btnR1_Click" Content="Reporte del personal según cargo" >
 
             </Button>
-            
+
+
 
         </StackPanel>
         <StackPanel Grid.Row="1" VerticalAlignment="Bottom">

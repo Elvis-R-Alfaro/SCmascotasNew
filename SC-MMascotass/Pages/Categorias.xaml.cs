@@ -38,7 +38,7 @@ namespace SC_MMascotass.Pages
         
         private void ObtenerCategorias()
         {
-            categorias = categoria.MonstrarCategorias();
+            categorias = Constructores.Procedimientos.MonstrarCategorias();
             dgClientes.SelectedValuePath = "Id";
             dgClientes.ItemsSource = categorias;
         }
@@ -58,33 +58,23 @@ namespace SC_MMascotass.Pages
 
         private void btnEliminar_Click(object sender, RoutedEventArgs e)
         {
-            try
+
+            if (dgClientes.SelectedValue == null)
+                MessageBox.Show("Por favor, seleccione una categoría de la lista");
+            else
             {
-                if (dgClientes.SelectedValue == null)
-                    MessageBox.Show("Por favor, seleccione una categoría de la lista");
-                else
+                //Monstrar mensaje de confirmacion
+                MessageBoxResult result = MessageBox.Show("¿Deseas eliminar la categoria?", "Confirmar", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+
+                if (result == MessageBoxResult.Yes)
                 {
-                    //Monstrar mensaje de confirmacion
-                    MessageBoxResult result = MessageBox.Show("¿Deseas eliminar la categoria?", "Confirmar", MessageBoxButton.YesNo, MessageBoxImage.Warning);
-
-                    if (result == MessageBoxResult.Yes)
-                    {
-                        //Eliminar la categoria
-                        categoria.EliminarCategoria(Convert.ToInt32(dgClientes.SelectedValue));
-                    }
+                    //Eliminar la categoria
+                    Constructores.Procedimientos.EliminarCategoria(Convert.ToInt32(dgClientes.SelectedValue));
+                    ObtenerCategorias();
                 }
+                    
+            }         
 
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Ha ocurrido un error al eliminar la habitacion...");
-                Console.WriteLine(ex.Message);
-            }
-            finally
-            {
-                //Actualizar el listbox de categorias
-                ObtenerCategorias();
-            }
         }
 
         private void btnRefrescar_Click(object sender, RoutedEventArgs e)

@@ -37,7 +37,7 @@ namespace SC_MMascotass.Pages
 
         private void ObtenerInventario()
         {
-            inventarios = inventario.MonstrarInventario();
+            inventarios = Constructores.Procedimientos.MostrarInventario();
             dgInventario.SelectedValuePath = "Id";
             dgInventario.ItemsSource = inventarios;
         }
@@ -68,7 +68,7 @@ namespace SC_MMascotass.Pages
                     if (result == MessageBoxResult.Yes)
                     {
                         //Eliminar el inventario
-                        inventario.EliminarRegistro(Convert.ToInt32(dgInventario.SelectedValue));
+                        Constructores.Procedimientos.EliminarProducto(Convert.ToInt32(dgInventario.SelectedValue));
                     }
                 }
 
