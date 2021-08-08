@@ -19,6 +19,7 @@ namespace SC_MMascotass.Pages.Formularios
     {
         private InventarioC inventario = new InventarioC();
         private Categoria categoria = new Categoria();
+        private List<InventarioC> proveedor;
         private SqlConnection sqlConnection = database.Conexion.ObtenerConexion();
 
         //Variable de id
@@ -26,7 +27,7 @@ namespace SC_MMascotass.Pages.Formularios
         public FormInventario(bool visible)
         {
             InitializeComponent();
-            CargarCombobox();
+            CargarComboboxProveedores();
 
             //Monstrar botones visibles/invisibles
             MonstrarBotones(visible);
@@ -52,36 +53,12 @@ namespace SC_MMascotass.Pages.Formularios
 
         }
 
-        private void CargarCombobox()
+        private void CargarComboboxProveedores()
         {
-            try
-            {
-                //Crear el comando SQL
-                SqlCommand sqlCommand = new SqlCommand("Inventario", sqlConnection);
-                sqlCommand.CommandType = System.Data.CommandType.StoredProcedure;
-
-                //Enviar Parametros
-                sqlCommand.Parameters.AddWithValue("@Accion", "CargarProveedorCombo");
-
-                //Abrir conexion
-                sqlConnection.Open();
-
-                SqlDataReader dr = sqlCommand.ExecuteReader();
-                while (dr.Read())
-                {
-                    cmbproveedor.Items.Add(dr["NombreProveedor"].ToString());
-                    cmbproveedor.SelectedValuePath = dr["IdProveedor"].ToString();
-                }
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Error al cargar los Proveedores");
-            }
-            finally
-            {
-                //Cerrar la conexion
-                sqlConnection.Close();
-            }
+            proveedor = Constructores.Procedimientos.CargarComboboxProveedores();
+            cmbproveedor.DisplayMemberPath = "NombreProveedor";
+            cmbproveedor.SelectedValuePath = "IdProveedor";
+            cmbproveedor.ItemsSource = proveedor;
         }
 
         private bool VerificarValores()
@@ -124,7 +101,7 @@ namespace SC_MMascotass.Pages.Formularios
             inventario.Stock = Convert.ToInt32(txtStock.Text);
             inventario.PrecioCosto = Convert.ToDouble(txtPrecioCosto.Text);
             inventario.PrecioVenta = Convert.ToDouble(txtPrecioVenta.Text);
-            inventario.IdProveedor = Convert.ToInt32(cmbproveedor.SelectedValuePath);
+            inventario.IdProveedor = Convert.ToInt32(cmbproveedor.SelectedValue);
         }
 
         //Funcion de ocultar botones
@@ -245,7 +222,7 @@ namespace SC_MMascotass.Pages.Formularios
 
                 inventario.IdCategoria = categoria.Id;
                 inventario.Descripcion = txtproducto.Text;
-                inventario.IdProveedor = Convert.ToInt32(cmbproveedor.SelectedValuePath);
+                inventario.IdProveedor = Convert.ToInt32(cmbproveedor.SelectedValue);
                 inventario.Stock = Convert.ToInt32(txtStock.Text);
                 inventario.PrecioCosto = Convert.ToDouble(txtPrecioCosto.Text);
                 inventario.PrecioVenta = Convert.ToDouble(txtPrecioVenta.Text);
@@ -283,17 +260,23 @@ namespace SC_MMascotass.Pages.Formularios
 
         private void btnCancelar_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            MessageBox.Show(cmbproveedor.SelectedValuePath.ToString());
         }
 
         private void btnRestablecer_Click_1(object sender, RoutedEventArgs e)
         {
-            Limpiar();
+            
+
         }
 
         private void btnnuevoProveedor_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void btnRestablecer_Click_2(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show(cmbproveedor.SelectedValue.ToString());
         }
     }
 }

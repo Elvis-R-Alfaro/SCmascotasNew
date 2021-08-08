@@ -14,7 +14,7 @@ namespace SC_MMascotass.Constructores
     {
         //Conexion
         private static SqlConnection sqlConnection = database.Conexion.ObtenerConexion();
-        public static string MensajeProcedimiento;
+        public static int error;
         
         #region LOGIN
 
@@ -343,7 +343,7 @@ namespace SC_MMascotass.Constructores
                 //ejecutar el comando insertado
                 sqlCommand.ExecuteNonQuery();
 
-                MensajeProcedimiento = "Datos Insertados Correctamente";
+                //MensajeProcedimiento = "Datos Insertados Correctamente";
 
             }
             catch (Exception e)
@@ -695,10 +695,12 @@ namespace SC_MMascotass.Constructores
 
                 //Mensaje de inserccion exito
                 MessageBox.Show("Datos Insertados Correctamente", "Exito", MessageBoxButton.OK, MessageBoxImage.Information);
+                error = 0;
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Ha ocurrido un error al momento de insertar la raza....");
+                error++;
                 Console.WriteLine(ex.Message);
             }
             finally
@@ -735,10 +737,12 @@ namespace SC_MMascotass.Constructores
 
                 //Mensaje de inserccion exito
                 MessageBox.Show("Datos Editados Correctamente", "Exito", MessageBoxButton.OK, MessageBoxImage.Information);
+                error = 0;
             }
             catch (Exception e)
             {
                 MessageBox.Show("Ha ocurrido un error al momento de editar la raza....");
+                error++;
                 Console.WriteLine(e.Message);
             }
             finally
@@ -767,10 +771,12 @@ namespace SC_MMascotass.Constructores
                 sqlCommand.ExecuteNonQuery();
 
                 MessageBox.Show("Se ha eliminado la raza correctamente...");
+                error = 0;
             }
             catch (Exception e)
             {
                 MessageBox.Show("Ha ocurrido un error al eliminar la raza...");
+                error++;
                 Console.WriteLine(e.Message);
             }
             finally
@@ -809,6 +815,7 @@ namespace SC_MMascotass.Constructores
                         mascota.TipoDePelo = rdr["TipoDePelo"].ToString();
                     }
                 }
+                error = 0;
                 return mascota;
 
             }
@@ -816,6 +823,7 @@ namespace SC_MMascotass.Constructores
             {
                 MessageBox.Show("Error al cargar los datos");
                 Console.WriteLine(e.Message);
+                error++;
                 return mascota;
             }
             finally
@@ -863,11 +871,12 @@ namespace SC_MMascotass.Constructores
                         });
                     }
                 }
+                error = 0;
                 return mascotas;
             }
             catch (Exception e)
             {
-
+                error++;
                 throw e;
             }
             finally
@@ -877,7 +886,52 @@ namespace SC_MMascotass.Constructores
             }
         }
 
-        #endregion
+        public static List<Mascota> CargarEspeciesCombo()
+        {
+            //Iniciamos la lista vacia de categorias
+            List<Mascota> especies = new List<Mascota>();
+
+            try
+            {
+                //Crear el comando SQL
+                SqlCommand sqlCommand = new SqlCommand("Razas", sqlConnection);
+                sqlCommand.CommandType = System.Data.CommandType.StoredProcedure;
+
+                //Enviar Parametros
+                sqlCommand.Parameters.AddWithValue("@Accion", "CargarEspeciesCombo");
+
+                //Abrir conexion
+                sqlConnection.Open();
+
+                //Obtener los datos de las categorias
+                using (SqlDataReader rdr = sqlCommand.ExecuteReader())
+                {
+                    while (rdr.Read())
+                    {
+                        especies.Add(new Mascota
+                        {
+                            IdEspecie = Convert.ToInt32(rdr["IdEspecie"]),
+                            Descripcion = rdr["Descripcion"].ToString(),
+                        });
+                    }
+                }
+                error = 0;
+                return especies;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error al cargar las Especies");
+                error++;
+                return especies;
+            }
+            finally
+            {
+                //Cerrar la conexion
+                sqlConnection.Close();
+            }
+        }
+
+            #endregion
 
         #region Especies
         public static void CrearEspecie(Mascota mascota)
@@ -1598,7 +1652,7 @@ namespace SC_MMascotass.Constructores
                 sqlCommand.CommandType = System.Data.CommandType.StoredProcedure;
 
                 //Establecer los valores de los paramawtros
-                sqlCommand.Parameters.AddWithValue("@Accion", "MonstrarInventario");
+                sqlCommand.Parameters.AddWithValue("@Accion", "MostrarInventario");
 
                 //Establcer la coneccion
                 sqlConnection.Open();
@@ -1628,6 +1682,51 @@ namespace SC_MMascotass.Constructores
             {
 
                 throw e;
+            }
+            finally
+            {
+                //Cerrar la conexion
+                sqlConnection.Close();
+            }
+        }
+
+        public static List<InventarioC> CargarComboboxProveedores()
+        {
+            //Iniciamos la lista vacia de categorias
+            List<InventarioC> inventarios = new List<InventarioC>();
+
+            try
+            {
+                //Crear el comando SQL
+                SqlCommand sqlCommand = new SqlCommand("Inventario", sqlConnection);
+                sqlCommand.CommandType = System.Data.CommandType.StoredProcedure;
+
+                //Enviar Parametros
+                sqlCommand.Parameters.AddWithValue("@Accion", "CargarProveedorCombo");
+
+                //Abrir conexion
+                sqlConnection.Open();
+
+                //Obtener los datos de las categorias
+                using (SqlDataReader rdr = sqlCommand.ExecuteReader())
+                {
+                    while (rdr.Read())
+                    {
+                        inventarios.Add(new InventarioC
+                        {
+                            IdProveedor = Convert.ToInt32(rdr["IdProveedor"]),
+                            NombreProveedor = rdr["NombreProveedor"].ToString(),
+                        });
+                    }
+                }
+                error = 0;
+                return inventarios;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error al cargar los proveedores");
+                error++;
+                return inventarios;
             }
             finally
             {
