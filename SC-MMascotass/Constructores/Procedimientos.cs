@@ -1598,7 +1598,7 @@ namespace SC_MMascotass.Constructores
                 sqlCommand.CommandType = System.Data.CommandType.StoredProcedure;
 
                 //Establecer los valores de los paramawtros
-                sqlCommand.Parameters.AddWithValue("@Accion", "MonstrarInventario");
+                sqlCommand.Parameters.AddWithValue("@Accion", "MostrarInventario");
 
                 //Establcer la coneccion
                 sqlConnection.Open();
@@ -1635,6 +1635,8 @@ namespace SC_MMascotass.Constructores
                 sqlConnection.Close();
             }
         }
+
+
 
         /// <summary>
         /// Obtiene productos de inventario
@@ -1687,6 +1689,60 @@ namespace SC_MMascotass.Constructores
                 sqlConnection.Close();
             }
         }
+
+        /// <summary>
+        /// Obtiene productos de inventario
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public static List<InventarioC> BuscarProductoLike(string producto)
+        {
+            List<InventarioC> inventarios = new List<InventarioC>();
+
+            try
+            {
+
+                //Crear el comando SQL
+                SqlCommand sqlCommand = new SqlCommand("Inventario", sqlConnection);
+                sqlCommand.CommandType = System.Data.CommandType.StoredProcedure;
+
+                //Establecer el valor del parametro
+                sqlCommand.Parameters.AddWithValue("@NombreProducto", producto);
+                sqlCommand.Parameters.AddWithValue("@Accion", "BuscarProductoLike");
+
+                //Establecer la coneccion
+                sqlConnection.Open();
+
+                using (SqlDataReader rdr = sqlCommand.ExecuteReader())
+                {
+                    while (rdr.Read())
+                    {
+                        inventarios.Add(new InventarioC
+                        {
+                            Id = Convert.ToInt32(rdr["IdProducto"]),
+                            IdCategoria = Convert.ToInt32(rdr["IdCategoria"]),
+                            Descripcion = rdr["NombreProducto"].ToString(),
+                            PrecioCosto = Convert.ToDouble(rdr["PrecioCosto"]),
+                            PrecioVenta = Convert.ToDouble(rdr["PrecioVenta"]),
+                            Stock = Convert.ToInt32(rdr["Stock"])
+                        });
+                    }
+                }
+
+                return inventarios;
+            }
+            catch (Exception e)
+            {
+
+                throw e;
+            }
+            finally
+            {
+                //Cerrar la conexio
+                sqlConnection.Close();
+            }
+        }
+
         /// <summary>
         /// edita un producto existente
         /// </summary>
@@ -1729,6 +1785,46 @@ namespace SC_MMascotass.Constructores
                 sqlConnection.Close();
             }
         }
+
+        /// <summary>
+        /// edita un producto existente
+        /// </summary>
+        /// <param name="producto"></param>
+        public static void EditarStock(InventarioC producto)
+        {
+            try
+            {
+                //Crear el comando SQL
+                SqlCommand sqlCommand = new SqlCommand("Inventario", sqlConnection);
+                sqlCommand.CommandType = System.Data.CommandType.StoredProcedure;
+
+                //Establecer los valores de los parametros
+                sqlCommand.Parameters.AddWithValue("@IdProducto", producto.Id);
+                sqlCommand.Parameters.AddWithValue("@Stock", producto.Stock);
+                sqlCommand.Parameters.AddWithValue("@Accion", "EditarStock");
+
+                //Strablecer la conexion
+                sqlConnection.Open();
+
+                //Ejecutar el comando de actualizar
+                sqlCommand.ExecuteNonQuery();
+
+                //Mensaje de actualizacion realizada
+                MessageBox.Show("Datos Modificado Correctamente", "Exito", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al momento de actualizar el producto....");
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                //Cerrar conexcion
+                sqlConnection.Close();
+            }
+        }
+
+
         /// <summary>
         /// elimina un registro existente
         /// </summary>

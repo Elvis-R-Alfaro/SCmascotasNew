@@ -153,6 +153,9 @@
     <Compile Include="Pages\Formularios\FormUsuarios.xaml.cs">
       <DependentUpon>FormUsuarios.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Formularios\FormVentas.xaml.cs">
+      <DependentUpon>FormVentas.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Inicio.xaml.cs">
       <DependentUpon>Inicio.xaml</DependentUpon>
     </Compile>
@@ -293,6 +296,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\Formularios\FormUsuarios.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Formularios\FormVentas.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
