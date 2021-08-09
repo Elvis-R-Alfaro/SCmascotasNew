@@ -36,9 +36,9 @@ namespace SC_MMascotass.Pages
 
         private void ObtenerUsuarios()
         {
-            usuarios = usuario.MostrarUsuario();
-            dgClientes.SelectedValuePath = "Id";
-            dgClientes.ItemsSource = usuarios;
+            //usuarios = usuario.MostrarUsuario();
+            //dgClientes.SelectedValuePath = "Id";
+            //dgClientes.ItemsSource = usuarios;
         }
 
         private void btnEditar_Click(object sender, RoutedEventArgs e)

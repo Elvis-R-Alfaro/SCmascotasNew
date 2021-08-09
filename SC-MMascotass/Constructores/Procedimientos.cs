@@ -45,10 +45,11 @@ namespace SC_MMascotass.Constructores
                     {
                         //Obtener los valores del usuarios si la consulta retorna valores
                         usuario.Id = Convert.ToInt32(rdr["IdUsuario"]);
-                        usuario.NombreCompleto = rdr["Usuario"].ToString();
-                        usuario.Username = rdr["username"].ToString();
-                        usuario.Password = rdr["password"].ToString();
-                        usuario.Estado = Convert.ToBoolean(rdr["estado"]);
+                        usuario.NombreCompleto = rdr["Nombre"].ToString();
+                        usuario.Username = rdr["Usuario"].ToString();
+                        Usuario.NombreCompletoGlobal = usuario.NombreCompleto;
+                        usuario.Password = rdr["Clave"].ToString();
+                        usuario.Estado = Convert.ToBoolean(rdr["Estado"]);
                     }
 
                 }
@@ -574,7 +575,6 @@ namespace SC_MMascotass.Constructores
                     while (rdr.Read())
                     {
                         laMascota.IdMascota = Convert.ToInt32(rdr["IdMascota"]);
-
                     }
                 }
 
