@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SC_MMascotass.Pages.Formularios"
         mc:Ignorable="d"
-        Title="Proveedores" Height="450" Width="800">
+        Title="Proveedores" Height="470" Width="800">
     <Grid Margin="10">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="113*"/>
@@ -14,7 +14,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="30"/>
             <RowDefinition Height="75"/>
-            <RowDefinition Height="300"/>
+            <RowDefinition Height="310"/>
         </Grid.RowDefinitions>
         <StackPanel Orientation="Horizontal" Name="spNuevaCategoria">
             <Image Source="/Imagenes/inventario.png" Width="25" Margin="0 0 10 0"></Image>

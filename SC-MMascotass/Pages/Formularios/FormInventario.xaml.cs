@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -28,6 +29,7 @@ namespace SC_MMascotass.Pages.Formularios
         {
             InitializeComponent();
             CargarComboboxProveedores();
+            MessageBox.Show(Usuario.NombreCompletoGlobal);
 
             //Monstrar botones visibles/invisibles
             MonstrarBotones(visible);
@@ -48,7 +50,22 @@ namespace SC_MMascotass.Pages.Formularios
                 txtPrecioVenta.Text = inventario.PrecioVenta.ToString();
                 txtStock.Text = inventario.Stock.ToString();
                 cmbproveedor.Text = inventario.NombreProveedor;
-                cmbproveedor.SelectedValuePath = inventario.IdProveedor.ToString();
+
+                //decimal importe = 0;
+                //if (txtPrecioCosto.Text.Contains(".")) // si tiene un punto la caja de texto, usa configuracion regional
+                //{
+                //    importe = Convert.ToDecimal(txtPrecioCosto.Text, System.Globalization.CultureInfo.InvariantCulture);
+
+                //}
+                //else // aca quiere decir que puso una coma y lo reemplaza por un punto
+                //{
+
+                //    string coma = txtPrecioCosto.Text;
+                //    coma.Replace(',', '.');
+                //    importe = Convert.ToDecimal(coma);
+                //}
+
+                //txtPrecioCosto.Text = importe.ToString();
             }
 
         }
@@ -277,6 +294,12 @@ namespace SC_MMascotass.Pages.Formularios
         private void btnRestablecer_Click_2(object sender, RoutedEventArgs e)
         {
             MessageBox.Show(cmbproveedor.SelectedValue.ToString());
+        }
+
+        private void txtPrecioCosto_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex(@"^(\d+(\.\d{0,2})?|\.?\d{1,2})$");
+            e.Handled = !regex.IsMatch((sender as TextBox).Text.Insert((sender as TextBox).SelectionStart, e.Text));
         }
     }
 }
