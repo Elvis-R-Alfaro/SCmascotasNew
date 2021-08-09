@@ -2,7 +2,7 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:SC_MMascotass"
-             StartupUri="Pages/Formularios/FormCompras.xaml">
+             StartupUri="Pages/Formularios/FormRecuperarClave.xaml">
     <Application.Resources>
          
     </Application.Resources>

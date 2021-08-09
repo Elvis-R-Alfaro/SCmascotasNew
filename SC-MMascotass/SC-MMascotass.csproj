@@ -150,6 +150,9 @@
     <Compile Include="Pages\Formularios\FormRazas.xaml.cs">
       <DependentUpon>FormRazas.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Formularios\FormRecuperarClave.xaml.cs">
+      <DependentUpon>FormRecuperarClave.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Formularios\FormUsuarios.xaml.cs">
       <DependentUpon>FormUsuarios.xaml</DependentUpon>
     </Compile>
@@ -292,6 +295,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\Formularios\FormRazas.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Formularios\FormRecuperarClave.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
