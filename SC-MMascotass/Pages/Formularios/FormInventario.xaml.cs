@@ -29,7 +29,6 @@ namespace SC_MMascotass.Pages.Formularios
         {
             InitializeComponent();
             CargarComboboxProveedores();
-            MessageBox.Show(Usuario.NombreCompletoGlobal);
 
             //Monstrar botones visibles/invisibles
             MonstrarBotones(visible);
@@ -141,7 +140,7 @@ namespace SC_MMascotass.Pages.Formularios
         {
             bool found = false;
             var border = (autoCompleteCategorias.Parent as ScrollViewer).Parent as Border;
-            var data = Constructores.Procedimientos.MonstrarCategorias22();
+            var data = Constructores.Procedimientos.MostrarCategorias22();
 
             string query = (sender as TextBox).Text;
 
@@ -214,7 +213,7 @@ namespace SC_MMascotass.Pages.Formularios
         private void btnNuevoCliente_Click(object sender, RoutedEventArgs e)
         {
             // Mostrar el formulario de ingreso de categorias
-            FormCategorias categorias = new FormCategorias(false);
+            Formularios.FormCategoriasN categorias = new Formularios.FormCategoriasN();
             categorias.Show();
         }
 
@@ -288,7 +287,8 @@ namespace SC_MMascotass.Pages.Formularios
 
         private void btnnuevoProveedor_Click(object sender, RoutedEventArgs e)
         {
-
+            Formularios.FormProveedores proveedores = new FormProveedores();
+            proveedores.Show();
         }
 
         private void btnRestablecer_Click_2(object sender, RoutedEventArgs e)

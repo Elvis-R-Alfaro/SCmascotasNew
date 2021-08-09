@@ -1044,6 +1044,7 @@ namespace SC_MMascotass.Constructores
             }
             catch (Exception e)
             {
+                Console.WriteLine(e.Message);
                 MessageBox.Show("Error al cargar las Especies");
                 error++;
                 return especies;
@@ -1270,6 +1271,8 @@ namespace SC_MMascotass.Constructores
 
                 //ejecutar el comando insertado
                 sqlCommand.ExecuteNonQuery();
+
+                MessageBox.Show("Datos insertados correctamente", "Exito", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             catch (Exception e)
             {
@@ -1287,7 +1290,7 @@ namespace SC_MMascotass.Constructores
         /// Monstrar todas las categorias
         /// </summary>
         /// <returns>Listado de Categorias</returns>
-        public static List<Categoria> MonstrarCategorias()
+        public static List<Categoria> MostrarCategorias()
         {
             //Iniciamos la lista vacia de categorias
             List<Categoria> categorias = new List<Categoria>();
@@ -1300,7 +1303,7 @@ namespace SC_MMascotass.Constructores
                 sqlCommand.CommandType = System.Data.CommandType.StoredProcedure;
 
                 //Establecer los valores de los paramawtros
-                sqlCommand.Parameters.AddWithValue("@Accion", "MonstrarCategorias");
+                sqlCommand.Parameters.AddWithValue("@Accion", "MostrarCategorias");
 
                 //Establcer la coneccion
                 sqlConnection.Open();
@@ -1439,6 +1442,9 @@ namespace SC_MMascotass.Constructores
 
                 //Ejecutar el comando de actualizar
                 sqlCommand.ExecuteNonQuery();
+
+                //Mensaje de actualizacion realizada
+                MessageBox.Show("Datos Modificados correctamente", "Exito", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             catch (Exception e)
             {
@@ -1488,7 +1494,7 @@ namespace SC_MMascotass.Constructores
         /// Muestra las mascotasa en el list
         /// </summary>
         /// <returns></returns>
-        public static List<string> MonstrarCategorias22()
+        public static List<string> MostrarCategorias22()
         {
             //Iniciamos la lista vacia de categorias
             List<string> data = new List<string>();
@@ -1501,7 +1507,7 @@ namespace SC_MMascotass.Constructores
                 sqlCommand.CommandType = System.Data.CommandType.StoredProcedure;
 
                 //Establecer el valor del parametro
-                sqlCommand.Parameters.AddWithValue("@Accion", "MonstrarCategorias22");
+                sqlCommand.Parameters.AddWithValue("@Accion", "MostrarCategorias22");
 
                 //Establcer la coneccion
                 sqlConnection.Open();
@@ -1848,6 +1854,7 @@ namespace SC_MMascotass.Constructores
             }
             catch (Exception e)
             {
+                Console.WriteLine(e.Message);
                 MessageBox.Show("Error al cargar los proveedores");
                 error++;
                 return inventarios;
@@ -2080,6 +2087,207 @@ namespace SC_MMascotass.Constructores
                 sqlConnection.Close();
             }
         }
+
+        #endregion
+
+        #region Proveedores
+        public static void CrearProveedor(InventarioC proveedor)
+        {
+            try
+            {
+                //Crear el comando SQL
+                SqlCommand sqlCommand = new SqlCommand("Proveedores", sqlConnection);
+                sqlCommand.CommandType = System.Data.CommandType.StoredProcedure;
+
+                //Abrir conexion
+                sqlConnection.Open();
+
+                //Establecer los valores de los paramawtros
+                sqlCommand.Parameters.AddWithValue("@NombreProveedor", proveedor.NombreProveedor);
+                sqlCommand.Parameters.AddWithValue("@Compania", proveedor.Compania);
+                sqlCommand.Parameters.AddWithValue("@Telefono", proveedor.Telefono);
+                sqlCommand.Parameters.AddWithValue("@Correo", proveedor.Correo);
+                sqlCommand.Parameters.AddWithValue("@Direccion", proveedor.DirreccionEmpresa);
+                sqlCommand.Parameters.AddWithValue("@Accion", "CrearProveedor");
+
+                //ejecutar el comando insertado
+                sqlCommand.ExecuteNonQuery();
+
+                //Mensaje de inserccion exito
+                MessageBox.Show("Datos Insertados Correctamente", "Exito", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Ha ocurrido un error al momento de insertar el proveedor....");
+                Console.WriteLine(e.Message);
+            }
+            finally
+            {
+                //Cerrar la conexion
+                sqlConnection.Close();
+            }
+        }
+
+        public static void EditarProveerdor(InventarioC proveedor)
+        {
+            try
+            {
+                //Crear el comando SQL
+                SqlCommand sqlCommand = new SqlCommand("Proveedores", sqlConnection);
+                sqlCommand.CommandType = System.Data.CommandType.StoredProcedure;
+
+                //Abrir conexion
+                sqlConnection.Open();
+
+                //Establecer los valores de los paramawtros
+                sqlCommand.Parameters.AddWithValue("IdProveedor", proveedor.IdProveedor);
+                sqlCommand.Parameters.AddWithValue("@NombreProveedor", proveedor.NombreProveedor);
+                sqlCommand.Parameters.AddWithValue("@Compania", proveedor.Compania);
+                sqlCommand.Parameters.AddWithValue("@Telefono", proveedor.Telefono);
+                sqlCommand.Parameters.AddWithValue("@Correo", proveedor.Correo);
+                sqlCommand.Parameters.AddWithValue("@Direccion", proveedor.DirreccionEmpresa);
+                sqlCommand.Parameters.AddWithValue("@Accion", "EditarProveedor");
+
+                //ejecutar el comando insertado
+                sqlCommand.ExecuteNonQuery();
+
+                MessageBox.Show("El proveedor se han editado correctamente");
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error al editar el proveedor");
+                Console.WriteLine(e.Message);
+            }
+            finally
+            {
+                //Cerrar la conexion
+                sqlConnection.Close();
+            }
+        }
+
+        public static void EliminarProveedor(int id)
+        {
+            try
+            {
+                //Crear el comando SQL
+                SqlCommand sqlCommand = new SqlCommand("Proveedores", sqlConnection);
+                sqlCommand.CommandType = System.Data.CommandType.StoredProcedure;
+
+                //Abrir conexion
+                sqlConnection.Open();
+
+                //Establecer los valores de los paramawtros
+                sqlCommand.Parameters.AddWithValue("@IdProveedor", id);
+                sqlCommand.Parameters.AddWithValue("@Accion", "EliminarProveedor");
+
+                //ejecutar el comando insertado
+                sqlCommand.ExecuteNonQuery();
+
+                MessageBox.Show("Se ha eliminado el proveedor correctamente");
+            }
+            catch (Exception e)
+            {
+
+                MessageBox.Show("Ha ocurrido un error al eliminar el proveedor...");
+                Console.WriteLine(e.Message);
+            }
+            finally
+            {
+                //Cerrar la conexion
+                sqlConnection.Close();
+            }
+        }
+
+        public static InventarioC CargarDatosEditarProveedor(int id)
+        {
+            InventarioC proveedor = new InventarioC();
+            try
+            {
+                //Crear el comando SQL
+                SqlCommand sqlCommand = new SqlCommand("Proveedores", sqlConnection);
+                sqlCommand.CommandType = System.Data.CommandType.StoredProcedure;
+
+                //Establecer el valor del parametro
+                sqlCommand.Parameters.AddWithValue("@IdProveedor", id);
+                sqlCommand.Parameters.AddWithValue("@Accion", "CargarDatosEditarProveedor");
+
+                //Establecer la coneccion
+                sqlConnection.Open();
+
+                using (SqlDataReader rdr = sqlCommand.ExecuteReader())
+                {
+                    while (rdr.Read())
+                    {
+                        proveedor.NombreProveedor = rdr["NombreProveedor"].ToString();
+                        proveedor.Compania = rdr["Compania"].ToString();
+                        proveedor.Telefono = rdr["Telefono"].ToString();
+                        proveedor.Correo = rdr["Correo"].ToString();
+                        proveedor.DirreccionEmpresa = rdr["DireccionEmpresa"].ToString();
+                    }
+                }
+                return proveedor;
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error al cargar los datos");
+                Console.WriteLine(e.Message);
+                return proveedor;
+            }
+            finally
+            {
+                //Cerrar la conexio
+                sqlConnection.Close();
+            }
+        }
+
+        public static List<InventarioC> MostrarProveedor()
+        {
+            //Iniciamos la lista vacia de categorias
+            List<InventarioC> proveedores = new List<InventarioC>();
+
+            try
+            {
+                //Crear el comando SQL
+                SqlCommand sqlCommand = new SqlCommand("Proveedores", sqlConnection);
+                sqlCommand.CommandType = System.Data.CommandType.StoredProcedure;
+
+                //Establecer los valores de los paramawtros
+                sqlCommand.Parameters.AddWithValue("@Accion", "MostrarProveedor");
+
+                //Abrir conexion
+                sqlConnection.Open();
+
+                //Obtener los datos de las categorias
+                using (SqlDataReader rdr = sqlCommand.ExecuteReader())
+                {
+                    while (rdr.Read())
+                    {
+                        proveedores.Add(new InventarioC
+                        {
+                            IdProveedor = Convert.ToInt32(rdr["IdProveedor"]),
+                            NombreProveedor = rdr["NombreProveedor"].ToString(),
+                            Compania = rdr["Compania"].ToString(),
+                            Telefono = rdr["Telefono"].ToString(),
+                            Correo = rdr["Correo"].ToString(),
+                            DirreccionEmpresa = rdr["DireccionEmpresa"].ToString(),
+                        });
+                    }
+                }
+                return proveedores;
+            }
+            catch (Exception e)
+            {
+
+                throw e;
+            }
+            finally
+            {
+                //Cerrar la conexion
+                sqlConnection.Close();
+            }
+        }
+
 
         #endregion
 

@@ -55,10 +55,10 @@ namespace SC_MMascotass
             AgregarForm(new Pages.Mascotas());
         }
 
-        private void btnCategorias_Click(object sender, RoutedEventArgs e)
-        {
-            AgregarForm(new Pages.Categorias());
-        }
+        //private void btnCategorias_Click(object sender, RoutedEventArgs e)
+        //{
+        //    AgregarForm(new Pages.Categorias());
+        //}
 
         private void btnInventario_Click(object sender, RoutedEventArgs e)
         {

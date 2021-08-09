@@ -67,7 +67,7 @@
                 </StackPanel>
 
             </Button>
-            <Button     Background="Transparent"
+            <!--<Button     Background="Transparent"
                         Height="50"
                         Foreground="Black"
                         FontSize="14"
@@ -79,7 +79,7 @@
 
                 </StackPanel>
 
-            </Button>
+            </Button>-->
 
             <Button     Background="Transparent"
                         Height="50"

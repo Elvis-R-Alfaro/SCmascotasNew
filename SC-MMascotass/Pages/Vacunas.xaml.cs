@@ -24,13 +24,11 @@ namespace SC_MMascotass.Pages
     {
         private HistorialVacunacion vacuna = new HistorialVacunacion();
         private Mascota mascota = new Mascota();
-        private List<Mascota> mascotas;
         private List<HistorialVacunacion> vacunas;
 
         static private SqlConnection sqlConnection = database.Conexion.ObtenerConexion();
 
         private vacunaciones Vacunaciones = new vacunaciones();
-        private List<vacunaciones> vacunaciones;
         public Vacunas()
         {
             InitializeComponent();

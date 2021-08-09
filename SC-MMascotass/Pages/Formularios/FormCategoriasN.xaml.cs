@@ -15,23 +15,23 @@ using System.Windows.Shapes;
 namespace SC_MMascotass.Pages.Formularios
 {
     /// <summary>
-    /// Lógica de interacción para FormProveedores.xaml
+    /// Lógica de interacción para FormCategoriasN.xaml
     /// </summary>
-    public partial class FormProveedores : Window
+    public partial class FormCategoriasN : Window
     {
-        private InventarioC proveedor = new InventarioC();
-        private List<InventarioC> proveedores;
-        public FormProveedores()
+        private Categoria categoria = new Categoria();
+        private List<Categoria> categorias;
+        public FormCategoriasN()
         {
             InitializeComponent();
-            ObtenerProveedor();
+            ObtenerCategorias();
         }
 
-        private void ObtenerProveedor()
+        private void ObtenerCategorias()
         {
-            proveedores = Constructores.Procedimientos.MostrarProveedor();
-            dgClientes.SelectedValuePath = "IdProveedor";
-            dgClientes.ItemsSource = proveedores;
+            categorias = Constructores.Procedimientos.MostrarCategorias();
+            dgClientes.SelectedValuePath = "Id";
+            dgClientes.ItemsSource = categorias;
         }
 
         private bool VerificarValores()
@@ -54,66 +54,54 @@ namespace SC_MMascotass.Pages.Formularios
             if (VerificarValores())
             {
                 //Obtener los valores para la mascota
-                proveedor.NombreProveedor = txtnombreProveedor.Text;
-                proveedor.Compania = txtcompañia.Text;
-                proveedor.Telefono = txttelefono.Text;
-                proveedor.Correo = txtcorreo.Text;
-                proveedor.DirreccionEmpresa = txtdireccion.Text;
+                categoria.NombreCategoria = txtCategoria.Text;
 
                 //Ejecutamos
-                Constructores.Procedimientos.CrearProveedor(proveedor);
+                Constructores.Procedimientos.CrearCategoria(categoria);
 
-                ObtenerProveedor();
+                ObtenerCategorias();
                 Limpiar();
             }
         }
 
         private void Limpiar()
         {
-            txtcompañia.Clear();
-            txtcorreo.Clear();
-            txtdireccion.Clear();
-            txtnombreProveedor.Clear();
-            txttelefono.Clear();
+            txtCategoria.Clear();
 
             spButton1.Visibility = Visibility.Visible;
             spButton2.Visibility = Visibility.Hidden;
-            ObtenerProveedor();
+            ObtenerCategorias();
         }
 
         private void btnEditar_Click(object sender, RoutedEventArgs e)
         {
             if (dgClientes.SelectedValue == null)
-                MessageBox.Show("Por favor selecciona un proveedor de la lista");
+                MessageBox.Show("Por favor selecciona un categoria de la lista");
             else
             {
                 spButton1.Visibility = Visibility.Hidden;
                 spButton2.Visibility = Visibility.Visible;
-                proveedor = Constructores.Procedimientos.CargarDatosEditarProveedor(Convert.ToInt32(dgClientes.SelectedValue));
-                txtnombreProveedor.Text = proveedor.NombreProveedor;
-                txtcompañia.Text = proveedor.Compania;
-                txttelefono.Text = proveedor.Telefono;
-                txtcorreo.Text = proveedor.Correo;
-                txtdireccion.Text = proveedor.DirreccionEmpresa;
+                categoria = Constructores.Procedimientos.BuscarCategoria(Convert.ToInt32(dgClientes.SelectedValue));
+                txtCategoria.Text = categoria.NombreCategoria;                
             }
         }
 
         private void btnEliminar_Click(object sender, RoutedEventArgs e)
         {
             if (dgClientes.SelectedValue == null)
-                MessageBox.Show("Por favor, seleccione un proveedor de la lista");
+                MessageBox.Show("Por favor, seleccione una categoria de la lista");
             else
             {
                 //Monstrar mensjae de confirmacion
-                MessageBoxResult result = MessageBox.Show("¿Deseas eliminar el proveedor?", "Confirmar", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+                MessageBoxResult result = MessageBox.Show("¿Deseas eliminar la categoría?", "Confirmar", MessageBoxButton.YesNo, MessageBoxImage.Warning);
 
                 if (result == MessageBoxResult.Yes)
                 {
                     //Eliminar la mascotas
-                    Constructores.Procedimientos.EliminarProveedor(Convert.ToInt32(dgClientes.SelectedValue));
+                    Constructores.Procedimientos.EliminarCategoria(Convert.ToInt32(dgClientes.SelectedValue));
                 }
                 //Actualizar el listbox de mascotas
-                ObtenerProveedor();
+                ObtenerCategorias();
             }
         }
 
@@ -127,17 +115,13 @@ namespace SC_MMascotass.Pages.Formularios
             if (VerificarValores())
             {
                 //Obtener los valores para la mascota
-                proveedor.NombreProveedor = txtnombreProveedor.Text;
-                proveedor.Compania = txtcompañia.Text;
-                proveedor.Telefono = txttelefono.Text;
-                proveedor.Correo = txtcorreo.Text;
-                proveedor.DirreccionEmpresa = txtdireccion.Text;
-                proveedor.IdProveedor = Convert.ToInt32(dgClientes.SelectedValue);
+                categoria.NombreCategoria = txtCategoria.Text;
+                categoria.Id = Convert.ToInt32(dgClientes.SelectedValue);
 
                 //Ejecutamos
-                Constructores.Procedimientos.EditarProveerdor(proveedor);
+                Constructores.Procedimientos.EditarCategoria(categoria);
 
-                ObtenerProveedor();
+                ObtenerCategorias();
                 Limpiar();
             }
         }

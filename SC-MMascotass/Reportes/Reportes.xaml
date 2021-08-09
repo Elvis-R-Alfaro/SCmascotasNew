@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SC_MMascotass.Reportes"
         mc:Ignorable="d"
-        Title="Reportes" Height="550" Width="800" WindowStartupLocation="CenterScreen">
+        Title="Reportes" Height="600" Width="920" WindowStartupLocation="CenterScreen">
     <Grid Background="#E5E5E5">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="280"/>
@@ -33,7 +33,7 @@
             <Label Content="Consultas" HorizontalAlignment="Center" Background="DarkGray" Width="280"/>
             <Button     Background="Transparent"
                         Height="50"
-                        Foreground="Black" 
+                        Foreground="Black"  HorizontalAlignment="Left" Margin="10 0 0 0"
                         FontSize="13"
                         BorderThickness="0"
                         Name="btnR5" Click="btnR5_Click" Content="Reporte de las citas atendidas según fecha">
@@ -42,7 +42,7 @@
 
 
             <Label Content="Mascotas" HorizontalAlignment="Center" Background="DarkGray" Width="280" ></Label>
-            <Button     Background="Transparent"
+            <Button     Background="Transparent" HorizontalAlignment="Left" Margin="10 0 0 0"
                         Height="50"
                         Foreground="Black" 
                         FontSize="14"
@@ -53,7 +53,7 @@
 
             <Button     Background="Transparent"
                         Height="50"
-                        Foreground="Black"
+                        Foreground="Black" HorizontalAlignment="Left" Margin="10 0 0 0"
                         FontSize="14"
                         BorderThickness="0"
                         Name="btnR2" Click="btnR2_Click" Content="Reporte de vacunas de la mascota" >
@@ -61,7 +61,7 @@
             </Button>
             <Label Content="Personal" HorizontalAlignment="Center" Background="DarkGray" Width="280"></Label>
             <Button     Background="Transparent"
-                        Height="50"
+                        Height="50" HorizontalAlignment="Left" Margin="10 0 0 0"
                         Foreground="Black"
                         FontSize="14"
                         BorderThickness="0"
@@ -94,8 +94,8 @@
                         x:Name="spPrincipal">
             <StackPanel Orientation="Horizontal" >
                 <StackPanel Orientation="Horizontal" >
-                    <Image Source="/Imagenes/icono.png" Width="270" Margin="0 0 0 100"></Image>
-                    <Image Source="/Imagenes/letra.png" Width="220"></Image>
+                    <Image Source="/Imagenes/icono.png" Width="325" Margin="0 0 0 100"></Image>
+                    <Image Source="/Imagenes/letra.png" Width="275"></Image>
                 </StackPanel>
             </StackPanel>
         </StackPanel>
