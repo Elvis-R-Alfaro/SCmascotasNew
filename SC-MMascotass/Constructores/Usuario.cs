@@ -21,6 +21,7 @@ namespace SC_MMascotass
         public string Usename { get; set; }
         public string Clave { get; set; }
         public bool Estado { get; set; }
+        public bool ClaveGen { get; set; }
 
 
         public int IdPersonal { get; set; }
@@ -35,6 +36,9 @@ namespace SC_MMascotass
 
         public static string NombreCompletoGlobal { get; set; }
         public static string CargoGlobal { get; set; }
+
+
+        public static bool GlobalClaveGen { get; set; }
 
         //Constructores
         public Usuario() { }

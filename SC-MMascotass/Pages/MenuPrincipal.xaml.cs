@@ -26,7 +26,10 @@ namespace SC_MMascotass
             ErrorLog error = new ErrorLog();
             error.Add(this, "test");
             AgregarForm(new Pages.Inicio());
+            MessageBox.Show(Usuario.GlobalClaveGen.ToString());
         }
+
+
 
         private void btnInicio_Click(object sender, RoutedEventArgs e)
         {
@@ -39,6 +42,8 @@ namespace SC_MMascotass
             this.spPrincipal.Children.Clear();
             this.spPrincipal.Children.Add(control);
         }
+
+
 
         private void btnClientes_Click(object sender, RoutedEventArgs e)
         {
