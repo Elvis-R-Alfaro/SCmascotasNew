@@ -48,11 +48,11 @@ namespace SC_MMascotass.Constructores
                     while (rdr.Read())
                     {
                         //Obtener los valores del usuarios si la consulta retorna valores
-                        usuario.Id = Convert.ToInt32(rdr["IdUsuario"]);
+                        usuario.IdUsuario = Convert.ToInt32(rdr["IdUsuario"]);
                         usuario.NombreCompleto = rdr["Nombre"].ToString();
-                        usuario.Username = rdr["Usuario"].ToString();
+                        usuario.Usename = rdr["Usuario"].ToString();
                         Usuario.NombreCompletoGlobal = usuario.NombreCompleto;
-                        usuario.Password = rdr["Clave"].ToString();
+                        usuario.Clave = rdr["Clave"].ToString();
                         usuario.Estado = Convert.ToBoolean(rdr["Estado"]);
                     }
 
@@ -93,9 +93,9 @@ namespace SC_MMascotass.Constructores
                     if (rdr.Read())
                     {
 
-                        usuario.Id = Convert.ToInt32(rdr["IdUsuario"]);
+                        usuario.IdUsuario = Convert.ToInt32(rdr["IdUsuario"]);
                         rdr.Close();
-                        GenerarNuevaContrasena(correo, usuario.Id);
+                        GenerarNuevaContrasena(correo, usuario.IdUsuario);
 
                     }
                     else

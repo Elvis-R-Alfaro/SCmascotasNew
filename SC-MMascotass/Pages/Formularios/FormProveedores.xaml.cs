@@ -19,9 +19,19 @@ namespace SC_MMascotass.Pages.Formularios
     /// </summary>
     public partial class FormProveedores : Window
     {
+        private Mascota mascota = new Mascota();
+        private List<Mascota> mascotas;
         public FormProveedores()
         {
             InitializeComponent();
+            ObtenerEspecies();
+        }
+
+        private void ObtenerEspecies()
+        {
+            mascotas = Constructores.Procedimientos.MostrarEspecies();
+            dgClientes.SelectedValuePath = "IdEspecie";
+            dgClientes.ItemsSource = mascotas;
         }
 
         private void btnGuardar_Click(object sender, RoutedEventArgs e)
