@@ -21,7 +21,7 @@ namespace SC_MMascotass.Pages
     public partial class Usuarios : UserControl
     {
         private Usuario usuario = new Usuario();
-        private List<Usuario> usuarios;
+        //private List<Usuario> usuarios;
         public Usuarios()
         {
             InitializeComponent();

@@ -1051,6 +1051,7 @@ namespace SC_MMascotass.Constructores
             }
             catch (Exception e)
             {
+                Console.WriteLine(e.Message);
                 MessageBox.Show("Error al cargar las Especies");
                 error++;
                 return especies;
@@ -1860,6 +1861,7 @@ namespace SC_MMascotass.Constructores
             }
             catch (Exception e)
             {
+                Console.WriteLine(e.Message);
                 MessageBox.Show("Error al cargar los proveedores");
                 error++;
                 return inventarios;
