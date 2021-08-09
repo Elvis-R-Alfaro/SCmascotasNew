@@ -8,6 +8,10 @@ using System.Data.SqlClient;
 using System.Configuration;
 using System.Windows;
 
+//Generar clave
+using System.Net;
+using System.Net.Mail;
+
 namespace SC_MMascotass.Constructores
 {
     public class Procedimientos
@@ -58,7 +62,7 @@ namespace SC_MMascotass.Constructores
             }
             catch (Exception e)
             {
-                MessageBox.Show("Ha ocurrido un error al buscar el cliente...");
+                MessageBox.Show("Ha ocurrido un error al buscar el usuario.");
                 throw e;
             }
             finally
@@ -67,6 +71,133 @@ namespace SC_MMascotass.Constructores
                 sqlConnection.Close();
             }
         }
+
+        public static void EvtNuevaContrasena(string correo)
+        {
+
+            Usuario usuario = new Usuario();
+
+            try
+            {
+                //Crear comando SQL
+                SqlCommand sqlCommand = new SqlCommand("Usuarios", sqlConnection);
+                sqlCommand.CommandType = System.Data.CommandType.StoredProcedure;
+
+                //Establecer los valores de los parámetros
+                sqlCommand.Parameters.AddWithValue("@correo", correo);
+                sqlCommand.Parameters.AddWithValue("@Accion", "ValidarCorreo");
+                
+                sqlConnection.Open();
+                using (SqlDataReader rdr = sqlCommand.ExecuteReader())
+                {
+                    if (rdr.Read())
+                    {
+
+                        usuario.Id = Convert.ToInt32(rdr["IdUsuario"]);
+                        rdr.Close();
+                        GenerarNuevaContrasena(correo, usuario.Id);
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("Correo no encontrado");
+
+                    }
+                }
+            }
+            catch(Exception e)
+            {
+                throw e;
+            }
+            finally
+            {
+                //Cerrar la seccion
+                sqlConnection.Close();
+            }
+        }
+
+        public static void GenerarNuevaContrasena(string email, int usuarioId)
+        {
+            Random rd = new Random(DateTime.Now.Millisecond);
+            int nuevaContrasena = rd.Next(10000000, 99999999);
+             
+
+            //PROCEDURE [dbo].[NuevaContrasena]
+
+            //  @correo varchar (50),
+            //  @contrasena varchar(10)
+
+            //     AS
+
+            //    UPDATE Usuarios SET Contrasena=@contrasena
+
+            //     FROM Usuarios 
+            //     WHERE CorreoElectronico=@correo
+
+            SqlCommand cmd = new SqlCommand("Usuarios", sqlConnection);
+
+            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("@correo", email);
+            cmd.Parameters.AddWithValue("@clave", nuevaContrasena);
+            cmd.Parameters.AddWithValue("@userid", usuarioId);
+            cmd.Parameters.AddWithValue("@Accion", "NuevaClave");
+            try
+            {
+                int filasAfectadas = cmd.ExecuteNonQuery();
+                if (filasAfectadas != 0)
+                {
+                    EnviarCorreoContrasena(nuevaContrasena, email);
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            finally
+            {
+                //Cerrar la seccion
+                sqlConnection.Close();
+            }
+        }
+
+        public static void EnviarCorreoContrasena(int contrasenaNueva, string correo)
+        {
+            string contraseña = "#mimascota21";
+            string mensaje = string.Empty;
+            //Creando el correo electronico
+            string destinatario = correo;
+            string remitente = "mimascotasistema@gmail.com";
+            string asunto = "Nueva contraseña Mi Mascota Sistema de Control";
+            string cuerpoDelMesaje = "Su nueva contraseña es" + " " + Convert.ToString(contrasenaNueva);
+            MailMessage ms = new MailMessage(remitente, destinatario, asunto, cuerpoDelMesaje);
+
+
+
+
+            SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
+            smtp.EnableSsl = true;
+            smtp.Credentials = new NetworkCredential("mimascotasistema@gmail.com", contraseña);
+
+            try
+            {
+                Task.Run(() =>
+                {
+                    smtp.Send(ms);
+                    ms.Dispose();
+                    MessageBox.Show("Correo enviado, revisar su bandeja de entrada");
+                }
+                );
+
+                MessageBox.Show("Esta tarea puede tardar unos segundos, por favor espere.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al enviar correo electronico: " + ex.Message);
+            }
+        }
+
+
         #endregion
 
         #region CLIENTES
@@ -1786,6 +1917,60 @@ namespace SC_MMascotass.Constructores
                 sqlConnection.Close();
             }
         }
+
+        /// <summary>
+        /// Obtiene productos de inventario
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public static List<InventarioC> BuscarProductoLike(string producto)
+        {
+            List<InventarioC> inventarios = new List<InventarioC>();
+
+            try
+            {
+
+                //Crear el comando SQL
+                SqlCommand sqlCommand = new SqlCommand("Inventario", sqlConnection);
+                sqlCommand.CommandType = System.Data.CommandType.StoredProcedure;
+
+                //Establecer el valor del parametro
+                sqlCommand.Parameters.AddWithValue("@NombreProducto", producto);
+                sqlCommand.Parameters.AddWithValue("@Accion", "BuscarProductoLike");
+
+                //Establecer la coneccion
+                sqlConnection.Open();
+
+                using (SqlDataReader rdr = sqlCommand.ExecuteReader())
+                {
+                    while (rdr.Read())
+                    {
+                        inventarios.Add(new InventarioC
+                        {
+                            Id = Convert.ToInt32(rdr["IdProducto"]),
+                            IdCategoria = Convert.ToInt32(rdr["IdCategoria"]),
+                            Descripcion = rdr["NombreProducto"].ToString(),
+                            PrecioCosto = Convert.ToDouble(rdr["PrecioCosto"]),
+                            PrecioVenta = Convert.ToDouble(rdr["PrecioVenta"]),
+                            Stock = Convert.ToInt32(rdr["Stock"])
+                        });
+                    }
+                }
+
+                return inventarios;
+            }
+            catch (Exception e)
+            {
+
+                throw e;
+            }
+            finally
+            {
+                //Cerrar la conexio
+                sqlConnection.Close();
+            }
+        }
+
         /// <summary>
         /// edita un producto existente
         /// </summary>
@@ -1828,6 +2013,46 @@ namespace SC_MMascotass.Constructores
                 sqlConnection.Close();
             }
         }
+
+        /// <summary>
+        /// edita un producto existente
+        /// </summary>
+        /// <param name="producto"></param>
+        public static void EditarStock(InventarioC producto)
+        {
+            try
+            {
+                //Crear el comando SQL
+                SqlCommand sqlCommand = new SqlCommand("Inventario", sqlConnection);
+                sqlCommand.CommandType = System.Data.CommandType.StoredProcedure;
+
+                //Establecer los valores de los parametros
+                sqlCommand.Parameters.AddWithValue("@IdProducto", producto.Id);
+                sqlCommand.Parameters.AddWithValue("@Stock", producto.Stock);
+                sqlCommand.Parameters.AddWithValue("@Accion", "EditarStock");
+
+                //Strablecer la conexion
+                sqlConnection.Open();
+
+                //Ejecutar el comando de actualizar
+                sqlCommand.ExecuteNonQuery();
+
+                //Mensaje de actualizacion realizada
+                MessageBox.Show("Datos Modificado Correctamente", "Exito", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al momento de actualizar el producto....");
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                //Cerrar conexcion
+                sqlConnection.Close();
+            }
+        }
+
+
         /// <summary>
         /// elimina un registro existente
         /// </summary>

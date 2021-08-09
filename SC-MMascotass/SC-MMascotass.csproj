@@ -120,6 +120,9 @@
     <Compile Include="Pages\Formularios\FormCliente.xaml.cs">
       <DependentUpon>FormCliente.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Formularios\FormCompras.xaml.cs">
+      <DependentUpon>FormCompras.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Formularios\FormConsultas.xaml.cs">
       <DependentUpon>FormConsultas.xaml</DependentUpon>
     </Compile>
@@ -147,8 +150,14 @@
     <Compile Include="Pages\Formularios\FormRazas.xaml.cs">
       <DependentUpon>FormRazas.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Formularios\FormRecuperarClave.xaml.cs">
+      <DependentUpon>FormRecuperarClave.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Formularios\FormUsuarios.xaml.cs">
       <DependentUpon>FormUsuarios.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Formularios\FormVentas.xaml.cs">
+      <DependentUpon>FormVentas.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\Inicio.xaml.cs">
       <DependentUpon>Inicio.xaml</DependentUpon>
@@ -249,6 +258,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\Formularios\FormCompras.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\Formularios\FormConsultas.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -285,7 +298,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\Formularios\FormRecuperarClave.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\Formularios\FormUsuarios.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Formularios\FormVentas.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
