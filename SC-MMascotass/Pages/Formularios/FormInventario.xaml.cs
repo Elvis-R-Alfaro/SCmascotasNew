@@ -29,7 +29,6 @@ namespace SC_MMascotass.Pages.Formularios
         {
             InitializeComponent();
             CargarComboboxProveedores();
-            MessageBox.Show(Usuario.NombreCompletoGlobal);
 
             //Monstrar botones visibles/invisibles
             MonstrarBotones(visible);
@@ -288,7 +287,8 @@ namespace SC_MMascotass.Pages.Formularios
 
         private void btnnuevoProveedor_Click(object sender, RoutedEventArgs e)
         {
-
+            Formularios.FormProveedores proveedores = new FormProveedores();
+            proveedores.Show();
         }
 
         private void btnRestablecer_Click_2(object sender, RoutedEventArgs e)

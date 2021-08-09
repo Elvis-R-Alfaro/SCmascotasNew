@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SC_MMascotass.Pages.Formularios"
         mc:Ignorable="d"
-        Title="Proveedores" Height="470" Width="800">
+        Title="Proveedores" Height="510" Width="800" WindowStartupLocation="CenterScreen">
     <Grid Margin="10">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="113*"/>
@@ -14,7 +14,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="30"/>
             <RowDefinition Height="75"/>
-            <RowDefinition Height="310"/>
+            <RowDefinition Height="360"/>
         </Grid.RowDefinitions>
         <StackPanel Orientation="Horizontal" Name="spNuevaCategoria">
             <Image Source="/Imagenes/inventario.png" Width="25" Margin="0 0 10 0"></Image>
@@ -23,7 +23,7 @@
                        VerticalAlignment="Center"
                         />
         </StackPanel>
-        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" Name="spButton1" Grid.ColumnSpan="2" Margin="257,0,257.6,294.4" Grid.RowSpan="2" Width="260">
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" Name="spButton1" Grid.ColumnSpan="2" Margin="0"  Width="260">
             <Button     Background="Transparent"
                         Foreground="Black"
                         FontSize="14"
@@ -77,7 +77,7 @@
 
             </Button>
         </StackPanel>
-        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" Name="spButton2" Visibility="Hidden" Grid.ColumnSpan="2" Margin="257,0,257.6,294.4" Grid.RowSpan="2" Width="260">
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" Name="spButton2" Visibility="Hidden" Grid.ColumnSpan="2" Margin="0" Width="260">
             <Button     Background="Transparent"
                         Foreground="Black"
                         FontSize="14"
@@ -139,14 +139,14 @@
             </Grid>
 
             <StackPanel Grid.Row="2" Margin="0 20 0 0">
-                <DataGrid Name="dgClientes" AutoGenerateColumns="False" IsReadOnly="True" ItemsSource="{Binding Source=mascotas}" MaxHeight="310" ColumnWidth="*" GridLinesVisibility="Horizontal">
+                <DataGrid Name="dgClientes" AutoGenerateColumns="False" IsReadOnly="True" ItemsSource="{Binding Source=proveedores}" MaxHeight="310" ColumnWidth="*" GridLinesVisibility="Horizontal">
                     <DataGrid.Columns>
-                        <DataGridTextColumn Header="ID" Binding="{Binding IdEspecie}" Width="40" />
-                        <DataGridTextColumn Header="Proveedor" Binding="{Binding Descripcion}" />
-                        <DataGridTextColumn Header="Compañia" Binding="{Binding Familia}" />
-                        <DataGridTextColumn Header="Teléfono" Binding="{Binding Familia}" />
-                        <DataGridTextColumn Header="Correo" Binding="{Binding Familia}" />
-                        <DataGridTextColumn Header="Direccion" Binding="{Binding Familia}" />
+                        <DataGridTextColumn Header="ID" Binding="{Binding IdProveedor}" Width="30" />
+                        <DataGridTextColumn Header="Proveedor" Binding="{Binding NombreProveedor}" />
+                        <DataGridTextColumn Header="Compañia" Binding="{Binding Compania}" Width="110"/>
+                        <DataGridTextColumn Header="Teléfono" Binding="{Binding Telefono}" Width="70"/>
+                        <DataGridTextColumn Header="Correo" Binding="{Binding Correo}" />
+                        <DataGridTextColumn Header="Direccion" Binding="{Binding DirreccionEmpresa}" />
                     </DataGrid.Columns>
                 </DataGrid>
             </StackPanel>
