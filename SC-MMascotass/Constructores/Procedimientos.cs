@@ -1277,6 +1277,8 @@ namespace SC_MMascotass.Constructores
 
                 //ejecutar el comando insertado
                 sqlCommand.ExecuteNonQuery();
+
+                MessageBox.Show("Datos insertados correctamente", "Exito", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             catch (Exception e)
             {
@@ -1294,7 +1296,7 @@ namespace SC_MMascotass.Constructores
         /// Monstrar todas las categorias
         /// </summary>
         /// <returns>Listado de Categorias</returns>
-        public static List<Categoria> MonstrarCategorias()
+        public static List<Categoria> MostrarCategorias()
         {
             //Iniciamos la lista vacia de categorias
             List<Categoria> categorias = new List<Categoria>();
@@ -1307,7 +1309,7 @@ namespace SC_MMascotass.Constructores
                 sqlCommand.CommandType = System.Data.CommandType.StoredProcedure;
 
                 //Establecer los valores de los paramawtros
-                sqlCommand.Parameters.AddWithValue("@Accion", "MonstrarCategorias");
+                sqlCommand.Parameters.AddWithValue("@Accion", "MostrarCategorias");
 
                 //Establcer la coneccion
                 sqlConnection.Open();
@@ -1446,6 +1448,9 @@ namespace SC_MMascotass.Constructores
 
                 //Ejecutar el comando de actualizar
                 sqlCommand.ExecuteNonQuery();
+
+                //Mensaje de actualizacion realizada
+                MessageBox.Show("Datos Modificados correctamente", "Exito", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             catch (Exception e)
             {
@@ -1495,7 +1500,7 @@ namespace SC_MMascotass.Constructores
         /// Muestra las mascotasa en el list
         /// </summary>
         /// <returns></returns>
-        public static List<string> MonstrarCategorias22()
+        public static List<string> MostrarCategorias22()
         {
             //Iniciamos la lista vacia de categorias
             List<string> data = new List<string>();
@@ -1508,7 +1513,7 @@ namespace SC_MMascotass.Constructores
                 sqlCommand.CommandType = System.Data.CommandType.StoredProcedure;
 
                 //Establecer el valor del parametro
-                sqlCommand.Parameters.AddWithValue("@Accion", "MonstrarCategorias22");
+                sqlCommand.Parameters.AddWithValue("@Accion", "MostrarCategorias22");
 
                 //Establcer la coneccion
                 sqlConnection.Open();

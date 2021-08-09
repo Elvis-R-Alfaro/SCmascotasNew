@@ -1,13 +1,11 @@
-﻿<Window x:Class="SC_MMascotass.Pages.Formularios.FormEspecies"
-      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:SC_MMascotass.Pages.Formularios"
-      mc:Ignorable="d" WindowStartupLocation="CenterScreen"
-      Height="450" Width="800" 
-      Title="Nueva Especie">
-
+﻿<Window x:Class="SC_MMascotass.Pages.Formularios.FormCategoriasN"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SC_MMascotass.Pages.Formularios"
+        mc:Ignorable="d"
+        Title="Categorías" Height="380" Width="630" WindowStartupLocation="CenterScreen">
     <Grid Margin="10">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="113*"/>
@@ -16,11 +14,11 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="30"/>
             <RowDefinition Height="75"/>
-            <RowDefinition Height="300"/>
+            <RowDefinition Height="250"/>
         </Grid.RowDefinitions>
         <StackPanel Orientation="Horizontal" Name="spNuevaCategoria">
-            <Image Source="/Imagenes/mascota.png" Width="25" Margin="0 0 10 0"></Image>
-            <TextBlock Text="Nueva Especie"
+            <Image Source="/Imagenes/categoria.png" Width="25" Margin="0 0 10 0"></Image>
+            <TextBlock Text="Categorías"
                         FontSize="18"
                        VerticalAlignment="Center"
                         />
@@ -31,7 +29,7 @@
                         FontSize="14"
                         BorderThickness="0"
                         Name="btnGuardar"
-                        Padding="10" Click="btnGuardar_Click" Margin="0,0,0,-0.2">
+                        Padding="10" Click="btnGuardar_Click"  Margin="0,0,0,-0.2">
                 <StackPanel Orientation="Vertical" >
                     <Image Source="/Imagenes/iconos/guardar.png" HorizontalAlignment="Center" Width="25" Height="25"/>
                     <TextBlock Text="Guardar" HorizontalAlignment="Center"/>
@@ -113,30 +111,25 @@
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
+
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="auto"/>
                     <RowDefinition Height="auto"/>
-
                 </Grid.RowDefinitions>
 
 
-                <Label Content="Descripcion" Grid.Row="0" FontSize="15" VerticalAlignment="Center" Margin="0 4 0 0"/>
-                <Label Content="Familia" Grid.Row="1" FontSize="15" VerticalAlignment="Center" Margin="0 4 0 0"/>
-
-                <TextBox Name="txtDescripcion" FontSize="15" Grid.Column="1" Grid.Row="0" Margin="0 4 0 0" Grid.ColumnSpan="3"/>
-                <TextBox Name="txtFamilia" FontSize="15" Grid.Column="1" Grid.Row="1" Margin="0 4 0 0" Grid.ColumnSpan="2"/>
+                <Label Content="Nombre de la Categoría" Grid.Row="0" FontSize="15" VerticalAlignment="Center" Margin="0 4 0 0"/>
+                <TextBox Name="txtCategoria" FontSize="15" Grid.Column="1" Grid.Row="0" Margin="0 4 0 0" Grid.ColumnSpan="3"/>
 
 
             </Grid>
 
-            <StackPanel Grid.Row="2" Margin="0 20 0 0">
-                <DataGrid Name="dgClientes" AutoGenerateColumns="False" IsReadOnly="True" ItemsSource="{Binding Source=mascotas}" MaxHeight="310" ColumnWidth="*" GridLinesVisibility="Horizontal">
+            <StackPanel Grid.Row="1" Margin="0 20 0 0">
+                <DataGrid Name="dgClientes" AutoGenerateColumns="False" IsReadOnly="True" ItemsSource="{Binding Source=categorias}" MaxHeight="170" ColumnWidth="*" GridLinesVisibility="Horizontal">
                     <DataGrid.Columns>
-                        <DataGridTextColumn Header="ID Especie" Binding="{Binding IdEspecie}" Width="80" />
-                        <DataGridTextColumn Header="Descripción" Binding="{Binding Descripcion}" />
-                        <DataGridTextColumn Header="Familia" Binding="{Binding Familia}" />
+                        <DataGridTextColumn Header="ID" Binding="{Binding Id}" Width="50" />
+                        <DataGridTextColumn Header="Nombre de la Categoría" Binding="{Binding NombreCategoria}" />
                     </DataGrid.Columns>
                 </DataGrid>
             </StackPanel>
