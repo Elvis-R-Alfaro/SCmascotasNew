@@ -16,24 +16,45 @@ namespace SC_MMascotass
         private SqlConnection sqlConnection = database.Conexion.ObtenerConexion();
 
         //Propiedades
-        public  int Id { get; set; }
-
+        public  int IdUsuario { get; set; }
         public string NombreCompleto { get; set; }
+        public string Usename { get; set; }
+        public string Clave { get; set; }
+        public bool Estado { get; set; }
+
+
+        public int IdPersonal { get; set; }
+        public string Nombre { get; set; }
+        public string NumeroDeIdentidad { get; set; }
+        public string Telefono { get; set; }
+        public string Correo { get; set; }
+
+
+        public int IdCargo { get; set; }
+        public string NombreCargo { get; set; }
+
         public static string NombreCompletoGlobal { get; set; }
         public static string CargoGlobal { get; set; }
-        public string Username { get; set; }
-        public string Password { get; set; }
-        public bool Estado { get; set; }
 
         //Constructores
         public Usuario() { }
 
-        public Usuario(string nombreCompleto, string username, string password, bool estado) 
+        public Usuario(int idusuario, string nombreCompleto, string username, string clave, bool estado, int idpersonal, string nombre, string numerodeidentidad, string telefono, string correo, int idcargo, string nombrecargo) 
         {
+            IdUsuario = idusuario;
             NombreCompleto = nombreCompleto;
-            Username = username;
-            Password = password;
+            Usename = username;
+            Clave = clave;
             Estado = estado;
+
+            IdPersonal = idpersonal;
+            Nombre = nombre;
+            NumeroDeIdentidad = numerodeidentidad;
+            Telefono = telefono;
+            Correo = correo;
+
+            IdCargo = idcargo;
+            NombreCargo = nombrecargo;
         }
 
      

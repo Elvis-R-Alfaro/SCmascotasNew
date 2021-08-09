@@ -35,13 +35,13 @@ namespace SC_MMascotass
             Usuario elUsuario = Constructores.Procedimientos.BuscarUsuario(txtUsername.Text);
 
             //Verificar si el usuario existe 
-            if (elUsuario.Username == null)
+            if (elUsuario.Usename == null)
             {
                 MessageBox.Show("El usuario o contraseña no es correcta");
             }
             else {
                 //Verificar si la contraseña coincide con la de la base
-                if (elUsuario.Password == pwbPassword.Password && elUsuario.Estado)
+                if (elUsuario.Clave == pwbPassword.Password && elUsuario.Estado)
                 {
                     MenuPrincipal menu = new MenuPrincipal();
                     menu.Show();
