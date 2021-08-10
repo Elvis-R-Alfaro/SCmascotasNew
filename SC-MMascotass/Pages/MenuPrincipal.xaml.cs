@@ -31,6 +31,29 @@ namespace SC_MMascotass
             ErrorLog error = new ErrorLog();
             error.Add(this, "test");
             AgregarForm(new Pages.Inicio());
+
+            if (Usuario.GlobalClaveGen)
+            {
+                colapsarModulos();
+            }
+
+            if (Usuario.CargoGlobal != "Veterinario" || Usuario.CargoGlobal != "Administrador")
+            {
+                btnUsuarios.Visibility = Visibility.Collapsed;
+            }
+        }
+
+        private void colapsarModulos()
+        {
+            btnInicio.Visibility = Visibility.Collapsed;
+            btnInventario.Visibility = Visibility.Collapsed;
+            btnMascotas.Visibility = Visibility.Collapsed;
+            btnReportes.Visibility = Visibility.Collapsed;
+            btnClientes.Visibility = Visibility.Collapsed;
+            btnUsuarios.Visibility = Visibility.Collapsed;
+            btnVacunacion.Visibility = Visibility.Collapsed;
+
+            btnUsuRestablecerClave.Visibility = Visibility.Visible;
         }
 
         
@@ -46,6 +69,8 @@ namespace SC_MMascotass
             this.spPrincipal.Children.Clear();
             this.spPrincipal.Children.Add(control);
         }
+
+
 
         private void btnClientes_Click(object sender, RoutedEventArgs e)
         {
@@ -67,7 +92,7 @@ namespace SC_MMascotass
             AgregarForm(new Pages.Inventario());
         }
 
-        private void btnCerrarSesion_Click(object sender, RoutedEventArgs e)
+        public void btnCerrarSesion_Click(object sender, RoutedEventArgs e)
         {
             IniciarSesion login = new IniciarSesion();
             login.Show();
@@ -96,7 +121,10 @@ namespace SC_MMascotass
             this.Close();
         }
 
-
-
+        private void btnUsuRestablecerClave_Click(object sender, RoutedEventArgs e)
+        {
+            AgregarForm(new Pages.Formularios.FormUsuRestablecerClave());
+            
+        }
     }
 }

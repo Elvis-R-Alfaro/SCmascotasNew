@@ -142,10 +142,10 @@
                         Foreground="Black"
                         FontSize="14"
                         BorderThickness="0"
-                        Name="btnPersonal" Click="btnPersonal_Click">
-                <StackPanel Orientation="Horizontal" Width="100" Visibility="Hidden">
+                        Name="btnUsuRestablecerClave" Click="btnUsuRestablecerClave_Click" Visibility="Hidden">
+                <StackPanel Orientation="Horizontal" Width="100" >
                     <Image Source="/Imagenes/personal.png" Width="20" Height="20" Margin="0 0 20 0"/>
-                    <TextBlock Text="Personal" VerticalAlignment="Center"/>
+                    <TextBlock Text="Restablecer contraseña" VerticalAlignment="Center"/>
 
                 </StackPanel>
 

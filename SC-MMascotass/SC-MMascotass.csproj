@@ -98,6 +98,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Constructores\Carrito.cs" />
     <Compile Include="Constructores\Cliente.cs" />
     <Compile Include="Constructores\Categoria.cs" />
     <Compile Include="Constructores\Expediente.cs" />
@@ -149,6 +150,9 @@
     </Compile>
     <Compile Include="Pages\Formularios\FormUsuarios.xaml.cs">
       <DependentUpon>FormUsuarios.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Formularios\FormUsuRestablecerClave.xaml.cs">
+      <DependentUpon>FormUsuRestablecerClave.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\Formularios\FormVentas.xaml.cs">
       <DependentUpon>FormVentas.xaml</DependentUpon>
@@ -289,6 +293,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\Formularios\FormUsuarios.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Formularios\FormUsuRestablecerClave.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

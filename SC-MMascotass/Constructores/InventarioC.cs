@@ -17,6 +17,7 @@ namespace SC_MMascotass
         public int Id { get; set; }
         public string Categoria { get; set; }
         public int Stock { get; set; }
+        public int Cantidad { get; set; }
         public double PrecioCosto { get; set; }
         public double PrecioVenta { get; set; }
 
@@ -29,13 +30,15 @@ namespace SC_MMascotass
 
         //Constructor
         public InventarioC() { }
-        public InventarioC(int idCategoria, int idproveedor, string descripcion,string categoria, int id, int stock, double precioCosto, double precioVenta, string nombreproveedor, string compania, string telefono, string correo, string direccionempresa)
+        public InventarioC(int idCategoria, int idproveedor, string descripcion,string categoria, int id, int stock, int cantidad, double precioCosto, double precioVenta, string nombreproveedor, string compania, string telefono, string correo, string direccionempresa)
         {
             IdCategoria = idCategoria;
             Descripcion = descripcion;
             Categoria = categoria;
             Id = id;
             Stock = stock;
+            Cantidad = cantidad;
+
             PrecioCosto = precioCosto;
             PrecioVenta = precioVenta;
 
