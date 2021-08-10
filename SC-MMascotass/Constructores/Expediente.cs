@@ -12,8 +12,6 @@ namespace SC_MMascotass.Constructores
 {
     public class Expediente
     {
-        //Variable Miembro
-        private static SqlConnection sqlConnection = database.Conexion.ObtenerConexion();
 
 
         public int IdExpediente { get; set; }
@@ -28,7 +26,7 @@ namespace SC_MMascotass.Constructores
 
         public int IdDetalle { get; set; }
         public int IdProducto { get; set; }
-        public string Sintomas { get; set; }
+        public string Descripcion { get; set; }
         public string Patologia { get; set; }
         public string TratamientoRecomendado { get; set; }
 
@@ -42,7 +40,7 @@ namespace SC_MMascotass.Constructores
 
         public Expediente() { }
 
-        public Expediente(int idExpediente,int idMascota,string nombreMascota, DateTime fechaRegistro, string nombreCliente, string ultimaVisita, int idDetalle, int idProducto, string sintomas, string patologia, string tratamiento,int idUsuario, DateTime fechaRegistroDeta, string usuario,string producto)
+        public Expediente(int idExpediente,int idMascota,string nombreMascota, DateTime fechaRegistro, string nombreCliente, string ultimaVisita, int idDetalle, int idProducto, string descripcion, string patologia, string tratamiento,int idUsuario, DateTime fechaRegistroDeta, string usuario,string producto)
         {
             IdMascota = idMascota;
             NombreMascota = nombreMascota;
@@ -54,7 +52,7 @@ namespace SC_MMascotass.Constructores
 
             IdDetalle = idDetalle;
             IdProducto = idProducto;
-            Sintomas = sintomas;
+            Descripcion = descripcion;
             Patologia = patologia;
             TratamientoRecomendado = tratamiento;
             IdUsuario = idUsuario;

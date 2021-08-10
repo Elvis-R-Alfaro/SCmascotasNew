@@ -326,7 +326,7 @@ namespace SC_MMascotass.Constructores
         /// Monstrar todas las categorias
         /// </summary>
         /// <returns>Listado de Categorias</returns>
-        public static List<Cliente> MonstrarCliente()
+        public static List<Cliente> MostrarCliente()
         {
             //Iniciamos la lista vacia de categorias
             List<Cliente> clientes = new List<Cliente>();
@@ -338,7 +338,7 @@ namespace SC_MMascotass.Constructores
                 sqlCommand.CommandType = System.Data.CommandType.StoredProcedure;
 
                 //Establecer el valor del parametro
-                sqlCommand.Parameters.AddWithValue("@Accion", "MonstrarCliente");
+                sqlCommand.Parameters.AddWithValue("@Accion", "MostrarCliente");
 
                 //Establcer la coneccion
                 sqlConnection.Open();
@@ -1640,7 +1640,7 @@ namespace SC_MMascotass.Constructores
                             IdExpediente = Convert.ToInt32(rdr["IdExpediente"]),
                             NombreMascota = rdr["NombreMascota"].ToString(),
                             NombreCliente = rdr["NombreCliente"].ToString(),
-                            UltimaVisita = rdr["UltimaVisita"].ToString()
+                            UltimaVisita = rdr["UltimaVisita"].ToString(),
                         });
                     }
                 }
@@ -1686,7 +1686,7 @@ namespace SC_MMascotass.Constructores
                             IdExpediente = Convert.ToInt32(rdr["IdExpediente"]),
                             IdProducto = Convert.ToInt32(rdr["IdProductoUtilizado"]),
                             Producto = rdr["NombreProducto"].ToString(),
-                            Sintomas = rdr["Descripcion"].ToString(),
+                            Descripcion = rdr["Descripcion"].ToString(),
                             Patologia = rdr["Patologia"].ToString(),
                             TratamientoRecomendado = rdr["TratamientoRecomendado"].ToString(),
                             IdUsuario = Convert.ToInt32(rdr["IdUsuario"]),
@@ -1737,7 +1737,7 @@ namespace SC_MMascotass.Constructores
                         elExpediente.IdExpediente = Convert.ToInt32(rdr["IdExpediente"]);
                         elExpediente.IdProducto = Convert.ToInt32(rdr["IdProductoUtilizado"]);
                         elExpediente.Producto = rdr["NombreProducto"].ToString();
-                        elExpediente.Sintomas = rdr["Descripcion"].ToString();
+                        elExpediente.Descripcion = rdr["Descripcion"].ToString();
                         elExpediente.Patologia = rdr["Patologia"].ToString();
                         elExpediente.TratamientoRecomendado = rdr["TratamientoRecomendado"].ToString();
                         elExpediente.IdUsuario = Convert.ToInt32(rdr["IdUsuario"]);
@@ -1758,6 +1758,132 @@ namespace SC_MMascotass.Constructores
             finally
             {
                 //Cerrar la conexio
+                sqlConnection.Close();
+            }
+        }
+
+        #endregion
+
+        #region DetalleExpediente
+        ///
+
+        /// <summary>
+        /// Inserta una Mascota
+        /// </summary>
+        public static void CrearDetalle(Constructores.Expediente expediente)
+        {
+            try
+            {
+                //Crear el comando SQL
+                SqlCommand sqlCommand = new SqlCommand("Expediente", sqlConnection);
+                sqlCommand.CommandType = System.Data.CommandType.StoredProcedure;
+
+                //Establecer los valores de los paramawtros
+                sqlCommand.Parameters.AddWithValue("@idExpediente", expediente.IdExpediente);
+                sqlCommand.Parameters.AddWithValue("@IdProductoUtilizado", expediente.IdProducto);
+                sqlCommand.Parameters.AddWithValue("@Descripcion", expediente.Descripcion);
+                sqlCommand.Parameters.AddWithValue("@Patologia", expediente.Patologia);
+                sqlCommand.Parameters.AddWithValue("@TratamientoRecomendado", expediente.TratamientoRecomendado);
+                sqlCommand.Parameters.AddWithValue("@IdUsuario", expediente.IdUsuario);
+
+                sqlCommand.Parameters.AddWithValue("@Accion", "InsertarDetalle");
+
+                //Establecer la conexion
+                sqlConnection.Open();
+
+                //ejecutar el comando insertado
+                sqlCommand.ExecuteNonQuery();
+
+                //Mensaje de inserccion exito
+                MessageBox.Show("Datos Insertados Correctamente", "Exito", MessageBoxButton.OK, MessageBoxImage.Information);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ha ocurrido un error al momento de insertar el detalle....");
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                //Cerrar la conexion
+                sqlConnection.Close();
+
+            }
+        } 
+
+        public static void EditarDetalle(Constructores.Expediente expediente)
+        {
+            try
+            {
+
+                //Crear el comando SQL
+                SqlCommand sqlCommand = new SqlCommand("Expediente", sqlConnection);
+                sqlCommand.CommandType = System.Data.CommandType.StoredProcedure;
+
+                //Establecer los valores de los parametros
+                sqlCommand.Parameters.AddWithValue("@IdDetalle", expediente.IdDetalle);
+                sqlCommand.Parameters.AddWithValue("@idExpediente", expediente.IdExpediente);
+                sqlCommand.Parameters.AddWithValue("@IdProductoUtilizado", expediente.IdProducto);
+                sqlCommand.Parameters.AddWithValue("@Descripcion", expediente.Descripcion);
+                sqlCommand.Parameters.AddWithValue("@Patologia", expediente.Patologia);
+                sqlCommand.Parameters.AddWithValue("@TratamientoRecomendado", expediente.TratamientoRecomendado);
+                sqlCommand.Parameters.AddWithValue("@IdUsuario", expediente.IdUsuario);
+
+                sqlCommand.Parameters.AddWithValue("@Accion", "EditarDetalle");
+
+                //Strablecer la conexion
+                sqlConnection.Open();
+
+                //Ejecutar el comando de actualizar
+                sqlCommand.ExecuteNonQuery();
+
+                error = 0;
+                //Mensaje de inserccion exito
+                MessageBox.Show("Datos Modificados Correctamente", "Exito", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ha ocurrido un error al momento de insertar la mascota....");
+                error++;
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                //Cerrar conexcion
+                sqlConnection.Close();
+            }
+        }
+        /// <summary>
+        /// elimina una mascota existente
+        /// </summary>
+        /// <param name="id"></param>
+
+        public static void EliminarDetalle(int id)
+        {
+            try
+            {
+
+                //Crear el comando SQL
+                SqlCommand sqlCommand = new SqlCommand("Mascotas", sqlConnection);
+                sqlCommand.CommandType = System.Data.CommandType.StoredProcedure;
+
+                //Establecer el valor del parametro
+                sqlCommand.Parameters.AddWithValue("@IdMascota", id);
+                sqlCommand.Parameters.AddWithValue("@Accion", "EliminarMascota");
+
+                //Establecer la conexion SQL
+                sqlConnection.Open();
+
+                //Ejecutar el comando de eliminacion
+                sqlCommand.ExecuteNonQuery();
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            finally
+            {
+                //CErrar conexion
                 sqlConnection.Close();
             }
         }
@@ -2000,6 +2126,53 @@ namespace SC_MMascotass.Constructores
                 }
 
                 return inventarios;
+            }
+            catch (Exception e)
+            {
+
+                throw e;
+            }
+            finally
+            {
+                //Cerrar la conexio
+                sqlConnection.Close();
+            }
+        }
+
+        public static InventarioC BuscarProductoID(string NombreProducto)
+        {
+
+            InventarioC elProducto = new InventarioC();
+
+            try
+            {
+
+                //Crear el comando SQL
+                SqlCommand sqlCommand = new SqlCommand("Inventario", sqlConnection);
+                sqlCommand.CommandType = System.Data.CommandType.StoredProcedure;
+
+                //Establecer el valor del parametro
+                sqlCommand.Parameters.AddWithValue("@NombreProducto", NombreProducto);
+                sqlCommand.Parameters.AddWithValue("@Accion", "BuscarProductoID");
+
+                //Establecer la coneccion
+                sqlConnection.Open();
+
+                using (SqlDataReader rdr = sqlCommand.ExecuteReader())
+                {
+                    while (rdr.Read())
+                    {
+                        elProducto.Id = Convert.ToInt32(rdr["IdProducto"]);
+                        elProducto.IdCategoria = Convert.ToInt32(rdr["IdCategoria"]);
+                        elProducto.Descripcion = rdr["NombreProducto"].ToString();
+                        elProducto.PrecioCosto = Convert.ToDouble(rdr["PrecioCosto"]);
+                        elProducto.PrecioVenta = Convert.ToDouble(rdr["PrecioVenta"]);
+                        elProducto.Stock = Convert.ToInt32(rdr["Stock"]);
+
+                    }
+                }
+
+                return elProducto;
             }
             catch (Exception e)
             {

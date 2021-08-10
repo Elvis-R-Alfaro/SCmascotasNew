@@ -63,7 +63,5 @@ namespace SC_MMascotass.Reportes
             menu.Show();
             this.Close();
         }
-
-        
     }
 }
