@@ -63,5 +63,11 @@ namespace SC_MMascotass
         {
             Close();
         }
+
+        private void btnOlvideClave_Click(object sender, RoutedEventArgs e)
+        {
+            Pages.Formularios.FormRecuperarClave frc = new Pages.Formularios.FormRecuperarClave();
+            frc.Show();
+        }
     }
 }

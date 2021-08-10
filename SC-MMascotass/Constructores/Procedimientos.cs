@@ -19,7 +19,9 @@ namespace SC_MMascotass.Constructores
         //Conexion
         private static SqlConnection sqlConnection = database.Conexion.ObtenerConexion();
         public static int error;
-        
+
+
+
         #region LOGIN
 
         /// <summary>
@@ -35,11 +37,12 @@ namespace SC_MMascotass.Constructores
             try
             {
                 //Crear comando SQL
-                SqlCommand sqlCommand = new SqlCommand("BuscarUsuario", sqlConnection);
+                SqlCommand sqlCommand = new SqlCommand("Usuarios", sqlConnection);
                 sqlCommand.CommandType = System.Data.CommandType.StoredProcedure;
 
                 //Establecer los valores de los parámetros
                 sqlCommand.Parameters.AddWithValue("@username", username);
+                sqlCommand.Parameters.AddWithValue("@Accion", "BuscarUsuario");
 
                 sqlConnection.Open();
 
@@ -52,6 +55,8 @@ namespace SC_MMascotass.Constructores
                         usuario.NombreCompleto = rdr["Nombre"].ToString();
                         usuario.Usename = rdr["Usuario"].ToString();
                         Usuario.NombreCompletoGlobal = usuario.NombreCompleto;
+                        Usuario.GlobalIdUsuario = Convert.ToInt32(rdr["IdUsuario"]);
+                        Usuario.GlobalClaveGen = Convert.ToBoolean(rdr["ClaveGen"]);
                         usuario.Clave = rdr["Clave"].ToString();
                         usuario.Estado = Convert.ToBoolean(rdr["Estado"]);
                     }
@@ -122,25 +127,16 @@ namespace SC_MMascotass.Constructores
             int nuevaContrasena = rd.Next(10000000, 99999999);
              
 
-            //PROCEDURE [dbo].[NuevaContrasena]
-
-            //  @correo varchar (50),
-            //  @contrasena varchar(10)
-
-            //     AS
-
-            //    UPDATE Usuarios SET Contrasena=@contrasena
-
-            //     FROM Usuarios 
-            //     WHERE CorreoElectronico=@correo
-
             SqlCommand cmd = new SqlCommand("Usuarios", sqlConnection);
 
             cmd.CommandType = System.Data.CommandType.StoredProcedure;
 
+            bool CG = true;
+
             cmd.Parameters.AddWithValue("@correo", email);
             cmd.Parameters.AddWithValue("@clave", nuevaContrasena);
             cmd.Parameters.AddWithValue("@userid", usuarioId);
+            cmd.Parameters.AddWithValue("@claveGen", CG);
             cmd.Parameters.AddWithValue("@Accion", "NuevaClave");
             try
             {
@@ -159,6 +155,45 @@ namespace SC_MMascotass.Constructores
                 //Cerrar la seccion
                 sqlConnection.Close();
             }
+        }
+
+        public static bool NuevaClave(string nuevaContrasena, int usuarioId)
+        {
+
+
+            SqlCommand cmd = new SqlCommand("Usuarios", sqlConnection);
+
+            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+            bool CG = false;
+
+            cmd.Parameters.AddWithValue("@clave", nuevaContrasena);
+            cmd.Parameters.AddWithValue("@userid", usuarioId);
+            cmd.Parameters.AddWithValue("@claveGen", CG);
+            cmd.Parameters.AddWithValue("@Accion", "NuevaClave");
+            try
+            {
+                sqlConnection.Open();
+                int filasAfectadas = cmd.ExecuteNonQuery();
+                if (filasAfectadas != 0)
+                {
+                    MessageBoxResult result = MessageBox.Show("Su clave ha sido modificada, si acepta este formulario volvera al inicio de sesion", "Exito", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+                    if (result == MessageBoxResult.Yes)
+                        return true;
+
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            finally
+            {
+                //Cerrar la seccion
+                sqlConnection.Close();
+            }
+
+            return false;
         }
 
         public static void EnviarCorreoContrasena(int contrasenaNueva, string correo)
