@@ -9,7 +9,7 @@ namespace SC_MMascotass
     public class Carrito : IEquatable<Carrito>
     {
         //Propiedades
-        public int IdCategoria { get; set; }
+        public int IdCliente { get; set; }
         public string Descripcion { get; set; }
         public int Id { get; set; }
         public int Stock { get; set; }
@@ -21,9 +21,9 @@ namespace SC_MMascotass
 
         //Constructor
         public Carrito() { }
-        public Carrito(int idCategoria, int idproveedor, string descripcion, int id, int stock, int cantidad, double precioCosto, double precioVenta, double cantidadPorPrecio, string nombreproveedor, string compania, string telefono, string correo, string direccionempresa)
+        public Carrito(int idCliente,string descripcion, int id, int stock, int cantidad, double precioCosto, double precioVenta, double cantidadPorPrecio)
         {
-            IdCategoria = idCategoria;
+            IdCliente = idCliente;
             Descripcion = descripcion;
             Id = id;
             Stock = stock;

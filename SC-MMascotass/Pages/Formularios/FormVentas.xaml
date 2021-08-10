@@ -13,6 +13,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="30"/>
             <RowDefinition Height="75"/>
+            <RowDefinition Height="30"/>
             <RowDefinition Height="75"/>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="75"/>
@@ -80,7 +81,13 @@
 
             </Button>
         </StackPanel>
-        <StackPanel Grid.Row="2">
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center">
+            
+
+            <Label Content="Cliente" />
+            <TextBox Grid.Column="1" Width="300" />
+        </StackPanel>
+        <StackPanel Grid.Row="3">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
@@ -137,7 +144,7 @@
                 </StackPanel>
             </Grid>
         </StackPanel>
-        <StackPanel Grid.Row="3">
+        <StackPanel Grid.Row="4">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
@@ -168,7 +175,7 @@
 
 
         </StackPanel>
-        <StackPanel Grid.Row="4">
+        <StackPanel Grid.Row="5">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>

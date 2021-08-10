@@ -103,7 +103,6 @@ namespace SC_MMascotass.Pages.Formularios
             carrito2.Id = idprod;
             carrito2.Cantidad = cant;
 
-            carrito2.IdCategoria = idcat;
             carrito2.Descripcion = producto;
             carrito2.PrecioCosto = preciocosto;
             carrito2.PrecioVenta = precioventa;
