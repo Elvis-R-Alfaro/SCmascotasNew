@@ -37,7 +37,7 @@ namespace SC_MMascotass
         public static string NombreCompletoGlobal { get; set; }
         public static string CargoGlobal { get; set; }
 
-
+        public static int GlobalIdUsuario { get; set; }
         public static bool GlobalClaveGen { get; set; }
 
         //Constructores

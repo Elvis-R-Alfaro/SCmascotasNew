@@ -5,8 +5,193 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SC_MMascotass.Pages.Formularios"
         mc:Ignorable="d"
-        Title="FormVentas" Height="450" Width="800">
-    <Grid>
-        
+        Title="Ventas" Height="600" Width="800" MinHeight="600" MinWidth="800" WindowStartupLocation="CenterScreen">
+    <Grid Margin="10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="75"/>
+            <RowDefinition Height="75"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="75"/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" Name="spNuevaCategoria">
+            <Image Source="/Imagenes/mascota.png" Width="25" Margin="0 0 10 0"></Image>
+            <TextBlock Text="Ventas"
+                        FontSize="18"
+                       VerticalAlignment="Center"
+                        />
+        </StackPanel>
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" Name="spButton3">
+            <Button     Background="Transparent"
+                        Foreground="Black"
+                        FontSize="14"
+                        BorderThickness="0"
+                        Name="btnGuardar"
+                        Padding="10" Margin="0,0,0,0.2">
+                <StackPanel Orientation="Vertical" >
+                    <Image Source="/Imagenes/iconos/guardar.png" HorizontalAlignment="Center" Width="25" Height="25"/>
+                    <TextBlock Text="Nuevo" HorizontalAlignment="Center"/>
+
+                </StackPanel>
+
+            </Button>
+            <Button     Background="Transparent"
+                        Foreground="Black"
+                        FontSize="14"
+                        BorderThickness="0"
+                        Name="btnRestablecer"
+                        Padding="10">
+                <StackPanel Orientation="Vertical" >
+                    <Image Source="/Imagenes/iconos/recargar.png" HorizontalAlignment="Center" Width="25" Height="25"/>
+                    <TextBlock Text="Limpiar" HorizontalAlignment="Center"/>
+
+                </StackPanel>
+
+            </Button>
+        </StackPanel>
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" Name="spButton4" Visibility="Hidden">
+            <Button     Background="Transparent"
+                        Foreground="Black"
+                        FontSize="14"
+                        BorderThickness="0"
+                        Name="btnAceptar"
+                        Padding="10">
+                <StackPanel Orientation="Vertical" >
+                    <Image Source="/Imagenes/iconos/guardar.png" HorizontalAlignment="Center" Width="25" Height="25"/>
+                    <TextBlock Text="Aceptar" HorizontalAlignment="Center"/>
+
+                </StackPanel>
+
+            </Button>
+            <Button     Background="Transparent"
+                        Foreground="Black"
+                        FontSize="14"
+                        BorderThickness="0"
+                        Name="btnRegresar"
+                        Padding="10">
+                <StackPanel Orientation="Vertical" >
+                    <Image Source="/Imagenes/iconos/recargar.png" HorizontalAlignment="Center" Width="25" Height="25"/>
+                    <TextBlock Text="Restablecer" HorizontalAlignment="Center"/>
+
+                </StackPanel>
+
+            </Button>
+        </StackPanel>
+        <StackPanel Grid.Row="2">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+
+                <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center" Name="spButton1" Margin="0" >
+                    <Grid  Width="300">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1.5*"/>
+                            <ColumnDefinition Width="3*"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Label Content="Producto" Grid.Row="0" FontSize="15" VerticalAlignment="Center" Margin="0 4 0 0"/>
+                        <Label Content="Stock" Grid.Row="1" FontSize="15" VerticalAlignment="Center" Margin="0 4 0 0"/>
+
+                        <TextBox Name="txtDescripcion" FontSize="15" Grid.Column="1" Grid.Row="0" Margin="0 4 0 0" IsReadOnly="True"/>
+                        <StackPanel Grid.Column="1" Grid.Row="1" Margin="0 4 0 0">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="6*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBox x:Name="txtNum" x:FieldModifier="private" FontSize="15" Text="0" Height="30" TextChanged="txtNum_TextChanged" Padding="2" Grid.Column="1"   />
+                                <Button x:Name="cmdUp" x:FieldModifier="private" FontSize="10"  Height="30" Content="▲" Click="cmdUp_Click" Grid.Column="0"  />
+                                <Button x:Name="cmdDown" x:FieldModifier="private" FontSize="10"  Height="30" Content="▼" Click="cmdDown_Click"  Grid.Column="2" />
+                            </Grid>
+                        </StackPanel>
+                        <Button x:Name="btnAgregar" Grid.Column="2" Grid.Row="0" Margin="4" Content="Add" Click="btnAgregar_Click" IsEnabled="False">
+
+                        </Button>
+                        <Button x:Name="btnEditar" Grid.Column="2" Grid.Row="0" Margin="4" Content="Editar" Click="btnEditar_Click" Visibility="Hidden">
+
+                        </Button>
+                        <Button x:Name="btnRemover" Grid.Column="2" Grid.Row="1" Margin="4" Visibility="Hidden" Click="btnRemover_Click">
+
+                        </Button>
+                    </Grid>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="0" Grid.Row="1">
+                    <TextBox Width="300" Height="30" Padding="5, 3, 5, 3" x:Name="txtCompras" TextChanged="txtCompras_TextChanged"/>
+                    <Label Width="38" Height="30" Grid.Column="2" Padding="2" ToolTip="Buscar Compra" x:Name="btnBuscarCompra" Background="#14213D">
+                        <Image Source="/Imagenes/iconos/buscarWH.png" Width="20" Margin="5"/>
+                    </Label>
+                </StackPanel>
+            </Grid>
+        </StackPanel>
+        <StackPanel Grid.Row="3">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+
+                <StackPanel Grid.Column="0" Margin="5">
+                    <DataGrid x:Name="dgCompras" CanUserSortColumns="False" AutoGenerateColumns="False" IsReadOnly="True" ItemsSource="{Binding Source=inventarios}" MaxHeight="310" Height="235" ColumnWidth="*" SelectedCellsChanged="dgCompras_SelectedCellsChanged">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Producto" Binding="{Binding Descripcion}" Width="*"/>
+                            <DataGridTextColumn Header="Precio" Binding="{Binding PrecioVenta}" Width="50"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </StackPanel>
+                <StackPanel Grid.Column="1" Margin="5">
+
+                    <DataGrid x:Name="dgVentas" CanUserSortColumns="False" AutoGenerateColumns="False" IsReadOnly="True" ItemsSource="{Binding Source=inventarios}" MaxHeight="310" Height="235" ColumnWidth="*" SelectedCellsChanged="dgVentas_SelectedCellsChanged">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Producto" Binding="{Binding Descripcion}" Width="*"/>
+                            <DataGridTextColumn Header="Cant" Binding="{Binding Cantidad}" Width="50"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </StackPanel>
+            </Grid>
+
+
+        </StackPanel>
+        <StackPanel Grid.Row="4">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="70"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+                <StackPanel Grid.Column="2" HorizontalAlignment="Right">
+
+                    <Label Content="Subtotal" FontStyle="Italic" FontWeight="Bold"/>
+                    <Label Content="Impuesto" FontStyle="Italic" FontWeight="Bold"/>
+                    <Label Content="Total Neto" FontStyle="Italic" FontWeight="Bold"/>
+                </StackPanel>
+                <StackPanel Grid.Column="3" HorizontalAlignment="Center">
+                    <Label x:Name="lblSubtotal" Content="0.00"/>
+                    <Label x:Name="lblImpuesto" Content="0.00"/>
+                    <Label x:Name="lblNeto" Content="0.00"/>
+                </StackPanel>
+                
+            </Grid>
+        </StackPanel>      
     </Grid>
 </Window>
