@@ -32,7 +32,7 @@ namespace SC_MMascotass.Pages
 
         private void ObtenerClientes()
         {
-            clientes = Constructores.Procedimientos.MonstrarCliente();
+            clientes = Constructores.Procedimientos.MostrarCliente();
             dgClientes.SelectedValuePath = "ID";
             dgClientes.ItemsSource = clientes;
         }

@@ -25,7 +25,7 @@
                        VerticalAlignment="Center"
                         />
         </StackPanel>
-        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" Name="spButton1" Grid.ColumnSpan="2" Margin="257,0,257.6,294.4" Grid.RowSpan="2" Width="260">
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" Name="spButton1" Grid.ColumnSpan="2" Margin="0" Width="260">
             <Button     Background="Transparent"
                         Foreground="Black"
                         FontSize="14"
@@ -69,11 +69,11 @@
                         Foreground="Black"
                         FontSize="14"
                         BorderThickness="0"
-                        Name="btnLimpiar"
-                        Padding="10" Click="btnLimpiar_Click">
+                        Name="btnCancelar"
+                        Padding="10">
                 <StackPanel Orientation="Vertical" >
                     <Image Source="/Imagenes/iconos/recargar.png" HorizontalAlignment="Center" Width="25" Height="25"/>
-                    <TextBlock Text="Limpiar" HorizontalAlignment="Center"/>
+                    <TextBlock Text="Cancelar" HorizontalAlignment="Center"/>
 
                 </StackPanel>
 
@@ -81,7 +81,7 @@
         </StackPanel>
         <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" Name="spButton2" Visibility="Hidden" Grid.ColumnSpan="2" Margin="257,0,257.6,294.4" Grid.RowSpan="2" Width="260">
             
-            <Button     Background="Transparent"
+            <!--<Button     Background="Transparent"
                         Foreground="Black"
                         FontSize="14"
                         BorderThickness="0"
@@ -93,7 +93,7 @@
 
                 </StackPanel>
 
-            </Button>
+            </Button>-->
         </StackPanel>
         <StackPanel Grid.Row="2" Grid.ColumnSpan="2" Margin="0,0.8,-0.4,-0.6">
             <Grid>
@@ -120,7 +120,7 @@
             </Grid>
 
             <StackPanel Grid.Row="2" Margin="0 20 0 0">
-                <DataGrid x:Name="dgDetalle" AutoGenerateColumns="False" IsReadOnly="True" ItemsSource="{Binding Source=expedientes}" MaxHeight="310" ColumnWidth="*" GridLinesVisibility="Horizontal" Height="211">
+                <DataGrid x:Name="dgDetalle" AutoGenerateColumns="False" IsReadOnly="True" ItemsSource="{Binding Source=expedientes}" MaxHeight="310" ColumnWidth="*" GridLinesVisibility="Horizontal">
                     <DataGrid.Columns>
 
                         <DataGridTextColumn Header="Sintomatología" Binding="{Binding Sintomas}" Width="*"/>
